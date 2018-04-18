@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
-import { AuthService } from '@aerogearservices/auth';
-
-declare var require: any
-var keycloakConfig = require('../../config/keycloak.json');
+import { AuthService } from '@aerogear/auth';
 
 @Component({
   selector: 'page-home',

@@ -1,6 +1,6 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app.module';
-import { AuthService } from '@aerogearservices/auth';
+import { AuthService } from '@aerogear/auth';
 declare var require: any
 var keycloakConfig = require('../config/keycloak.json');
 

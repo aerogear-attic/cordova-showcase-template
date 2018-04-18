@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { AuthService } from '@aerogearservices/auth';
+import { AuthService } from '@aerogear/auth';
 import { ToastController } from 'ionic-angular';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { AuthPage } from '../auth/auth';
 
 @Component({
@@ -30,9 +30,7 @@ export class AuthDetailsPage {
         toast.present();
     }
 
-    ionViewDidEnter(): void {
-        console.log("IN DETAILS");
-        
+    ionViewDidEnter(): void {        
         if (this.auth.isAuthenticated()) {
             this.auth.loadUserProfile().then((userProfile) => {
 
