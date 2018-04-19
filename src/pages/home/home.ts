@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 import { AuthService } from '@aerogear/auth';
+import { keycloakProvider } from '../../services/auth.service';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
-  providers: [AuthService]
+  providers: [keycloakProvider]
 })
 
 export class HomePage {

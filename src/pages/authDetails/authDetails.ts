@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { keycloakProvider } from '../../services/auth.service';
 import { AuthService } from '@aerogear/auth';
+
 import { ToastController } from 'ionic-angular';
 import { NavController } from 'ionic-angular';
 import { AuthPage } from '../auth/auth';
@@ -7,7 +9,7 @@ import { AuthPage } from '../auth/auth';
 @Component({
     selector: 'page-authDetails',
     templateUrl: 'authDetails.html',
-    providers: [AuthService]
+    providers: [keycloakProvider]
 })
 export class AuthDetailsPage {
     profile: object;
@@ -32,7 +34,7 @@ export class AuthDetailsPage {
 
     ionViewDidEnter(): void {        
         if (this.auth.isAuthenticated()) {
-            this.auth.loadUserProfile().then((userProfile) => {
+            this.auth.loadUserProfile().success((userProfile) => {
 
                 this.profile = {
                     username: userProfile.username ? userProfile.username : "Unknown Username",
@@ -44,7 +46,7 @@ export class AuthDetailsPage {
                     emailVerified: userProfile.emailVerified ? userProfile.emailVerified : false
                 };
             })
-                .catch((err) => console.error("Error retrieving user profile", err));
+                .error((err) => console.error("Error retrieving user profile", err));
         } else {
             this.navCtrl.setRoot(AuthPage);
             let toast = this.toastCtrl.create({
