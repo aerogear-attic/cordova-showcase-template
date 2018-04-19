@@ -3,13 +3,12 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-
-import { AuthService } from '@aerogear/auth';
-
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AuthPage } from '../pages/auth/auth';
 import { AuthDetailsPage } from '../pages/authDetails/authDetails';
+import { keycloakProvider } from '../services/auth.service';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +31,7 @@ import { AuthDetailsPage } from '../pages/authDetails/authDetails';
   providers: [
     StatusBar,
     SplashScreen,
-    AuthService,
+    keycloakProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
