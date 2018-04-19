@@ -13,7 +13,7 @@ A template application to showcase features.
 
 === Running the App
 
-To run the application in the broswer for development, run 
+To run the application in the browser for development, run
 
 ```
 npm install
