@@ -9,12 +9,12 @@ var keycloakConfig = require('../config/keycloak.json');
 // tag::appInit[]
 // Ensure that Keycloak is Initialised before Angular to prevent Redirect looping issues
 keycloakInstance.init(keycloakConfig)
-    .success(() => {
+    .then(() => {
         const platform = platformBrowserDynamic();
         // Mamually intiliase angular
         platform.bootstrapModule(AppModule);
     })
-    .error((err) => {
+    .catch((err) => {
         console.error("Error Initalizing Keycloak", err)
     });
 // end::appInit[]

@@ -32,9 +32,9 @@ export class AuthDetailsPage {
         toast.present();
     }
 
-    ionViewDidEnter(): void {        
+    ionViewDidEnter(): void {
         if (this.auth.isAuthenticated()) {
-            this.auth.loadUserProfile().success((userProfile) => {
+            this.auth.loadUserProfile().then((userProfile) => {
 
                 this.profile = {
                     username: userProfile.username ? userProfile.username : "Unknown Username",
@@ -46,7 +46,7 @@ export class AuthDetailsPage {
                     emailVerified: userProfile.emailVerified ? userProfile.emailVerified : false
                 };
             })
-                .error((err) => console.error("Error retrieving user profile", err));
+                .catch((err) => console.error("Error retrieving user profile", err));
         } else {
             this.navCtrl.setRoot(AuthPage);
             let toast = this.toastCtrl.create({
