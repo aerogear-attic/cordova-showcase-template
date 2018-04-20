@@ -1,20 +1,18 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { AppModule } from './app.module';
+
+
 import { INSTANCE as keycloakInstance } from '../services/auth.service';
-declare var require: any
-var keycloakConfig = require('../config/keycloak.json');
+import { MetricsService } from '@aerogear/core';
+import {config } from "../services/config"
 
 
 
-// tag::appInit[]
-// Ensure that Keycloak is Initialised before Angular to prevent Redirect looping issues
-keycloakInstance.init(keycloakConfig)
-    .then(() => {
-        const platform = platformBrowserDynamic();
-        // Mamually intiliase angular
-        platform.bootstrapModule(AppModule);
-    })
-    .catch((err) => {
-        console.error("Error Initalizing Keycloak", err)
-    });
-// end::appInit[]
+
+
+ // Create metrics
+
+ // TODO we need shared instance
+ // TODO we need this to not crash if config is missing
+ let metricsConfig = config.getConfig("metrics");
+ let metrics = new MetricsService(metricsConfig);
+ // TODO ensure device is ready.
+ metrics.sendAppAndDeviceMetrics();

@@ -13,11 +13,13 @@ A template application to showcase features.
 
 === Running the App
 
+Note: example application will work only when cloned directly into JS-SDK.
+See: https://github.com/aerogear/aerogear-js-sdk for details.
+
 To run the application in the browser for development, run
 
 ```
 npm install
-npm link @aerogear/auth
 npm run ionic:build
 npm run ionic:serve
 ```
