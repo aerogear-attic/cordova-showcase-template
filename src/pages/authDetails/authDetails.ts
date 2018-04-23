@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { keycloakProvider } from '../../services/auth.service';
+import { authProvider } from '../../services/auth.service';
 import { AuthService } from '@aerogear/auth';
 
 import { ToastController } from 'ionic-angular';
@@ -9,7 +9,7 @@ import { AuthPage } from '../auth/auth';
 @Component({
     selector: 'page-authDetails',
     templateUrl: 'authDetails.html',
-    providers: [keycloakProvider]
+    providers: [authProvider]
 })
 export class AuthDetailsPage {
     profile: object;

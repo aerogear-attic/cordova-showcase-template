@@ -1,7 +1,6 @@
 import { config } from "../services/config"
 import { MetricsService } from '@aerogear/core';
 
-
 export var metrics: MetricsService;
 
 // Create metrics
