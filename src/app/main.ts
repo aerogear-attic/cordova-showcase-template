@@ -8,7 +8,6 @@ import { AppModule } from '../app/app.module';
 
 
 initAuth();
-initMetrics();
 
 /**
  * Initializes Auth auth and creates main angular context
@@ -20,7 +19,9 @@ initMetrics();
     .then(() => {
       const platform = platformBrowserDynamic();
       // Manually init angular
-      platform.bootstrapModule(AppModule);
+      platform.bootstrapModule(AppModule).then(()=>{
+        initMetrics();
+      });
     })
     .catch((err) => {
       console.error("Error Initalizing Auth", err)
