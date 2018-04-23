@@ -1,21 +1,27 @@
-declare var require: any
-import { Injectable } from '@angular/core';
-import { AlertController } from 'ionic-angular';
 import { AuthService } from '@aerogear/auth';
+import { config } from "./config";
 
-var keycloakConfig = require('../config/keycloak.json');
+var keycloakConfig = config.getKeycloakConfig()
 
+var internalConfig
+if (!keycloakConfig) {
+  console.error("Keycloak configuration is missing. Authentication will not work properly.");
+  internalConfig = {};
+}else{
+  internalConfig = keycloakConfig.config;
+}
 
-export let INSTANCE = new AuthService(keycloakConfig);
-
+export let INSTANCE = new AuthService(internalConfig);
 
 export let keycloakFactory = () => {
-    console.log("keycloakFactory is called");
-    return INSTANCE
+  return INSTANCE
 };
 
-export let keycloakProvider = {
-    provide: AuthService,
-    useFactory: keycloakFactory,
-    deps: []
-} 
+export let authProvider = {
+  provide: AuthService,
+  useFactory: keycloakFactory,
+  deps: []
+}
+
+
+

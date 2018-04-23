@@ -7,7 +7,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AuthPage } from '../pages/auth/auth';
 import { AuthDetailsPage } from '../pages/authDetails/authDetails';
-import { keycloakProvider } from '../services/auth.service';
+import { authProvider } from '../services/auth.service';
 
 
 @NgModule({
@@ -31,7 +31,7 @@ import { keycloakProvider } from '../services/auth.service';
   providers: [
     StatusBar,
     SplashScreen,
-    keycloakProvider,
+    authProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

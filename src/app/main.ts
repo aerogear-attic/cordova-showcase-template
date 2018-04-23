@@ -1,20 +1,29 @@
+
+
+import { INSTANCE } from "../services/auth.service"
+import { initMetrics } from "../services/metrics"
+
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { AppModule } from './app.module';
-import { INSTANCE as keycloakInstance } from '../services/auth.service';
-declare var require: any
-var keycloakConfig = require('../config/keycloak.json');
+import { AppModule } from '../app/app.module';
 
 
+initAuth();
 
-// tag::appInit[]
-// Ensure that Keycloak is Initialised before Angular to prevent Redirect looping issues
-keycloakInstance.init(keycloakConfig)
+/**
+ * Initializes Auth auth and creates main angular context
+ * This will reload angular context again
+ */
+ function initAuth() {
+  // Ensure that Auth is init before Angular to prevent Redirect looping issues
+  INSTANCE.init({})
     .then(() => {
-        const platform = platformBrowserDynamic();
-        // Mamually intiliase angular
-        platform.bootstrapModule(AppModule);
+      const platform = platformBrowserDynamic();
+      // Manually init angular
+      platform.bootstrapModule(AppModule).then(()=>{
+        initMetrics();
+      });
     })
     .catch((err) => {
-        console.error("Error Initalizing Keycloak", err)
+      console.error("Error Initalizing Auth", err)
     });
-// end::appInit[]
+}

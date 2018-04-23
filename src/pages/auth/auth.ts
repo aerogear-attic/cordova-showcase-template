@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { keycloakProvider } from '../../services/auth.service';
+import { authProvider } from '../../services/auth.service';
 import { AuthService } from '@aerogear/auth';
 import { ToastController } from 'ionic-angular';
 
 @Component({
     selector: 'page-auth',
     templateUrl: 'auth.html',
-    providers: [keycloakProvider]
+    providers: [authProvider]
 })
 export class AuthPage {
     authButtonState: boolean;
