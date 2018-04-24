@@ -2,14 +2,16 @@
   "name": "cordova-showcase-template",
   "version": "0.0.1",
   "author": "Ionic Framework",
-  "homepage": "http://www.feedhenry.org/",
+  "homepage": "http://aerogear.org/",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
-    "ionic:serve": "ionic-app-scripts serve"
+    "ionic:serve": "ionic-app-scripts serve",
+    "ionic:android": "ionic cordova run android --emulator",
+    "ionic:ios": "ionic cordova run ios --emulator"
   },
   "dependencies": {
     "@aerogear/auth": "0.1.0-alpha.a4cac51d",
