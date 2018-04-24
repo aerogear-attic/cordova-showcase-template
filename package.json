@@ -12,8 +12,8 @@
     "ionic:serve": "ionic-app-scripts serve"
   },
   "dependencies": {
-    "@aerogear/auth": "0.1.0-alpha.3bf2046e",
-    "@aerogear/core": "0.1.0-alpha.3bf2046e",
+    "@aerogear/auth": "0.1.0-alpha.a4cac51d",
+    "@aerogear/core": "0.1.0-alpha.a4cac51d",
     "@angular/animations": "5.2.9",
     "@angular/common": "5.2.9",
     "@angular/compiler": "5.2.9",
