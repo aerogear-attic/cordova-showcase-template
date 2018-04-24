@@ -12,8 +12,8 @@
     "ionic:serve": "ionic-app-scripts serve"
   },
   "dependencies": {
-    "@aerogear/auth": "../packages/auth",
-    "@aerogear/core": "../packages/core",
+    "@aerogear/auth": "0.1.0-alpha.3bf2046e",
+    "@aerogear/core": "0.1.0-alpha.3bf2046e",
     "@angular/animations": "5.2.9",
     "@angular/common": "5.2.9",
     "@angular/compiler": "5.2.9",
@@ -35,12 +35,7 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.1.8",
-    "typescript": "~2.6.2",
-    "bluebird": "3.5.1",
-    "keycloak-js": "4.0.0-beta.1",
-    "axios": "^0.18.0",
-    "lodash.find": "^4.6.0",
-    "uuid": "3.2.1"
+    "typescript": "~2.6.2"
   },
   "description": "An Ionic project"
 }
