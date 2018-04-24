@@ -21,6 +21,7 @@ initAuth();
       // Manually init angular
       platform.bootstrapModule(AppModule).then(()=>{
         initMetrics();
+        return AppModule;
       });
     })
     .catch((err) => {
