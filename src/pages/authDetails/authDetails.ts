@@ -33,8 +33,10 @@ export class AuthDetailsPage {
     }
 
     ionViewDidEnter(): void {
+        console.log(this.auth.hasRealmRole("uma_authorization"));
         if (this.auth.isAuthenticated()) {
             this.auth.loadUserProfile().then((userProfile) => {
+                var realmRoles = this.auth.getRealmRoles();
 
                 this.profile = {
                     username: userProfile.username ? userProfile.username : "Unknown Username",
@@ -43,7 +45,8 @@ export class AuthDetailsPage {
                     id: userProfile.id ? userProfile.id : "Unknown User ID",
                     email: userProfile.email,
                     totp: userProfile.totp ? userProfile.totp : false,
-                    emailVerified: userProfile.emailVerified ? userProfile.emailVerified : false
+                    emailVerified: userProfile.emailVerified ? userProfile.emailVerified : false,
+                    realmRoles: realmRoles
                 };
             })
                 .catch((err) => console.error("Error retrieving user profile", err));
