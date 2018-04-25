@@ -2,11 +2,11 @@
 
 The Cordova Showcase Application Template is part of the [AeroGear project](https://aerogear.org/), see the [Community Page](https://aerogear.org/community) for general guidelines for contributing to the project.
 
-This document details specifics for contributions to the Android SDK.
+This document details specifics for contributions to the Cordova Showcase Application Template.
 
 ## Issue tracker
 
-The tracking of issues for the AeroGear Android SDK is done in the [AeroGear Android Project](https://issues.jboss.org/projects/AEROGEAR/issues) in the [JBoss Developer JIRA](https://issues.jboss.org).
+The tracking of issues for the AeroGear Cordova Showcase Application Template is done in the [AeroGear Android Project](https://issues.jboss.org/projects/AEROGEAR/issues) in the [JBoss Developer JIRA](https://issues.jboss.org).
 
 See the [AeroGear JIRA Usage and Guidelines Guide](https://aerogear.org/docs/guides/JIRAUsage/) for information on how the issue tracker relates to contributions to this project.
 
@@ -22,13 +22,13 @@ You can reach us at [#aerogear](ircs://chat.freenode.net:6697/aerogear) on [Free
 
 Ensure you have the following installed in your machine:
 
-- [Node](https://nodejs.org/en/)
-- [Ionic](https://ionicframework.com/)
-- [Cordova](https://cordova.apache.org/)
+- [Node](https://nodejs.org/en/) - version 8.9.4
+- [Ionic](https://ionicframework.com/) - version 3.20.0
+- [Cordova](https://cordova.apache.org/) - version 8.0.0
 
 
 # Developing the Cordova Showcase Application Template for testing new SDK features
-Changes made to the application while testing SDK changes should never be merged to the `master` branch until those changes have been released, it is the idea to keep this as a Showcase app to demo our latest release.
+This application is intended to showcase the latest release of [Aerogear Js SDK](https://github.com/aerogear/aerogear-js-sdk), so pre-release work should never be merged to the `master` branch, any changes made pre-release can be merged to the `development` branch only.
 
 ## Cloning the repository
 You will first need to clone [Aerogear Js SDK](https://github.com/aerogear/aerogear-js-sdk):
