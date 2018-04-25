@@ -11,7 +11,13 @@ platform.bootstrapModule(AppModule).then(()=>{
   return AppModule;
 });
 
-document.addEventListener("deviceready", initAuth, false);
+if(window['cordova']){
+  document.addEventListener("deviceready", initAuth, false);
+} else {
+  // Init for the web
+  initAuth();
+}
+
 /**
  * Initializes Auth auth and creates main angular context
  * This will reload angular context again
