@@ -23,6 +23,7 @@ export class AuthDetailsPage {
 
     logout() {
         this.auth.logout()
+            .then(() => this.navCtrl.setRoot(AuthPage));
         let toast = this.toastCtrl.create({
             message: 'Logged Out Successfully',
             duration: 3000,

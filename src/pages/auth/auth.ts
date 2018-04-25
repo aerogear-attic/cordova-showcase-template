@@ -4,6 +4,8 @@ import { authProvider } from '../../services/auth.service';
 import { AuthService } from '@aerogear/auth';
 import { ToastController } from 'ionic-angular';
 
+import { AuthDetailsPage } from '../authDetails/authDetails';
+
 @Component({
     selector: 'page-auth',
     templateUrl: 'auth.html',
@@ -21,8 +23,12 @@ export class AuthPage {
 
     login() {
         this.auth.login()
+            .then(() => this.navCtrl.setRoot(AuthDetailsPage));
     }
 
     ionViewDidEnter(): void {
+        if (this.auth.isAuthenticated()) {
+            this.navCtrl.setRoot(AuthDetailsPage);
+        }
     }
 }
