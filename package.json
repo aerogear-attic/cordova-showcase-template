@@ -14,8 +14,8 @@
     "ionic:ios": "ionic cordova run ios --emulator"
   },
   "dependencies": {
-    "@aerogear/auth": "0.1.0-alpha.a4cac51d",
-    "@aerogear/core": "0.1.0-alpha.a4cac51d",
+    "@aerogear/auth": "0.1.0",
+    "@aerogear/core": "0.1.0",
     "@angular/animations": "5.2.9",
     "@angular/common": "5.2.9",
     "@angular/compiler": "5.2.9",
