@@ -28,7 +28,6 @@ Ensure you have the following installed in your machine:
 
 
 # Developing the Cordova Showcase Application Template for testing new SDK features
-This application is intended to showcase the latest release of [Aerogear Js SDK](https://github.com/aerogear/aerogear-js-sdk), so pre-release work should never be merged to the `master` branch, any changes made pre-release can be merged to the `development` branch only.
 
 ## Cloning the repository
 You will first need to clone [Aerogear Js SDK](https://github.com/aerogear/aerogear-js-sdk):

@@ -9,6 +9,7 @@ image:https://circleci.com/gh/aerogear/cordova-showcase-template.svg?&style=shie
 
 A template application to showcase features from link:https://github.com/aerogear/aerogear-js-sdk[Aerogear Js SDK].
 
+As this application showcases features from link:https://github.com/aerogear/aerogear-js-sdk[Aerogear Js SDK] ensure you checkout the desired git tag for whatever SDK version you intend to run. Check link:https://www.npmjs.com/org/aerogear[NPM] for associated versions and releases.
 == Build Instructions
 
 === Running the App
