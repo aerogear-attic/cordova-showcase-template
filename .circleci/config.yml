@@ -1,0 +1,18 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/aerogear
+    docker:
+      # Node 8 LTS
+      - image: circleci/node:carbon
+    steps:
+      - checkout
+      - run:
+          name: update-npm
+          command: 'sudo npm install -g npm@latest'
+      - run:
+          name: install-dependencies
+          command: npm install
+      - run:
+          name: run build
+          command: npm run build
