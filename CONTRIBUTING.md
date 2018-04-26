@@ -114,3 +114,17 @@ npm run ionic:android // runs app in android emulator
 npm run ionic:ios // runs app in ios emulator
 ```
 Note: To run the app in an emulator, you must have an emulator currently running when entering the above command.
+
+## Work with Different Backend Services
+
+By default the app will use the backend services that are running on [a dedicated OpenShift cluster](https://security.skunkhenry.com:8443) for demonstration purpose.
+
+You can also configure the app to run against different backend services:
+
+1. Update the URLs in [mobile-services.json](src/mobile-services.json) file.
+2. If you are using HTTPS, update the SHA1 fingerprint of the server certificate configuration in the [mobile-services.json](src/mobile-services.json) file.
+
+To generate the SHA1 hash value of the certificate, you can use this command:
+```
+openssl s_client -servername <hostname> -connect <hostname:port> -showcerts < /dev/null 2>/dev/null   | openssl x509 -in /dev/stdin -sha1 -noout -fingerprint
+```
