@@ -3,7 +3,7 @@ image:https://img.shields.io/badge/iOS-Compatible-green.svg[]
 image:https://img.shields.io/badge/Ionic%20Version-3-green.svg[]
 image:https://img.shields.io/badge/Angular%20Version-4-green.svg[]
 image:https://badges.frapsoft.com/typescript/code/typescript.svg?v=101[]
-image:https://circleci.com/gh/aerogear/cordova-showcase-template.svg?&style=shield[]
+image:https://circleci.com/gh/aerogear/cordova-showcase-template.svg?&style=shield[link=https://circleci.com/gh/aerogear/cordova-showcase-template]
 
 = Cordova Showcase Application Template
 
