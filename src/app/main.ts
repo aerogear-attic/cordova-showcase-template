@@ -5,10 +5,7 @@ import { AppModule } from '../app/app.module';
 
 const platform = platformBrowserDynamic();
 // Init angular
-platform.bootstrapModule(AppModule).then(() => {
-  initMetrics();
-  return AppModule;
-});
+platform.bootstrapModule(AppModule);
 
 if (window['cordova']) {
   document.addEventListener("deviceready", initAuth, false);
@@ -22,10 +19,10 @@ if (window['cordova']) {
  * This will reload angular context again
  */
 function initAuth() {
-  // Ensure that Auth is init before Angular to prevent Redirect looping issues
-  INSTANCE.init({}).then(()=> {
-    console.info("Sucesfully initialized auth")
-  }).catch((err)=> {
+  INSTANCE.init({}).then(() => {
+    console.info("Initialized auth SDK")
+  }).catch((err) => {
     console.error("Problem with auth init", err)
   });
+  initMetrics();
 }
