@@ -17,20 +17,7 @@ export class HomePage {
     this.toastCtrl = toastCtrl;
   }
 
-  checkIfAuthenticated() {
-    if (this.auth.isAuthenticated()) {
-      let toast = this.toastCtrl.create({
-        message: 'Authenticated Successfully',
-        duration: 3000,
-        position: 'bottom'
-      });
-
-      toast.present();
-    }
-  }
-
   ionViewDidEnter(): void {
-    this.checkIfAuthenticated();
   }
 
 
