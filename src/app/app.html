@@ -15,12 +15,10 @@
                 <p color=light>aerogear.org</p>
             </ion-item>
         </ion-card>
-        <ion-list>
-            <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-                <ion-icon color=dark name="{{p.icon}}" item-start></ion-icon>
-                <span align="center">{{p.title}}</span>
-            </button>
-        </ion-list>
+        
+        <!-- side menu content -->
+        <side-menu-content [settings]="sideMenuSettings" [options]="pages" (change)="openPage($event)"></side-menu-content>
+
     </ion-content>
 
 </ion-menu>
