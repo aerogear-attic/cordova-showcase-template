@@ -79,8 +79,6 @@ npm run ionic:ios
 ```
 > **Note**: To run the app in an emulator, you must have an emulator currently running when entering the above command.
 
-# Developing the Cordova Showcase Application Template to demo latest SDK
-
 ## Work with Different Backend Services
 
 By default the app will use the backend services that are running on [a dedicated OpenShift cluster](https://security.skunkhenry.com:8443) for demonstration purpose.
