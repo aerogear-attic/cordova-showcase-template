@@ -1,3 +1,5 @@
+= Cordova Showcase Application Template
+
 image:https://img.shields.io/badge/Android-Compatible-green.svg[]
 image:https://img.shields.io/badge/iOS-Compatible-green.svg[]
 image:https://img.shields.io/badge/Ionic%20Version-3-green.svg[]
@@ -5,71 +7,30 @@ image:https://img.shields.io/badge/Angular%20Version-4-green.svg[]
 image:https://badges.frapsoft.com/typescript/code/typescript.svg?v=101[]
 image:https://circleci.com/gh/aerogear/cordova-showcase-template.svg?&style=shield[link=https://circleci.com/gh/aerogear/cordova-showcase-template]
 
-= Cordova Showcase Application Template
+A template application to showcase features from link:https://github.com/aerogear/aerogear-js-sdk[Aerogear Js SDK].
 
-
-A template application to showcase features.
-
-
+As this application showcases features from link:https://github.com/aerogear/aerogear-js-sdk[Aerogear Js SDK] ensure you checkout the desired git tag for whatever SDK version you intend to run. Check link:https://www.npmjs.com/org/aerogear[NPM] for associated versions and releases.
 == Build Instructions
 
 === Running the App
+This application can be run as a showcase using a published version of the Aerogear Js SDK, or as a development aid to working on the SDK.
 
-Note: example application will work only when cloned directly into JS-SDK.
-See: https://github.com/aerogear/aerogear-js-sdk for details.
+==== Run Showcase
+The `master` branch will always track to the latest release of the SDK.
 
-To run the application in the browser for development, run
-
+To build the showcase app, run:
 ```
 npm install
 npm run ionic:build
-npm run ionic:serve
+```
+You can choose to run the application in either an emulator or a browser.
+```
+npm run ionic:serve // to run a browser
+
+npm run ionic:android // to run in an android emulator
+
+npm run ionic:ios // to run in an ios emulator
 ```
 
-=== Building the App
-
-```
-npm run build
-```
-
-
-== Work with Different Backend Services
-
-By default the app will use the backend services that are running on https://security.skunkhenry.com:8443[a dedicated OpenShift cluster] for demonstration purpose.
-
-You can also configure the app to run against different backend services:
-
-1. Update the URLs in link:src/config/keycloak.json[keycloak.json] file
-2. If you are using HTTPS, update the SHA1 fingerprint of the server certificate configuration in the link:src/config/keycloak.json[keycloak.json] file.
-
-To generate the SHA1 hash value of the certificate, you can use this command:
-[source, bash]
-----
-openssl s_client -servername <hostname> -connect <hostname:port> -showcerts < /dev/null 2>/dev/null   | openssl x509 -in /dev/stdin -sha1 -noout -fingerprint
-----
-
-If you are using self-signed certificate, follow the instructions in the next section.
-
-== Work with Self-signed Certificate
-
-The easiest way to support self-signed certificate is to install the CA certificate that is used to sign the certificate onto the device/simulator.
-
-1. Get the CA certificate of the server. You can use this command:
-+
-[source, bash]
-----
-openssl s_client -showcerts -connect host:port
-----
-+
-It will print out the full certificate chain of the server and you should save the content of the root certificate into a PEM file.
-
-2. Install the CA certificate onto the device.
-+
-To install onto an iOS or Android simulator, you can simply drag & drop the certificate file over it.
-+
-To install on an actual device, you can use a file sharing service or send the certificate file as an email attachment.
-
-3. Ensure the newly installed CA certificate is trusted.
-+
- - On the iOS device/simulator, go to `Settings -> General -> About -> Certificate Trust Settings` and enable full trust for the certificate.
- - On an Android device, a wizard will be shown with instructions on how to install the certificate when it is selected in a file manager.
+==== Development and Contributing
+Looking to use the showcase for developement purposes with the SDK please take some time to read the link:./CONTRIBUTING.md[General Contributing Guide]
