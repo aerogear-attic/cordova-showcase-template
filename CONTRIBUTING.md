@@ -31,6 +31,7 @@ Ensure you have the following installed in your machine:
 Note: Work completed on un released SDK features should never be merged to `master` all experimental work should be merged to `development` branch only.
 
 ## Cloning the repository
+
 You will first need to clone [Aerogear Js SDK](https://github.com/aerogear/aerogear-js-sdk):
 ```
 git clone git@github.com:aerogear/aerogear-js-sdk.git
@@ -40,80 +41,45 @@ Next, clone the showcase app directly into the SDK:
 cd aerogear-js-sdk
 git clone git@github.com:aerogear/cordova-showcase-template.git cordova-example
 ```
-Your SDK structure should now look like:
-```
-.
-├── .circleci
-├── .github
-├── cordova-example 
-├── docs
-├── packages
-|   ├── auth
-|   └── core
-├── scripts
-.
-.
-.
-```
-## Installing dependencies
-As we are developing and testing newly implemented features and changes we need to point our dependencies in the example app `package.json` to local versions of `core` and `auth`:
 
-```
-"dependencies": {		    
-    "@aerogear/auth": "../packages/auth",		 
-    "@aerogear/core": "../packages/core",
-```
-
-## Build the Application
-To build the application we must ensure our example app is added to `lerna.json` file in the SDK.
-```
-{
-  "lerna": "2.9.0",
-  "packages": [
-    "packages/*",
-    "cordova-example" // -> add this here
-  ],
-```
+## Build the SDK repository
+ 
 From the SDK dir run the following to build and link the dependencies:
 ```
 npm install
 npm run bootstrap
 npm run build
 ```
-To run the application, run:
-```
-cd cordova-example
-npm run ionic:android // -> android emulator must be running
-npm run ionic:ios // -> ios emulator must be running
-```
 
-# Developing the Cordova Showcase Application Template to demo latest SDK
+## Build the showcase application
 
-## Cloning the repository 
-Clone the app:
-```
-git clone git@github.com:aerogear/cordova-showcase-template.git cordova-example
-```
-
-## Install Dependencies
-Check [NPM](https://www.npmjs.com/org/aerogear) for latest version and run:
-```
-npm i @aerogear/auth
-npm i @aerogear/core
-```
-
-## Build the Application
 To build the application:
 ```
-npm install
-npm run ionic:build
+cd cordova-example
+npm install 
+npm run build
 ```
+
+## Link required packages
+
+To work with development versions of the libraries use link command.
+For example:
+
+```
+npm link @aerogear/auth
+npm link @aerogear/core
+```
+
+## Run showcase app
+
 To run the application enter one of the following:
 ```
-npm run ionic:android // runs app in android emulator
-npm run ionic:ios // runs app in ios emulator
+npm run ionic:android 
+npm run ionic:ios 
 ```
-Note: To run the app in an emulator, you must have an emulator currently running when entering the above command.
+> **Note**: To run the app in an emulator, you must have an emulator currently running when entering the above command.
+
+# Developing the Cordova Showcase Application Template to demo latest SDK
 
 ## Work with Different Backend Services
 
