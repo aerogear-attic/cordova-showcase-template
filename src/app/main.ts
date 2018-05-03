@@ -18,7 +18,7 @@ if (window['cordova']) {
  * Initializes Auth auth and creates main angular context
  * This will reload angular context again
  */
-function initAuth() {
+function initAuth() {  
   INSTANCE.init({}).then(() => {
     console.info("Initialized auth SDK")
   }).catch((err) => {
@@ -26,3 +26,4 @@ function initAuth() {
   });
   initMetrics();
 }
+
