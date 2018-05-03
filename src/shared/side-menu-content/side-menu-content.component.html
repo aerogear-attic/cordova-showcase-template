@@ -3,7 +3,7 @@
 
         <!-- It is a simple option -->
         <ng-template [ngIf]="!option.suboptionsCount">
-            <ion-item class="option" [ngClass]="menuSettings?.showSelectedOption && option.selected ? menuSettings.selectedOptionClass : null" (tap)="select(option)" tappable>
+            <ion-item class="option" [ngClass]="menuSettings?.showSelectedOption && option.selected ? menuSettings.selectedOptionClass : null" (click)="select(option)" tappable>
                 <ion-icon *ngIf="option.iconName" [name]="option.iconName" item-left></ion-icon>
                 {{ option.displayText }} <ion-badge item-right *ngIf="option.badge | async as badgeNo">{{ badgeNo }}</ion-badge>
             </ion-item>
