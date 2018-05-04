@@ -14,5 +14,15 @@ jobs:
           name: install-dependencies
           command: npm install
       - run:
+          name: clone-sdk
+          command: git clone --depth 1 https://github.com/aerogear/aerogear-js-sdk sdk
+      - run:
+          name: run build
+          working_directory: ./sdk
+          command: npm i && npm run bootstrap && npm run build
+      - run:
+          name: link-sdk
+          command: ln -s ./sdk/packages/auth node_modules/@aerogear/auth && ln -s ./sdk/packages/core node_modules/@aerogear/core
+      - run:
           name: run build
           command: npm run build
