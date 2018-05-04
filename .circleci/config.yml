@@ -17,12 +17,16 @@ jobs:
           name: clone-sdk
           command: git clone --depth 1 https://github.com/aerogear/aerogear-js-sdk sdk
       - run:
-          name: run build
+          name: run sdk build
           working_directory: ./sdk
           command: npm i && npm run bootstrap && npm run build
       - run:
+          name: Remove aerogear packages
+          command: rm -rf node_modules/@aerogear && mkdir node_modules/@aerogear
+      - run:
           name: link-sdk
-          command: ln -s ./sdk/packages/auth node_modules/@aerogear/auth && ln -s ./sdk/packages/core node_modules/@aerogear/core
+          working_directory: ./node_modules/@aerogear
+          command: ln -s ../../sdk/packages/auth auth && ln -s ../../sdk/packages/core core
       - run:
           name: run build
           command: npm run build

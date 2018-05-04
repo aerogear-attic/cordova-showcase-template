@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ConfigurationHelper } from '@aerogear/core';
 import { AuthService } from '@aerogear/auth';
 import { authProvider } from '../../../services/auth.service';
 import { ToastController } from 'ionic-angular';
@@ -33,8 +32,8 @@ export class NetworkPage {
   configuration: any;
 
   constructor(public loadingCtrl: LoadingController, public toastCtrl: ToastController, private auth: AuthService, public navCtrl: NavController, public http: Http) {
-    this.configuration = new ConfigurationHelper(config).getConfig(AuthService.ID);
     this.auth = auth;
+    this.configuration = auth.getConfig();
     this.toastCtrl = toastCtrl;
     this.loadingCtrl = loadingCtrl;
     this.navCtrl = navCtrl;
@@ -44,8 +43,8 @@ export class NetworkPage {
       'Accept': 'application/json',
       'Authorization': 'Bearer ' + this.auth.extract().token
     };
-    this.apiServerUrl = this.configuration.config.apiServerUrl;
-    this.apiEndpoint = this.configuration.config.apiEndpoint;
+    this.apiServerUrl = this.configuration.apiServerUrl;
+    this.apiEndpoint = this.configuration.apiEndpoint;
     this.pinningSuccess = false;
     this.responseRecieved = false;
     this.requestFailure = false;   
@@ -61,7 +60,7 @@ export class NetworkPage {
     let options = new RequestOptions({headers});
 
     var server = this.apiServerUrl;
-    var fingerprint = this.configuration.config.pinningFingerprint;
+    var fingerprint = this.configuration.pinningFingerprint;
     
     window.plugins.sslCertificateChecker.check(
             function() {
