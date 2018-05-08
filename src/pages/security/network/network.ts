@@ -10,8 +10,6 @@ import { Http } from '@angular/http';
 import {RequestOptions} from '@angular/http';
 import {Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
-declare var require: any
-var config = require('../../../mobile-services.json');
 declare let window: any;
 
 @Component({
