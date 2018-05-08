@@ -74,18 +74,6 @@ export class DeviceTrustPage {
   /**
   * Detect if the app is running in debug mode.
   */
-  // detectDebug(): void {
-  //   var self = this;
-  //   cordova.plugins.IsDebug.getIsDebug(function(isDebug) {
-  //     if(isDebug) {
-  //       self.addDetection("Debug Access Detected", true);
-  //     } else {
-  //       self.addDetection("Debug Access Not Detected", false);
-  //     }
-  //   }, function(err) {
-  //       console.error(err);
-  //   });
-  // }
   detectDebug(): void {
     this.securityService.check(SecurityCheckType.IsDebugger)
     .then((isDebugger: SecurityCheckResult) => {
