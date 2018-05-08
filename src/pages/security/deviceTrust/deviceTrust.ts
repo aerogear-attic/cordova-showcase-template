@@ -4,7 +4,6 @@ import { PinCheck } from '@ionic-native/pin-check';
 import { SecurityService, SecurityCheckType, SecurityCheckResult } from '@aerogear/security';
 
 declare let device: any;
-declare let cordova: any;
 
 @Component({
   selector: 'page-deviceTrust',
@@ -75,17 +74,24 @@ export class DeviceTrustPage {
   /**
   * Detect if the app is running in debug mode.
   */
+  // detectDebug(): void {
+  //   var self = this;
+  //   cordova.plugins.IsDebug.getIsDebug(function(isDebug) {
+  //     if(isDebug) {
+  //       self.addDetection("Debug Access Detected", true);
+  //     } else {
+  //       self.addDetection("Debug Access Not Detected", false);
+  //     }
+  //   }, function(err) {
+  //       console.error(err);
+  //   });
+  // }
   detectDebug(): void {
-    var self = this;
-    cordova.plugins.IsDebug.getIsDebug(function(isDebug) {
-      if(isDebug) {
-        self.addDetection("Debug Access Detected", true);
-      } else {
-        self.addDetection("Debug Access Not Detected", false);
-      }
-    }, function(err) {
-        console.error(err);
-    });
+    this.securityService.check(SecurityCheckType.IsDebugger)
+    .then((isDebugger: SecurityCheckResult) => {
+      const debuggerMsg = isDebugger.passed ? "Debugger Detected" : "Debugger Not Detected";
+      this.addDetection(debuggerMsg, isDebugger.passed);
+    }).catch((err: Error) => console.log(err));
   }
   // end::detectDebug[]
 
