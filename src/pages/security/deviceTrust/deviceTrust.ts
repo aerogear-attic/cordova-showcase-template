@@ -62,7 +62,7 @@ export class DeviceTrustPage {
   * Detect if the device is running Root.
   */
   detectRoot(): void {
-    this.securityService.check(SecurityCheckType.IsRooted)
+    this.securityService.check(SecurityCheckType.notRooted)
     .then((isRooted: SecurityCheckResult) => {
       const rootedMsg = isRooted.passed ? "Root Access Detected" : "Root Access Not Detected";
       this.addDetection(rootedMsg, isRooted.passed);
@@ -75,9 +75,9 @@ export class DeviceTrustPage {
   * Detect if the app is running in debug mode.
   */
   detectDebug(): void {
-    this.securityService.check(SecurityCheckType.IsDebuggerConnected)
+    this.securityService.check(SecurityCheckType.notDebugMode)
     .then((isDebugger: SecurityCheckResult) => {
-      const debuggerMsg = !isDebugger.passed ? "Debugger Detected" : "Debugger Not Detected";
+      const debuggerMsg = isDebugger.passed ? "Debug Mode Not Detected" : "Debug Mode Detected";
       this.addDetection(debuggerMsg, isDebugger.passed);
     }).catch((err: Error) => console.log(err));
   }
