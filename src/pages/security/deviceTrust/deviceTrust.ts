@@ -75,9 +75,9 @@ export class DeviceTrustPage {
   * Detect if the app is running in debug mode.
   */
   detectDebug(): void {
-    this.securityService.check(SecurityCheckType.IsDebugger)
+    this.securityService.check(SecurityCheckType.IsDebuggerConnected)
     .then((isDebugger: SecurityCheckResult) => {
-      const debuggerMsg = isDebugger.passed ? "Debugger Detected" : "Debugger Not Detected";
+      const debuggerMsg = !isDebugger.passed ? "Debugger Detected" : "Debugger Not Detected";
       this.addDetection(debuggerMsg, isDebugger.passed);
     }).catch((err: Error) => console.log(err));
   }
