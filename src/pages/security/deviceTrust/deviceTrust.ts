@@ -47,11 +47,11 @@ export class DeviceTrustPage {
   * Detect if the device is running on an emulator.
   */
   detectEmulator(): void {
-    if(device.isVirtual) {
-      this.addDetection("Emulator Access Detected", true);
-    } else {
-      this.addDetection("Emulator Access Not Detected", false);
-    }
+    this.securityService.check(SecurityCheckType.notEmulated)
+    .then((isEmulated: SecurityCheckResult) => {
+      const emulatedMsg = isEmulated.passed ? "Emulator Not Detected" : "Emulator Detected";
+      this.addDetection(emulatedMsg, isEmulated.passed)
+    }).catch((err: Error) => console.log(err));
   }
   // end::detectEmulator[]
 
