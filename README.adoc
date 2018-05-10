@@ -13,7 +13,7 @@ As this application showcases features from link:https://github.com/aerogear/aer
 == Build Instructions
 
 === Running the App
-This application can be run as a showcase using a published version of the Aerogear Js SDK, or as a development aid to working on the SDK.
+This application can be run as a showcase using a published version of the AeroGear Js SDK, or as a development aid to working on the SDK.
 
 ==== Run Showcase
 The `master` branch will always track to the latest release of the SDK.
@@ -33,4 +33,4 @@ npm run ionic:ios // to run in an ios emulator
 ```
 
 ==== Development and Contributing
-Looking to use the showcase for developement purposes with the SDK please take some time to read the link:./CONTRIBUTING.md[General Contributing Guide]
+Looking to use the showcase for development purposes with the SDK please take some time to read the link:./CONTRIBUTING.md[General Contributing Guide]

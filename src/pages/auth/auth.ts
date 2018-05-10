@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { authProvider } from '../../services/auth.service';
-import { AuthService } from '@aerogear/auth';
+import { Auth } from '@aerogear/auth';
 import { ToastController } from 'ionic-angular';
 
 import { AuthDetailsPage } from '../authDetails/authDetails';
@@ -14,7 +14,7 @@ import { AuthDetailsPage } from '../authDetails/authDetails';
 export class AuthPage {
     authButtonState: boolean;
 
-    constructor(public toastCtrl: ToastController, private auth: AuthService, public navCtrl: NavController, public navParams: NavParams) {
+    constructor(public toastCtrl: ToastController, private auth: Auth, public navCtrl: NavController, public navParams: NavParams) {
         this.auth = auth;
         this.authButtonState = true;
         this.toastCtrl = toastCtrl;

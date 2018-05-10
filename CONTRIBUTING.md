@@ -66,9 +66,10 @@ To work with development versions of the libraries use link command.
 For example:
 
 ```
-npm link @aerogear/auth
-npm link @aerogear/core
+npm link @aerogear/app @aerogear/auth @aerogear/security @aerogear/core
 ```
+
+> NOTE: You can also use `npm run linkDev`
 
 ## Run showcase app
 

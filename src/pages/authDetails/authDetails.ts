@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { authProvider } from '../../services/auth.service';
-import { AuthService } from '@aerogear/auth';
+import { Auth } from '@aerogear/auth';
 
 import { ToastController } from 'ionic-angular';
 import { NavController } from 'ionic-angular';
@@ -14,7 +14,7 @@ import { AuthPage } from '../auth/auth';
 export class AuthDetailsPage {
     profile: object;
 
-    constructor(public toastCtrl: ToastController, private auth: AuthService, public navCtrl: NavController) {
+    constructor(public toastCtrl: ToastController, private auth: Auth, public navCtrl: NavController) {
         this.auth = auth;
         this.profile = {};
         this.toastCtrl = toastCtrl;
