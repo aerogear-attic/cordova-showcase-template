@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { authProvider } from '../../../services/auth.service';
-import { AuthService } from '@aerogear/auth';
+import { Auth } from '@aerogear/auth';
 import { ToastController } from 'ionic-angular';
 import { NavController } from 'ionic-angular';
 import { AuthPage } from '../../auth/auth';
@@ -18,7 +18,7 @@ export class AccessControlPage {
   uma_auth: boolean;
   allRoles: any;
 
-  constructor(public toastCtrl: ToastController, private auth: AuthService, public navCtrl: NavController) {
+  constructor(public toastCtrl: ToastController, private auth: Auth, public navCtrl: NavController) {
     this.auth = auth;
     this.toastCtrl = toastCtrl;
     this.navCtrl = navCtrl;
@@ -34,7 +34,7 @@ export class AccessControlPage {
         this.uma_auth = this.auth.hasRealmRole('uma_authorization');
         this.allRoles = this.auth.getRealmRoles;
         console.log(this.allRoles);
-        
+
       })
       .catch((err) => console.error("Error retrieving user profile", err));
     } else {

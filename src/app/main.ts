@@ -1,7 +1,6 @@
-import { INSTANCE } from "../services/auth.service"
-import { initMetrics } from "../services/metrics"
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from '../app/app.module';
+import { INSTANCE } from "../services/auth.service"
 
 const platform = platformBrowserDynamic();
 // Init angular
@@ -18,12 +17,11 @@ if (window['cordova']) {
  * Initializes Auth auth and creates main angular context
  * This will reload angular context again
  */
-function initAuth() {  
+function initAuth() {
   INSTANCE.init({}).then(() => {
     console.info("Initialized auth SDK")
   }).catch((err) => {
     console.error("Problem with auth init", err)
   });
-  initMetrics();
 }
 
