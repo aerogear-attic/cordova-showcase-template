@@ -70,7 +70,8 @@
       "cordova-plugin-is-debug": {},
       "cordova-plugin-pincheck": {},
       "cordova-plugin-statusbar": {},
-      "cordova-plugin-sslcertificatechecker": {}
+      "cordova-plugin-sslcertificatechecker": {},
+      "cordova-plugin-aerogear-metrics": {}
     },
     "platforms": [
       "ios",
