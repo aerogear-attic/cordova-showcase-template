@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { PinCheck } from '@ionic-native/pin-check';
-import { SecurityService, SecurityCheckType, SecurityCheckResult } from '@aerogear/security';
+import { SecurityService, SecurityCheckType } from '@aerogear/security';
 import { SecurityCheckResultMetric } from '@aerogear/security';
 
 declare let device: any;
