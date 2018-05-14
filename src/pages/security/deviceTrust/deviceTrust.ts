@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { PinCheck } from '@ionic-native/pin-check';
 import { SecurityService, SecurityCheckType, SecurityCheckResult } from '@aerogear/security';
+import { SecurityCheckResultMetric } from '@aerogear/security';
 
 declare let device: any;
 
@@ -49,8 +50,8 @@ export class DeviceTrustPage {
   * Detect if the device is running on an emulator.
   */
   detectEmulator(): void {
-    this.securityService.check(SecurityCheckType.notEmulated)
-    .then((isEmulated: SecurityCheckResult) => {
+    this.securityService.checkAndPublishMetric(SecurityCheckType.notEmulated)
+    .then((isEmulated: SecurityCheckResultMetric) => {
       const emulatedMsg = isEmulated.passed ? "Emulator Not Detected" : "Emulator Detected";
       this.addDetection(emulatedMsg, isEmulated.passed)
     }).catch((err: Error) => console.log(err));
@@ -62,8 +63,8 @@ export class DeviceTrustPage {
   * Detect if the device is running Root.
   */
   detectRoot(): void {
-    this.securityService.check(SecurityCheckType.notRooted)
-    .then((isRooted: SecurityCheckResult) => {
+    this.securityService.checkAndPublishMetric(SecurityCheckType.notRooted)
+    .then((isRooted: SecurityCheckResultMetric) => {
       const rootedMsg = isRooted.passed ? "Root Access Detected" : "Root Access Not Detected";
       this.addDetection(rootedMsg, isRooted.passed);
     }).catch((err: Error) => console.log(err));
@@ -75,8 +76,8 @@ export class DeviceTrustPage {
   * Detect if the app is running in debug mode.
   */
   detectDebug(): void {
-    this.securityService.check(SecurityCheckType.notDebugMode)
-    .then((isDebugger: SecurityCheckResult) => {
+    this.securityService.checkAndPublishMetric(SecurityCheckType.notDebugMode)
+    .then((isDebugger: SecurityCheckResultMetric) => {
       const debuggerMsg = isDebugger.passed ? "Debug Mode Not Detected" : "Debug Mode Detected";
       this.addDetection(debuggerMsg, isDebugger.passed);
     }).catch((err: Error) => console.log(err));
