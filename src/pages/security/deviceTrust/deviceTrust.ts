@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { PinCheck } from '@ionic-native/pin-check';
 import { SecurityService, SecurityCheckType, SecurityCheckResult } from '@aerogear/security';
 
 declare let device: any;
@@ -7,6 +8,7 @@ declare let device: any;
 @Component({
   selector: 'page-deviceTrust',
   templateUrl: 'deviceTrust.html',
+  providers: [PinCheck]
 })
 export class DeviceTrustPage {
   detections: Array<{label: string, detected: boolean}>;
@@ -15,7 +17,7 @@ export class DeviceTrustPage {
   totalDetections: number;
   securityService: SecurityService;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, private pinCheck: PinCheck) {
     this.detections = [];
     this.trustScore = 0.0;
     this.totalTests = 0;
@@ -112,11 +114,11 @@ export class DeviceTrustPage {
   * Detect if a system device lock is set.
   */
   detectDeviceLock() {
-    this.securityService.check(SecurityCheckType.hasDeviceLock)
-    .then((isLocked: SecurityCheckResult) => {
-      const lockMsg = isLocked.passed ? "Device Lock Detected" : "Device Lock Not Detected";
-      this.addDetection(lockMsg, isLocked.passed);
-    }).catch((err: Error) => console.log(err));
+    this.pinCheck.isPinSetup()
+    .then(
+      (success) =>  { this.addDetection("Device Lock Enabled", false)},
+      (error) =>  {this.addDetection("Device Lock Not Enabled", true)}
+    );
   }
   // end::detectDeviceLock[]
 
