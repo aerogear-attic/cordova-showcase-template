@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="org.aerogear.js.showcase" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>cordova-showcase-template</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+    <description>Showcase of the AeroGear services.</description>
+    <author email="aerogear@googlegroups.com" href="https://aerogear.org/">AeroGear</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -81,10 +81,12 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^1.2.0" />
     <plugin name="cordova-plugin-inappbrowser" spec="~3.0.0" />
     <allow-navigation href="http://10.201.82.242:8100" />
-    <plugin name="cordova-plugin-iroot" spec="^0.7.0" />
     <plugin name="cordova-plugin-sslcertificatechecker" spec="^5.1.0" />
     <engine name="ios" spec="4.5.4" />
-    <engine name="android" spec="~7.0.0" />
     <allow-navigation href="http://192.168.1.2:8100" />
-    <plugin name="cordova-plugin-aerogear-metrics" spec="@aerogear/cordova-plugin-aerogear-metrics@~0.2.1" />
+    <plugin name="cordova-plugin-app-version" spec="~0.1.9" />
+    <plugin name="cordova-plugin-iroot" spec="^0.7.0" />
+    <plugin name="cordova-plugin-aerogear-metrics" spec="@aerogear/cordova-plugin-aerogear-metrics@~0.3.0" />
+    <plugin name="cordova-plugin-aerogear-security" spec="@aerogear/cordova-plugin-aerogear-security@~0.3.0" />
+    <engine name="android" spec="~7.1.0" />
 </widget>

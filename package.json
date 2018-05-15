@@ -15,9 +15,12 @@
     "linkDev": "npm link @aerogear/app @aerogear/auth @aerogear/security @aerogear/core"
   },
   "dependencies": {
-    "@aerogear/app": "0.2.1-alpha.81e3b443",
-    "@aerogear/auth": "0.2.1",
-    "@aerogear/core": "0.2.1",
+    "@aerogear/app": "^0.3.0",
+    "@aerogear/auth": "^0.3.0",
+    "@aerogear/cordova-plugin-aerogear-metrics": "^0.3.0",
+    "@aerogear/cordova-plugin-aerogear-security": "^0.3.0",
+    "@aerogear/core": "^0.3.0",
+    "@aerogear/security": "^0.3.0",
     "@angular/animations": "5.2.9",
     "@angular/common": "5.2.9",
     "@angular/compiler": "5.2.9",
@@ -33,8 +36,10 @@
     "@ionic-native/splash-screen": "4.6.0",
     "@ionic-native/status-bar": "4.6.0",
     "@ionic/storage": "2.1.3",
-    "cordova-android": "7.0.0",
+    "cordova-android": "^7.1.0",
     "cordova-ios": "4.5.4",
+    "cordova-plugin-app-version": "^0.1.9",
+    "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-inappbrowser": "^3.0.0",
     "cordova-plugin-ionic-webview": "^1.2.1",
     "cordova-plugin-iroot": "^0.7.0",
@@ -65,17 +70,19 @@
       "cordova-plugin-whitelist": {},
       "cordova-plugin-secure-key-store": {},
       "cordova-plugin-privacyscreen": {},
-      "cordova-plugin-iroot": {},
       "cordova-plugin-inappbrowser": {},
-      "cordova-plugin-is-debug": {},
       "cordova-plugin-pincheck": {},
       "cordova-plugin-statusbar": {},
+      "cordova-plugin-is-debug": {},
       "cordova-plugin-sslcertificatechecker": {},
-      "cordova-plugin-aerogear-metrics": {}
+      "cordova-plugin-aerogear-metrics": {},
+      "cordova-plugin-aerogear-security": {},
+      "cordova-plugin-app-version": {},
+      "cordova-plugin-iroot": {}
     },
     "platforms": [
-      "ios",
-      "android"
+      "android",
+      "ios"
     ]
   }
 }
