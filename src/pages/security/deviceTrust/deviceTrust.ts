@@ -1,15 +1,13 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { PinCheck } from '@ionic-native/pin-check';
-import { SecurityService, SecurityCheckType } from '@aerogear/security';
+import { NavController, ToastController } from 'ionic-angular';
+import { SecurityService, SecurityCheckType, SecurityCheckResult } from '@aerogear/security';
 import { SecurityCheckResultMetric } from '@aerogear/security';
 
 declare let device: any;
 
 @Component({
   selector: 'page-deviceTrust',
-  templateUrl: 'deviceTrust.html',
-  providers: [PinCheck]
+  templateUrl: 'deviceTrust.html'
 })
 export class DeviceTrustPage {
   detections: Array<{label: string, detected: boolean}>;
@@ -18,7 +16,7 @@ export class DeviceTrustPage {
   totalDetections: number;
   securityService: SecurityService;
 
-  constructor(public navCtrl: NavController, private pinCheck: PinCheck) {
+  constructor(public navCtrl: NavController, private toastCtrl: ToastController) {
     this.detections = [];
     this.trustScore = 0.0;
     this.totalTests = 0;
@@ -34,14 +32,21 @@ export class DeviceTrustPage {
     this.detectDeviceLock();
   }
 
-  addDetection(label: string, detected: boolean) {
+  performChecksAndPublishMetrics(): Promise<SecurityCheckResult[]> {
+    return this.securityService.checkManyAndPublishMetric(SecurityCheckType.notDebugMode,
+      SecurityCheckType.notRooted,
+      SecurityCheckType.notEmulated,
+      SecurityCheckType.hasDeviceLock);
+  }
+
+  addDetection(label: string, isSecure: boolean) {
     this.totalTests++;
 
-    if(detected) {
+    if(!isSecure) {
       this.totalDetections++;
     }
 
-    this.detections.push({label: label, detected: detected});
+    this.detections.push({label: label, detected: isSecure});
     this.trustScore = (100 - (((this.totalDetections / this.totalTests) * 100)));
   }
 
@@ -50,11 +55,11 @@ export class DeviceTrustPage {
   * Detect if the device is running on an emulator.
   */
   detectEmulator(): void {
-    this.securityService.checkAndPublishMetric(SecurityCheckType.notEmulated)
-    .then((isEmulated: SecurityCheckResultMetric) => {
-      const emulatedMsg = isEmulated.passed ? "Emulator Not Detected" : "Emulator Detected";
-      this.addDetection(emulatedMsg, isEmulated.passed)
-    }).catch((err: Error) => console.log(err));
+    this.securityService.check(SecurityCheckType.notEmulated)
+      .then((isEmulated: SecurityCheckResult) => {
+        const emulatedMsg = isEmulated.passed ? "Emulator Not Detected" : "Emulator Detected";
+        this.addDetection(emulatedMsg, isEmulated.passed)
+      }).catch((err: Error) => console.log(err));
   }
   // end::detectEmulator[]
 
@@ -63,11 +68,11 @@ export class DeviceTrustPage {
   * Detect if the device is running Root.
   */
   detectRoot(): void {
-    this.securityService.checkAndPublishMetric(SecurityCheckType.notRooted)
-    .then((isRooted: SecurityCheckResultMetric) => {
-      const rootedMsg = isRooted.passed ? "Root Access Detected" : "Root Access Not Detected";
-      this.addDetection(rootedMsg, isRooted.passed);
-    }).catch((err: Error) => console.log(err));
+    this.securityService.check(SecurityCheckType.notRooted)
+      .then((isRooted: SecurityCheckResult) => {
+        const rootedMsg = isRooted.passed ? "Root Access Not Detected" : "Root Access Detected";
+        this.addDetection(rootedMsg, isRooted.passed);
+      }).catch((err: Error) => console.log(err));
   }
   // end::detectRoot[]
 
@@ -76,11 +81,11 @@ export class DeviceTrustPage {
   * Detect if the app is running in debug mode.
   */
   detectDebug(): void {
-    this.securityService.checkAndPublishMetric(SecurityCheckType.notDebugMode)
-    .then((isDebugger: SecurityCheckResultMetric) => {
-      const debuggerMsg = isDebugger.passed ? "Debug Mode Not Detected" : "Debug Mode Detected";
-      this.addDetection(debuggerMsg, isDebugger.passed);
-    }).catch((err: Error) => console.log(err));
+    this.securityService.check(SecurityCheckType.notDebugMode)
+      .then((isDebugger: SecurityCheckResult) => {
+        const debuggerMsg = isDebugger.passed ? "Debug Mode Not Detected" : "Debug Mode Detected";
+        this.addDetection(debuggerMsg, isDebugger.passed);
+      }).catch((err: Error) => console.log(err));
   }
   // end::detectDebug[]
 
@@ -115,16 +120,27 @@ export class DeviceTrustPage {
   * Detect if a system device lock is set.
   */
   detectDeviceLock() {
-    this.pinCheck.isPinSetup()
-    .then(
-      (success) =>  { this.addDetection("Device Lock Enabled", false)},
-      (error) =>  {this.addDetection("Device Lock Not Enabled", true)}
-    );
+    this.securityService.check(SecurityCheckType.hasDeviceLock)
+      .then((deviceLockEnabled: SecurityCheckResult) => {
+        const deviceLockMsg = deviceLockEnabled.passed ? "Device Lock Detected" : "Device Lock Not Detected";
+        this.addDetection(deviceLockMsg, deviceLockEnabled.passed);
+      });
   }
   // end::detectDeviceLock[]
 
   ionViewDidEnter(): void {
     this.performChecks();
+    this.performChecksAndPublishMetrics()
+      .then((results: SecurityCheckResultMetric[]) => this.toastCtrl.create({
+        message: `${results.length} metrics were sent successfully`,
+        duration: 3000,
+        dismissOnPageChange: true
+      }).present())
+      .catch(error => this.toastCtrl.create({
+        message: `An error occurred while sending metrics: ${error}`,
+        duration: 2000,
+        dismissOnPageChange: true
+      }).present());
   }
 
 }

@@ -85,8 +85,8 @@
     <engine name="ios" spec="4.5.4" />
     <allow-navigation href="http://192.168.1.2:8100" />
     <plugin name="cordova-plugin-app-version" spec="~0.1.9" />
-    <plugin name="cordova-plugin-aerogear-metrics" spec="../packages/metrics-cordova" />
-    <plugin name="cordova-plugin-aerogear-security" spec="../packages/security-cordova" />
     <plugin name="cordova-plugin-iroot" spec="^0.7.0" />
+    <plugin name="cordova-plugin-aerogear-metrics" spec="@aerogear/cordova-plugin-aerogear-metrics@~0.3.0" />
+    <plugin name="cordova-plugin-aerogear-security" spec="@aerogear/cordova-plugin-aerogear-security@~0.3.0" />
     <engine name="android" spec="~7.1.0" />
 </widget>
