@@ -3,8 +3,6 @@ import { NavController, ToastController } from 'ionic-angular';
 import { SecurityService, SecurityCheckType, SecurityCheckResult } from '@aerogear/security';
 import { SecurityCheckResultMetric } from '@aerogear/security';
 
-declare let device: any;
-
 @Component({
   selector: 'page-deviceTrust',
   templateUrl: 'deviceTrust.html'
@@ -28,7 +26,6 @@ export class DeviceTrustPage {
     this.detectRoot(); 
     this.detectEmulator();
     this.detectDebug();
-    this.detectLatestOS();
     this.detectDeviceLock();
   }
 
@@ -88,32 +85,6 @@ export class DeviceTrustPage {
       }).catch((err: Error) => console.log(err));
   }
   // end::detectDebug[]
-
-  // tag::detectLatestOS[]
-  /**
-  * Detect if the device is running the latest version of Android and iOS.
-  */
-  detectLatestOS() {
-    var platform = device.platform;
-    var deviceVersion = device.version;
-
-    if(platform === "Android") {
-      var latestAndroidVersion = 8.0;
-      if (deviceVersion < latestAndroidVersion) {
-        this.addDetection("Outdated OS Version Detected", true);
-      } else {
-        this.addDetection("Latest OS Version Detected", false);
-      }
-    } else if(platform === "iOS") {
-      var latestIosVersion = 11.0;
-      if (deviceVersion < latestIosVersion) {
-        this.addDetection("Outdated OS Version Detected", true);
-      } else {
-        this.addDetection("Latest OS Version Detected", false);
-      }
-    }
-  }
-  // end::detectLatestOS[]
 
   // tag::detectDeviceLock[]
   /**
