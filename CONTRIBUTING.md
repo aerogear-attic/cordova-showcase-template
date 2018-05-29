@@ -28,7 +28,7 @@ Ensure you have the following installed in your machine:
 
 
 # Developing the Cordova Showcase Application Template for testing new SDK features
-Note: Work completed on un released SDK features should never be merged to `master` all experimental work should be merged to `development` branch only.
+Note: Work completed on un released SDK features should never be merged to `master` all experimental work should be merged to a `development` branch only.
 
 ## Cloning the repository
 
@@ -42,34 +42,23 @@ cd aerogear-js-sdk
 git clone git@github.com:aerogear/cordova-showcase-template.git cordova-example
 ```
 
-## Build the SDK repository
- 
-From the SDK dir run the following to build and link the dependencies:
+## Link the SDK repository
+The master branch of the linked showcase application will always use the latest released sdk packages. However, if you wish to use the showcase application for SDK development then ensure you have linked the relevant packages locally as follows:
+
+From the SDK root folder run the following to build and link the dependencies:
 ```
 npm install
 npm run bootstrap
 npm run build
+npm run link
 ```
 
-## Build the showcase application
-
-To build the application:
+From the Showcase app root folder, run the following to install the application dependencies and link the local version of the SDK.
 ```
 cd cordova-example
 npm install 
-npm run build
+npm run linkDev
 ```
-
-## Link required packages
-
-To work with development versions of the libraries use link command.
-For example:
-
-```
-npm link @aerogear/app @aerogear/auth @aerogear/security @aerogear/core
-```
-
-> NOTE: You can also use `npm run linkDev`
 
 ## Run showcase app
 
