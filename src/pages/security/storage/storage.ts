@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ToastController } from 'ionic-angular';
 import { StorageService } from '../../../services/storage.service';
 import { AlertController } from 'ionic-angular';
+import { SecurityService, SecurityCheckType, SecurityCheckResult } from '@aerogear/security';
 
 @Component({
   selector: 'page-storage',
@@ -10,12 +11,14 @@ import { AlertController } from 'ionic-angular';
 })
 export class StoragePage {
   notes: any;
+  securityService: SecurityService;
 
-  constructor(private storageService: StorageService, public navCtrl: NavController, public alertCtrl: AlertController) {
+  constructor(private storageService: StorageService, public navCtrl: NavController, public alertCtrl: AlertController, private toastCtrl: ToastController) {
     this.storageService = storageService
     this.alertCtrl = alertCtrl;
     this.notes = [];
-  }
+    this.securityService = new SecurityService();
+    }
 
   listNotes() {
     this.storageService.getNotes().then((notes) => {
@@ -29,6 +32,27 @@ export class StoragePage {
       this.listNotes();
     });
   }
+
+  public deviceLockCheck() {
+    this.securityService.check(SecurityCheckType.hasDeviceLock)
+    .then((deviceLockEnabled: SecurityCheckResult) => {
+      if (deviceLockEnabled.passed) {
+        this.toastCtrl.create({
+          message: `Device Lock Detected`,
+          duration: 3000,
+          position: "bottom"
+        }).present();
+      } else {
+        this.toastCtrl.create({
+          message: "No Device Lock Detected. Enable to use Storage",
+          duration: 3000,
+          position: "bottom"
+        }).present();
+      }
+      console.log(deviceLockEnabled.passed);
+    });
+  }
+
 
   showCreateModal() {
     let alert = this.alertCtrl.create({
@@ -78,6 +102,7 @@ export class StoragePage {
 
   ionViewDidEnter(): void {
     this.listNotes();
+    this.deviceLockCheck();
   }
 
 }
