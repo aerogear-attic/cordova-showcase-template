@@ -33,26 +33,23 @@ export class StoragePage {
     });
   }
 
-  public deviceLockCheck() {
+  deviceLockCheck() {
     this.securityService.check(SecurityCheckType.hasDeviceLock)
     .then((deviceLockEnabled: SecurityCheckResult) => {
-      if (deviceLockEnabled.passed) {
-        this.toastCtrl.create({
-          message: `Device Lock Detected`,
-          duration: 3000,
-          position: "top"
-        }).present();
-      } else {
-        this.toastCtrl.create({
-          message: "No Device Lock Detected. Enable to use Storage",
-          duration: 3000,
-          position: "bottom"
-        }).present();
+      if (!deviceLockEnabled.passed) {
+        this.deviceLockToast();
+      }else{
+        this.showCreateModal();
       }
-      console.log(deviceLockEnabled.passed);
     });
   }
 
+  deviceLockToast(){
+    this.toastCtrl.create({
+      message: "No Device Lock Detected. Enable to use Storage",
+      duration: 3000,
+    }).present();
+  }
 
   showCreateModal() {
     let alert = this.alertCtrl.create({
@@ -102,7 +99,6 @@ export class StoragePage {
 
   ionViewDidEnter(): void {
     this.listNotes();
-    this.deviceLockCheck();
   }
 
 }
