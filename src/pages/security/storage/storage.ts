@@ -40,7 +40,7 @@ export class StoragePage {
         this.toastCtrl.create({
           message: `Device Lock Detected`,
           duration: 3000,
-          position: "bottom"
+          position: "top"
         }).present();
       } else {
         this.toastCtrl.create({
