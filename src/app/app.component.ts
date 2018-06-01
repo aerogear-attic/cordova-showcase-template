@@ -14,6 +14,7 @@ import { StoragePage } from '../pages/security/storage/storage';
 import { SideMenuSettings } from './../shared/side-menu-content/models/side-menu-settings';
 import { SideMenuOption } from './../shared/side-menu-content/models/side-menu-option';
 import { SideMenuContentComponent } from './../shared/side-menu-content/side-menu-content.component';
+import {PushPage} from "../pages/push/push";
 
 @Component({
   templateUrl: 'app.html'
@@ -48,7 +49,8 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages.push(
       { displayText: 'Home', component: HomePage, iconName: 'home' },
-      { displayText: 'Authentication', component: AuthPage, iconName: 'lock' }
+      { displayText: 'Authentication', component: AuthPage, iconName: 'lock' },
+      { displayText: 'Push',  component: PushPage, iconName: 'radio' }
     );
 
     this.pages.push({

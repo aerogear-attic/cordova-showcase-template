@@ -25,3 +25,19 @@
     color: #fff;
     position: relative;
 }
+
+.toast-error {
+  > div{
+    background-color: red !important;
+    color: white !important;
+    font-weight: bold;
+  }
+}
+
+.toast-success {
+  > div{
+    background-color: blue !important;
+    color: white !important;
+    font-weight: bold;
+  }
+}
