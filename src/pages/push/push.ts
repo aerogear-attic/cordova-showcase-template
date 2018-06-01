@@ -10,7 +10,6 @@ export class PushPage {
   public static notifications: PushNotification[] = [];
 
   constructor(private push: PushService) {
-
   }
 
   disablePush() {

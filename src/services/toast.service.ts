@@ -2,7 +2,7 @@ import { ToastController } from 'ionic-angular';
 import {Injectable} from "@angular/core";
 
 /**
- * Wrapst the ionic ToastController and provider a simplified interface to trigger
+ * Wraps the ionic ToastController and provider a simplified interface to trigger
  * success and error messages
  */
 @Injectable()

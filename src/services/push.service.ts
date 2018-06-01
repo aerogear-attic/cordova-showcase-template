@@ -6,9 +6,15 @@ import {PushNotification} from "../pages/push/notification";
 
 const PUSH_ALIAS = "cordova";
 
+/**
+ * Handles interactions with the push plugin and provides an easy interface
+ * to register and unregister from push notifications
+ */
 @Injectable()
 export class PushService {
   public static registered: boolean = false;
+
+  // We want one single instance & callback app wide
   static pushObject: PushObject = null;
   static callback: (notification: PushNotification) => void;
 
@@ -26,16 +32,18 @@ export class PushService {
     });
   }
 
-  public emit(notification: PushNotification) {
+  private emit(notification: PushNotification) {
     if (PushService.callback) {
       PushService.callback(notification);
     }
   }
 
+  // The callback will be triggered when a push notificatoin is received
   public setCallback(cb: (notification: PushNotification) => void) {
     PushService.callback = cb;
   }
 
+  // No longer receive notifications
   public unregister() {
     PushService.pushObject.unregister().then(() => {
       PushService.registered = false;
