@@ -3,7 +3,7 @@
     <name>cordova-showcase-template</name>
     <description>Showcase of the AeroGear services.</description>
     <author email="aerogear@googlegroups.com" href="https://aerogear.org/">AeroGear</author>
-    <content original-src="index.html" src="http://192.168.178.20:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -84,7 +84,9 @@
     <plugin name="cordova-plugin-sslcertificatechecker" spec="^5.1.0" />
     <plugin name="cordova-plugin-aerogear-metrics" spec="@aerogear/cordova-plugin-aerogear-metrics@~0.3.0" />
     <plugin name="cordova-plugin-aerogear-security" spec="@aerogear/cordova-plugin-aerogear-security@~0.3.0" />
-    <engine name="ios" spec="~4.5.4" />
-    <engine name="android" spec="~7.1.0" />
     <plugin name="cordova-plugin-secure-storage" spec="^2.6.8" />
+    <allow-navigation href="http://192.168.178.20:8100" />
+    <engine name="android" spec="7.1.0" />
+    <engine name="ios" spec="4.5.4" />
+    <plugin name="phonegap-plugin-push" spec="^2.2.3" />
 </widget>

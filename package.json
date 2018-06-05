@@ -15,11 +15,11 @@
     "linkDev": "npm link @aerogear/app @aerogear/auth @aerogear/security @aerogear/core @aerogear/push"
   },
   "dependencies": {
-    "@aerogear/app": "^0.3.0",
-    "@aerogear/auth": "^0.3.0",
-    "@aerogear/cordova-plugin-aerogear-metrics": "^0.3.0",
-    "@aerogear/cordova-plugin-aerogear-security": "^0.3.0",
-    "@aerogear/core": "^0.3.0",
+    "@aerogear/app": "^0.4.0",
+    "@aerogear/auth": "^0.4.0",
+    "@aerogear/cordova-plugin-aerogear-metrics": "^0.4.0",
+    "@aerogear/cordova-plugin-aerogear-security": "^0.4.0",
+    "@aerogear/core": "^0.4.0",
     "@aerogear/push": "^0.4.0",
     "@aerogear/security": "^0.3.0",
     "@angular/animations": "5.2.9",
