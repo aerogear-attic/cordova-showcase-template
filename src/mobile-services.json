@@ -27,6 +27,23 @@
       "type": "metrics",
       "url": "https://www.mocky.io/v2/5aa696133100001335e716e0",
       "config": {}
+    },
+    {
+      "id": "push",
+      "name": "push",
+      "type": "push",
+      "url": "http://ups-insecure-myproject.192.168.37.1.nip.io/",
+      "config": {
+        "ios": {
+          "variantId": "70d8f761-cf64-485e-9606-b5bb88b4980d",
+          "variantSecret": "df19570a-36a4-4980-803f-9beec3dff020"
+        },
+        "android": {
+          "variantId": "f42cad2a-98e4-4f4c-8283-14cc3fe80993",
+          "variantSecret": "237d09d9-383d-4fd1-9993-23eee85166ec",
+          "senderId": "754329551899"
+        }
+      }
     }
   ]
 }

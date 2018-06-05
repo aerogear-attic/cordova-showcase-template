@@ -26,7 +26,7 @@ jobs:
       - run:
           name: link-sdk
           working_directory: ./node_modules/@aerogear
-          command: ln -s ../../sdk/packages/auth auth && ln -s ../../sdk/packages/core core && ln -s ../../sdk/packages/app app && ln -s ../../sdk/packages/security security
+          command: ln -s ../../sdk/packages/auth auth && ln -s ../../sdk/packages/core core && ln -s ../../sdk/packages/app app && ln -s ../../sdk/packages/security security && ln -s ../../sdk/packages/push push
       - run:
           name: run build
           command: npm run build

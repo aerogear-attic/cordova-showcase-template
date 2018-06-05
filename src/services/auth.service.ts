@@ -14,7 +14,7 @@ export let authProvider = {
   provide: Auth,
   useFactory: keycloakFactory,
   deps: []
-}
+};
 
 
 
