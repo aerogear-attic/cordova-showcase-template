@@ -32,15 +32,15 @@
       "id": "push",
       "name": "push",
       "type": "push",
-      "url": "http://ups-insecure-myproject.192.168.37.1.nip.io/",
+      "url": "https://ups-dm-myproject-1.193b.starter-ca-central-1.openshiftapps.com/",
       "config": {
         "ios": {
           "variantId": "70d8f761-cf64-485e-9606-b5bb88b4980d",
           "variantSecret": "df19570a-36a4-4980-803f-9beec3dff020"
         },
         "android": {
-          "variantId": "f42cad2a-98e4-4f4c-8283-14cc3fe80993",
-          "variantSecret": "237d09d9-383d-4fd1-9993-23eee85166ec",
+          "variantId": "6fa16a51-aac1-40fc-a8d9-adcd7c0c27c2",
+          "variantSecret": "e7f1e444-3dc3-4e27-b1dd-d74f51b8b0e1",
           "senderId": "754329551899"
         }
       }
