@@ -14,7 +14,7 @@ import { StoragePage } from '../pages/security/storage/storage';
 import { SideMenuSettings } from './../shared/side-menu-content/models/side-menu-settings';
 import { SideMenuOption } from './../shared/side-menu-content/models/side-menu-option';
 import { SideMenuContentComponent } from './../shared/side-menu-content/side-menu-content.component';
-import {PushPage} from "../pages/push/push";
+import { PushPage } from "../pages/push/push";
 
 @Component({
   templateUrl: 'app.html'
