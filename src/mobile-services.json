@@ -35,12 +35,12 @@
       "url": "https://ups-dm-myproject-1.193b.starter-ca-central-1.openshiftapps.com/",
       "config": {
         "ios": {
-          "variantId": "f85015b4-a762-49a7-a36f-34a451f819a4",
-          "variantSecret": "978b35d6-7058-43b4-8c37-4dc30022ebda"
+          "variantId": "70d8f761-cf64-485e-9606-b5bb88b4980d",
+          "variantSecret": "df19570a-36a4-4980-803f-9beec3dff020"
         },
         "android": {
-          "variantId": "795d5953-558c-4026-9407-194169fbf7fa",
-          "variantSecret": "92fd41dd-505b-4513-aaea-d02e27251695",
+          "variantId": "6fa16a51-aac1-40fc-a8d9-adcd7c0c27c2",
+          "variantSecret": "e7f1e444-3dc3-4e27-b1dd-d74f51b8b0e1",
           "senderId": "754329551899"
         }
       }
