@@ -76,7 +76,6 @@
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-whitelist": {},
       "cordova-plugin-secure-key-store": {},
-      "cordova-plugin-privacyscreen": {},
       "cordova-plugin-inappbrowser": {},
       "cordova-plugin-pincheck": {},
       "cordova-plugin-statusbar": {},
