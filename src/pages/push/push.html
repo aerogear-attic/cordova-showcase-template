@@ -8,6 +8,9 @@
 </ion-header>
 
 <ion-content class="push-background">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingText="Swipe down to refresh"></ion-refresher-content>
+    </ion-refresher>
     <ion-grid>
         <ion-row *ngFor="let item of messages">
             <ion-col>

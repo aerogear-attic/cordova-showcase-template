@@ -18,6 +18,8 @@ export class PushService {
   static pushObject: PushObject = null;
   static callback: (notification: PushNotification) => void;
 
+  public messages: PushNotification[] = [];
+
   constructor(private toast: SimpleToastService) {
   }
 
@@ -63,9 +65,9 @@ export class PushService {
     PushService.pushObject.on('registration').subscribe(data => {
       new PushRegistration().register(data.registrationId, PUSH_ALIAS).then(() => {
         PushService.registered = true;
-        this.toast.showSuccess("Push registration successful");
+        this.toast.showSuccess("Push registration successful", "bottom");
       }).catch(err => {
-        this.toast.showError(err.message);
+        this.toast.showError(err.message, "bottom");
       });
     });
 
@@ -75,6 +77,7 @@ export class PushService {
         received: new Date().toDateString()
       };
 
+      this.messages.push(newNotification);
       this.emit(newNotification);
     });
   }

@@ -1,33 +1,29 @@
-import {ChangeDetectorRef, Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { PushNotification } from "./notification";
-import {PushService} from "../../services/push.service";
+import { PushService } from "../../services/push.service";
+import { Refresher } from "ionic-angular";
 
 @Component({
   selector: 'page-push',
   templateUrl: 'push.html'
 })
 export class PushPage {
-  public static notifications: PushNotification[] = [];
+  public messages: PushNotification[] = null;
 
-  constructor(private push: PushService, ref: ChangeDetectorRef) {
-    setInterval(() => {
-      ref.detectChanges();
-    }, 2000);
+  constructor(private push: PushService) {
+    this.messages = push.messages;
   }
 
   disablePush() {
     this.push.unregister();
   }
 
-  public static addNotification(notification: PushNotification) {
-    PushPage.notifications.push(notification);
+  doRefresh(refresher: Refresher) {
+    this.messages = this.push.messages;
+    refresher.complete();
   }
 
-  public buttonVisible(): boolean {
+  buttonVisible() {
     return PushService.registered;
-  }
-
-  get messages() {
-    return PushPage.notifications;
   }
 }

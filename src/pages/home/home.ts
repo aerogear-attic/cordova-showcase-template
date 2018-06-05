@@ -21,9 +21,9 @@ export class HomePage {
     });
   }
 
-  addNotification(noticication: PushNotification) {
+  addNotification(notification: PushNotification) {
+    console.debug(`Received push notification: ${notification.message}`);
     const currentPage = this.navCtrl.getActive(true).name;
-    PushPage.addNotification(noticication);
 
     // Navigate to push page only if we aren't already there
     if (PushPage.name !== currentPage) {
