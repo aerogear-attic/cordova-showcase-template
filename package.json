@@ -18,6 +18,7 @@
     "@aerogear/app": "^0.4.0",
     "@aerogear/auth": "^0.4.0",
     "@aerogear/cordova-plugin-aerogear-metrics": "^0.4.0",
+    "@aerogear/cordova-plugin-aerogear-push": "^0.4.0",
     "@aerogear/cordova-plugin-aerogear-security": "^0.4.0",
     "@aerogear/core": "^0.4.0",
     "@aerogear/push": "^0.4.0",
@@ -86,7 +87,8 @@
       "cordova-plugin-app-version": {},
       "cordova-plugin-iroot": {},
       "cordova-plugin-secure-storage": {},
-      "phonegap-plugin-push": {}
+      "phonegap-plugin-push": {},
+      "cordova-plugin-aerogear-push": {}
     },
     "platforms": [
       "android",
