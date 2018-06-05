@@ -48,6 +48,3 @@ demos/src/**/*.css.shim.ts
 
 platforms/
 plugins/
-
-src/mobile-services.json
-google-services.json
