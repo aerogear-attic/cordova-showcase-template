@@ -23,7 +23,6 @@ import {PushPage} from "../pages/push/push";
 import {PushService} from "../services/push.service";
 import {SimpleToastService} from "../services/toast.service";
 
-
 @NgModule({
   declarations: [
     MyApp,

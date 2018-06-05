@@ -15,9 +15,11 @@ export class HomePage {
   constructor(private navCtrl: NavController, push: PushService, plt: Platform, public auth: Auth) {
     // We need to wait for the platform to initialize the plugins
     plt.ready().then(() => {
-      push.initPush();
-      push.setCallback((n) => this.addNotification(n));
-      push.register();
+      if (!PushService.registered) {
+          push.initPush();
+          push.setCallback((n) => this.addNotification(n));
+          push.register();
+      }
     });
   }
 

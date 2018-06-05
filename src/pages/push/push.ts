@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {ChangeDetectorRef, Component} from '@angular/core';
 import { PushNotification } from "./notification";
 import {PushService} from "../../services/push.service";
 
@@ -9,15 +9,14 @@ import {PushService} from "../../services/push.service";
 export class PushPage {
   public static notifications: PushNotification[] = [];
 
-  constructor(private push: PushService) {
+  constructor(private push: PushService, ref: ChangeDetectorRef) {
+    setInterval(() => {
+      ref.detectChanges();
+    }, 2000);
   }
 
   disablePush() {
     this.push.unregister();
-  }
-
-  getNotifications() {
-    return PushPage.notifications;
   }
 
   public static addNotification(notification: PushNotification) {
@@ -26,5 +25,9 @@ export class PushPage {
 
   public buttonVisible(): boolean {
     return PushService.registered;
+  }
+
+  get messages() {
+    return PushPage.notifications;
   }
 }

@@ -63,9 +63,9 @@ export class PushService {
     PushService.pushObject.on('registration').subscribe(data => {
       new PushRegistration().register(data.registrationId, PUSH_ALIAS).then(() => {
         PushService.registered = true;
-        this.toast.showSuccess("Device successfully registered for push");
+        this.toast.showSuccess("Push registration successful");
       }).catch(err => {
-        this.toast.showError("Error registering device for push");
+        this.toast.showError(err.message);
       });
     });
 
