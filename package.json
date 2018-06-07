@@ -86,7 +86,10 @@
       "cordova-plugin-app-version": {},
       "cordova-plugin-iroot": {},
       "cordova-plugin-secure-storage": {},
-      "phonegap-plugin-push": {},
+      "phonegap-plugin-push": {
+        "ANDROID_SUPPORT_V13_VERSION": "27.+",
+        "FCM_VERSION": "11.6.2"
+      },
       "cordova-plugin-aerogear-push": {}
     },
     "platforms": [
