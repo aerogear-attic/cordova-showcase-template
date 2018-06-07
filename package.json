@@ -81,12 +81,12 @@
       "cordova-plugin-statusbar": {},
       "cordova-plugin-is-debug": {},
       "cordova-plugin-sslcertificatechecker": {},
-      "cordova-plugin-aerogear-metrics": {},
-      "cordova-plugin-aerogear-security": {},
       "cordova-plugin-app-version": {},
       "cordova-plugin-iroot": {},
       "cordova-plugin-secure-storage": {},
-      "phonegap-plugin-push": {},
+      "@aerogear/cordova-plugin-aerogear-metrics": {},
+      "@aerogear/cordova-plugin-aerogear-security": {},
+      "@aerogear/cordova-plugin-aerogear-push": {},
       "cordova-plugin-aerogear-push": {}
     },
     "platforms": [
