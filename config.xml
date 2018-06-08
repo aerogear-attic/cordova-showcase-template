@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="org.aerogear.js.showcase" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>cordova-showcase-template</name>
+    <name>AeroGear Cordova Showcase</name>
     <description>Showcase of the AeroGear services.</description>
     <author email="aerogear@googlegroups.com" href="https://aerogear.org/">AeroGear</author>
     <content src="index.html" />
@@ -78,8 +78,7 @@
     <plugin name="@aerogear/cordova-plugin-aerogear-metrics" />
     <plugin name="@aerogear/cordova-plugin-aerogear-security" />
     <plugin name="@aerogear/cordova-plugin-aerogear-push" />
-    <engine name="ios" spec="~4.5.4" />
     <plugin name="cordova-plugin-secure-storage" spec="^2.6.8" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
-    <engine name="android" spec="~7.1.0" />
+    <engine name="ios" spec="~4.5.4" />
 </widget>
