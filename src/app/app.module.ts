@@ -11,7 +11,6 @@ import { HomePage } from '../pages/home/home';
 import { AuthPage } from '../pages/auth/auth';
 import { DeviceTrustPage } from '../pages/security/deviceTrust/deviceTrust';
 import { AuthDetailsPage } from '../pages/authDetails/authDetails';
-import { AccessControlPage } from '../pages/security/accessControl/accessControl';
 import { NetworkPage } from '../pages/security/network/network';
 import { StoragePage } from '../pages/security/storage/storage';
 
@@ -30,7 +29,6 @@ import {SimpleToastService} from "../services/toast.service";
     AuthPage,
     PushPage,
     AuthDetailsPage,
-    AccessControlPage,
     DeviceTrustPage,
     NetworkPage,
     StoragePage,
@@ -48,7 +46,6 @@ import {SimpleToastService} from "../services/toast.service";
     AuthPage,
     PushPage,
     AuthDetailsPage,
-    AccessControlPage, 
     DeviceTrustPage,
     NetworkPage,
     StoragePage,
