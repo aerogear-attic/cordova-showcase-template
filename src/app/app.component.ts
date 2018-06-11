@@ -5,7 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { AuthPage } from '../pages/auth/auth';
-import { AccessControlPage } from '../pages/security/accessControl/accessControl';
 import { DeviceTrustPage } from '../pages/security/deviceTrust/deviceTrust';
 import { NetworkPage } from '../pages/security/network/network';
 import { StoragePage } from '../pages/security/storage/storage';
@@ -56,7 +55,6 @@ export class MyApp {
     this.pages.push({
       displayText: 'Security',
       suboptions: [
-        { displayText: 'Access Control', component: AccessControlPage, iconName: 'key' },
         { displayText: 'Device Trust', component: DeviceTrustPage, iconName: 'phone-portrait' },
         { displayText: 'Network', component: NetworkPage, iconName: 'wifi' },
         { displayText: 'Storage', component: StoragePage, iconName: 'folder' }
