@@ -9,6 +9,8 @@ import { DeviceTrustPage } from '../pages/security/deviceTrust/deviceTrust';
 import { StoragePage } from '../pages/security/storage/storage';
 import { PushPage } from "../pages/push/push";
 import { ConstructionPage } from '../pages/construction/construction';
+import { AuthDetailsPage } from '../pages/authDetails/authDetails';
+import { DocumentationPage } from '../pages/documentation/documentation';
 
 @Component({
   templateUrl: 'app.html'
@@ -34,24 +36,24 @@ export class MyApp {
     this.pages.push(
       { title: 'Home', component: HomePage, icon: 'home' },
       
-      { title: 'Identity Management', component: AuthPage, icon: 'account_circle' },
-      { title: 'Documentation', component: HomePage, icon: '' },
+      { title: 'Identity Management', component: AuthDetailsPage, icon: 'account_circle' },
+      { title: 'Documentation', component: DocumentationPage, icon: '' },
       { title: 'Authentication', component: AuthPage, icon: '' },
       { title: 'SSO', component: ConstructionPage, icon: '' },
       
-      { title: 'Device Security', component: AuthPage, icon: 'security' },
-      { title: 'Documentation', component: AuthPage, icon: '' },
+      { title: 'Device Security', component: DeviceTrustPage, icon: 'security' },
+      { title: 'Documentation', component: DocumentationPage, icon: '' },
       { title: 'Device Trust', component: DeviceTrustPage, icon: '' },
       { title: 'Secure Storage', component: StoragePage, icon: '' },
       { title: 'Cert Pinning', component: ConstructionPage, icon: '' },
       
       { title: 'Push Notifications', component: PushPage, icon: 'notifications_active' },
-      { title: 'Documentation', component: AuthPage, icon: '' },
+      { title: 'Documentation', component: DocumentationPage, icon: '' },
       { title: 'Device Registration', component: ConstructionPage, icon: '' },
       { title: 'Push Messages', component: ConstructionPage, icon: '' },
 
       { title: 'Metrics', component: ConstructionPage, icon: 'insert_chart' },
-      { title: 'Documentation', component: AuthPage, icon: '' },
+      { title: 'Documentation', component: DocumentationPage, icon: '' },
       { title: 'Device Profile Info', component: ConstructionPage, icon: '' },
       { title: 'Trust Check Info', component: ConstructionPage, icon: '' }
       

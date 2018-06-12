@@ -13,6 +13,7 @@ import { DeviceTrustPage } from '../pages/security/deviceTrust/deviceTrust';
 import { AuthDetailsPage } from '../pages/authDetails/authDetails';
 import { StoragePage } from '../pages/security/storage/storage';
 import { ConstructionPage } from '../pages/construction/construction';
+import { DocumentationPage } from '../pages/documentation/documentation';
 
 import { authProvider } from '../services/auth.service';
 import { SecureStorage } from '@ionic-native/secure-storage';
@@ -33,7 +34,8 @@ import { Dialogs } from '@ionic-native/dialogs';
     AuthDetailsPage,
     DeviceTrustPage,
     StoragePage,
-    ConstructionPage
+    ConstructionPage,
+    DocumentationPage
   ],
   imports: [
     HttpModule,
@@ -50,7 +52,8 @@ import { Dialogs } from '@ionic-native/dialogs';
     AuthDetailsPage,
     DeviceTrustPage,
     StoragePage,
-    ConstructionPage
+    ConstructionPage,
+    DocumentationPage
   ],
   providers: [
     StatusBar,
