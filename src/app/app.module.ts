@@ -22,6 +22,9 @@ import {PushPage} from "../pages/push/push";
 import {PushService} from "../services/push.service";
 import {SimpleToastService} from "../services/toast.service";
 
+import { MaterialIconsModule } from 'ionic2-material-icons';
+import { Dialogs } from '@ionic-native/dialogs';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -37,7 +40,8 @@ import {SimpleToastService} from "../services/toast.service";
   imports: [
     HttpModule,
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    MaterialIconsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -58,7 +62,8 @@ import {SimpleToastService} from "../services/toast.service";
     SimpleToastService,
     PushService,
     SecureStorage,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Dialogs
   ]
 })
 export class AppModule {  

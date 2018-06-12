@@ -8,22 +8,38 @@
 </ion-header>
 
 <ion-content>
-  <ion-card color=danger>
-  <ion-card-content style="text-align: center">
-    <ion-card-title color=light>
-      <strong>{{trustScore}} %</strong>
-      </ion-card-title>
-      <div align="center" color=light>Trust Score</div>
-    </ion-card-content>
-  </ion-card>
+  <ion-grid class="aerogear-background" style="height: 25%">
+    <ion-row justify-content-center align-items-center>
+      <h1>
+        <strong>{{trustScore}}%</strong>
+      </h1>
+    </ion-row>
+    <ion-row justify-content-center align-items-center>
+      <div align="center" color=light>Device Trust Score</div>
+    </ion-row>
+    <ion-row justify-content-center align-items-center style="padding-top: 1em">
+      <div align="center" color=light>({{totalTests}} Checks)</div>
+    </ion-row>
+  </ion-grid>
 
   <ion-card>
     <ion-list>
-    <ion-item *ngFor="let detection of detections">
-      <ion-label>{{detection.label}}</ion-label>
-      <ion-radio color=danger checked="{{detection.detected}}" disabled="true"></ion-radio>
-    </ion-item>
-  </ion-list>
-</ion-card>
+      <ion-item *ngFor="let detection of detections">
+        <p *ngIf="detection.detected" style="color: green">
+          <ion-icon *ngIf="detection.detected" md-name="verified_user" color="green"></ion-icon>
+          {{detection.label}}
+        </p>
+        <p *ngIf="!detection.detected" style="color: red">
+          <ion-icon *ngIf="!detection.detected" md-name="warning" color="red"></ion-icon>
+          {{detection.label}}
+        </p>
+      </ion-item>
+    </ion-list>
+  </ion-card>
 
+  <ion-fab right bottom>
+    <button ion-fab color="orange" (click)="refreshChecks()">
+      <ion-icon name="refresh"></ion-icon>
+    </button>
+  </ion-fab>
 </ion-content>
