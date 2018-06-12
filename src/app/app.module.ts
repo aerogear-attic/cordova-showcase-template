@@ -11,13 +11,12 @@ import { HomePage } from '../pages/home/home';
 import { AuthPage } from '../pages/auth/auth';
 import { DeviceTrustPage } from '../pages/security/deviceTrust/deviceTrust';
 import { AuthDetailsPage } from '../pages/authDetails/authDetails';
-import { NetworkPage } from '../pages/security/network/network';
 import { StoragePage } from '../pages/security/storage/storage';
+import { ConstructionPage } from '../pages/construction/construction';
 
 import { authProvider } from '../services/auth.service';
 import { SecureStorage } from '@ionic-native/secure-storage';
 
-import { SideMenuContentComponent } from '../shared/side-menu-content/side-menu-content.component';
 import {PushPage} from "../pages/push/push";
 import {PushService} from "../services/push.service";
 import {SimpleToastService} from "../services/toast.service";
@@ -33,9 +32,8 @@ import { Dialogs } from '@ionic-native/dialogs';
     PushPage,
     AuthDetailsPage,
     DeviceTrustPage,
-    NetworkPage,
     StoragePage,
-    SideMenuContentComponent
+    ConstructionPage
   ],
   imports: [
     HttpModule,
@@ -51,9 +49,8 @@ import { Dialogs } from '@ionic-native/dialogs';
     PushPage,
     AuthDetailsPage,
     DeviceTrustPage,
-    NetworkPage,
     StoragePage,
-    SideMenuContentComponent
+    ConstructionPage
   ],
   providers: [
     StatusBar,
@@ -66,7 +63,7 @@ import { Dialogs } from '@ionic-native/dialogs';
     Dialogs
   ]
 })
-export class AppModule {  
+export class AppModule {
   // Make the injector to be available in the entire module
   // so we can use it in the custom decorator
   static injector: Injector;

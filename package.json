@@ -17,9 +17,9 @@
   "dependencies": {
     "@aerogear/app": "^1.0.0-alpha",
     "@aerogear/auth": "^1.0.0-alpha",
-    "@aerogear/cordova-plugin-aerogear-metrics": "^1.0.0-alpha",
-    "@aerogear/cordova-plugin-aerogear-push": "^1.0.0-alpha",
-    "@aerogear/cordova-plugin-aerogear-security": "^1.0.0-alpha",
+    "@aerogear/cordova-plugin-aerogear-metrics": "^0.4.0",
+    "@aerogear/cordova-plugin-aerogear-push": "^0.4.0",
+    "@aerogear/cordova-plugin-aerogear-security": "^0.4.0",
     "@aerogear/core": "^1.0.0-alpha",
     "@aerogear/push": "^1.0.0-alpha",
     "@aerogear/security": "^1.0.0-alpha",

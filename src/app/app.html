@@ -6,18 +6,27 @@
     </ion-header>
 
     <ion-content>
-        <ion-card>
-            <ion-item color=dark>
-                <ion-avatar item-start>
-                    <img src="./assets/imgs/aerogear_icon.svg">
-                </ion-avatar>
-                <p color=light>AeroGear</p>
-                <p color=light>aerogear.org</p>
-            </ion-item>
-        </ion-card>
 
-        <!-- side menu content -->
-        <side-menu-content [settings]="sideMenuSettings" [options]="pages" (change)="openPage($event)"></side-menu-content>
+            <ion-item no-lines class="banner">
+                <ion-avatar item-start>
+                    <img src="./assets/imgs/ag-logo.png">
+                </ion-avatar>
+                <p class="banner">AeroGear</p>
+                <p class="banner">aerogear.org</p>
+            </ion-item>
+
+
+        <!--&lt;!&ndash; side menu content &ndash;&gt;-->
+        <!--<side-menu-content [settings]="sideMenuSettings" [options]="pages" (change)="openPage($event)"></side-menu-content>-->
+
+      <ion-list>
+        <button menuClose ion-item detail-none *ngFor="let p of pages" (click)="openPage(p)">
+            <ion-icon item-start>
+                <i class="material-icons">{{p.icon}}</i>
+            </ion-icon>
+        <span>{{p.title}}</span>
+        </button>
+      </ion-list>
 
     </ion-content>
 

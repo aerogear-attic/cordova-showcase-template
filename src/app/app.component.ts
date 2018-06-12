@@ -6,14 +6,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { AuthPage } from '../pages/auth/auth';
 import { DeviceTrustPage } from '../pages/security/deviceTrust/deviceTrust';
-import { NetworkPage } from '../pages/security/network/network';
 import { StoragePage } from '../pages/security/storage/storage';
-
-// Side Menu Component
-import { SideMenuSettings } from './../shared/side-menu-content/models/side-menu-settings';
-import { SideMenuOption } from './../shared/side-menu-content/models/side-menu-option';
-import { SideMenuContentComponent } from './../shared/side-menu-content/side-menu-content.component';
 import { PushPage } from "../pages/push/push";
+import { ConstructionPage } from '../pages/construction/construction';
 
 @Component({
   templateUrl: 'app.html'
@@ -21,45 +16,46 @@ import { PushPage } from "../pages/push/push";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  @ViewChild(SideMenuContentComponent) sideMenu: SideMenuContentComponent;
-
-  // Pages to show in the SideMenuContentComponent
-  public pages: Array<SideMenuOption>;
-
-  // Settings for the SideMenuContentComponent
-  public sideMenuSettings: SideMenuSettings = {
-    accordionMode: true,
-    showSelectedOption: true,
-    selectedOptionClass: 'active-side-menu-option'
-  };
+  public pages: Array<{ title: string, component: any, icon: string }>;
 
   rootPage: any = HomePage;
 
-  constructor(public platform: Platform, 
-              public statusBar: StatusBar, 
-              public splashScreen: SplashScreen, 
+  constructor(public platform: Platform,
+              public statusBar: StatusBar,
+              public splashScreen: SplashScreen,
               private menuCtrl: MenuController) {
     this.initializeApp();
 
   }
 
   initializeOptions(): void {
-    this.pages = new Array<SideMenuOption>();
+    this.pages = []; 
     // used for an example of ngFor and navigation
     this.pages.push(
-      { displayText: 'Home', component: HomePage, iconName: 'home' },
-      { displayText: 'Authentication', component: AuthPage, iconName: 'lock' },
-      { displayText: 'Push',  component: PushPage, iconName: 'radio' }
-    );
+      { title: 'Home', component: HomePage, icon: 'home' },
+      
+      { title: 'Identity Management', component: AuthPage, icon: 'account_circle' },
+      { title: 'Documentation', component: HomePage, icon: '' },
+      { title: 'Authentication', component: AuthPage, icon: '' },
+      { title: 'SSO', component: ConstructionPage, icon: '' },
+      
+      { title: 'Device Security', component: AuthPage, icon: 'security' },
+      { title: 'Documentation', component: AuthPage, icon: '' },
+      { title: 'Device Trust', component: DeviceTrustPage, icon: '' },
+      { title: 'Secure Storage', component: StoragePage, icon: '' },
+      { title: 'Cert Pinning', component: ConstructionPage, icon: '' },
+      
+      { title: 'Push Notifications', component: PushPage, icon: 'notifications_active' },
+      { title: 'Documentation', component: AuthPage, icon: '' },
+      { title: 'Device Registration', component: ConstructionPage, icon: '' },
+      { title: 'Push Messages', component: ConstructionPage, icon: '' },
 
-    this.pages.push({
-      displayText: 'Security',
-      suboptions: [
-        { displayText: 'Device Trust', component: DeviceTrustPage, iconName: 'phone-portrait' },
-        { displayText: 'Network', component: NetworkPage, iconName: 'wifi' },
-        { displayText: 'Storage', component: StoragePage, iconName: 'folder' }
-      ]
-    });
+      { title: 'Metrics', component: ConstructionPage, icon: 'insert_chart' },
+      { title: 'Documentation', component: AuthPage, icon: '' },
+      { title: 'Device Profile Info', component: ConstructionPage, icon: '' },
+      { title: 'Trust Check Info', component: ConstructionPage, icon: '' }
+      
+    );
   }
 
   initializeApp() {
