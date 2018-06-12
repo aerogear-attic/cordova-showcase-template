@@ -5,11 +5,17 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { AuthPage } from '../pages/auth/auth';
-import { DeviceTrustPage } from '../pages/security/deviceTrust/deviceTrust';
-import { StoragePage } from '../pages/security/storage/storage';
+import { DeviceTrustPage } from '../pages/deviceTrust/deviceTrust';
+import { StoragePage } from '../pages/storage/storage';
 import { PushPage } from "../pages/push/push";
-import { ConstructionPage } from '../pages/construction/construction';
 import { AuthDetailsPage } from '../pages/authDetails/authDetails';
+import { CertPinningPage } from '../pages/certPinning/certPinning';
+import { DeviceProfilePage } from '../pages/deviceProfile/deviceProfile';
+import { DeviceRegistrationPage } from '../pages/deviceRegistration/deviceRegistration';
+import { MetricsPage } from '../pages/metrics/metrics';
+import { SSOPage } from '../pages/sso/sso';
+import { PushMessagesPage } from '../pages/pushMessages/pushMessages';
+import { TrustCheckPage } from '../pages/trustCheck/trustCheck';
 import { DocumentationPage } from '../pages/documentation/documentation';
 
 @Component({
@@ -39,23 +45,23 @@ export class MyApp {
       { title: 'Identity Management', component: AuthDetailsPage, icon: 'account_circle' },
       { title: 'Documentation', component: DocumentationPage, icon: '' },
       { title: 'Authentication', component: AuthPage, icon: '' },
-      { title: 'SSO', component: ConstructionPage, icon: '' },
+      { title: 'SSO', component: SSOPage, icon: '' },
       
       { title: 'Device Security', component: DeviceTrustPage, icon: 'security' },
       { title: 'Documentation', component: DocumentationPage, icon: '' },
       { title: 'Device Trust', component: DeviceTrustPage, icon: '' },
       { title: 'Secure Storage', component: StoragePage, icon: '' },
-      { title: 'Cert Pinning', component: ConstructionPage, icon: '' },
+      { title: 'Cert Pinning', component: CertPinningPage, icon: '' },
       
       { title: 'Push Notifications', component: PushPage, icon: 'notifications_active' },
       { title: 'Documentation', component: DocumentationPage, icon: '' },
-      { title: 'Device Registration', component: ConstructionPage, icon: '' },
-      { title: 'Push Messages', component: ConstructionPage, icon: '' },
+      { title: 'Device Registration', component: DeviceRegistrationPage, icon: '' },
+      { title: 'Push Messages', component: PushMessagesPage, icon: '' },
 
-      { title: 'Metrics', component: ConstructionPage, icon: 'insert_chart' },
+      { title: 'Metrics', component: MetricsPage, icon: 'insert_chart' },
       { title: 'Documentation', component: DocumentationPage, icon: '' },
-      { title: 'Device Profile Info', component: ConstructionPage, icon: '' },
-      { title: 'Trust Check Info', component: ConstructionPage, icon: '' }
+      { title: 'Device Profile Info', component: DeviceProfilePage, icon: '' },
+      { title: 'Trust Check Info', component: TrustCheckPage, icon: '' }
       
     );
   }

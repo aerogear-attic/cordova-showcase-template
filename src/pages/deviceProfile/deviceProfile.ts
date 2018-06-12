@@ -4,10 +4,10 @@ import { ToastController } from 'ionic-angular';
 
 
 @Component({
-    selector: 'page-construction',
-    templateUrl: 'construction.html'
+    selector: 'page-deviceProfile',
+    templateUrl: 'deviceProfile.html'
 })
-export class ConstructionPage {
+export class DeviceProfilePage {
 
     constructor(public toastCtrl: ToastController, public navCtrl: NavController, public navParams: NavParams) {
         this.navCtrl = navCtrl;

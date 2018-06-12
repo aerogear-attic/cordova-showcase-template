@@ -9,10 +9,16 @@ import { MyApp } from './app.component';
 
 import { HomePage } from '../pages/home/home';
 import { AuthPage } from '../pages/auth/auth';
-import { DeviceTrustPage } from '../pages/security/deviceTrust/deviceTrust';
+import { DeviceTrustPage } from '../pages/deviceTrust/deviceTrust';
 import { AuthDetailsPage } from '../pages/authDetails/authDetails';
-import { StoragePage } from '../pages/security/storage/storage';
-import { ConstructionPage } from '../pages/construction/construction';
+import { StoragePage } from '../pages/storage/storage';
+import { CertPinningPage } from '../pages/certPinning/certPinning';
+import { DeviceProfilePage } from '../pages/deviceProfile/deviceProfile';
+import { DeviceRegistrationPage } from '../pages/deviceRegistration/deviceRegistration';
+import { MetricsPage } from '../pages/metrics/metrics';
+import { SSOPage } from '../pages/sso/sso';
+import { PushMessagesPage } from '../pages/pushMessages/pushMessages';
+import { TrustCheckPage } from '../pages/trustCheck/trustCheck';
 import { DocumentationPage } from '../pages/documentation/documentation';
 
 import { authProvider } from '../services/auth.service';
@@ -34,7 +40,13 @@ import { Dialogs } from '@ionic-native/dialogs';
     AuthDetailsPage,
     DeviceTrustPage,
     StoragePage,
-    ConstructionPage,
+    CertPinningPage,
+    DeviceProfilePage,
+    DeviceRegistrationPage,
+    MetricsPage,
+    SSOPage,
+    PushMessagesPage,
+    TrustCheckPage,
     DocumentationPage
   ],
   imports: [
@@ -52,7 +64,13 @@ import { Dialogs } from '@ionic-native/dialogs';
     AuthDetailsPage,
     DeviceTrustPage,
     StoragePage,
-    ConstructionPage,
+    CertPinningPage,
+    DeviceProfilePage,
+    DeviceRegistrationPage,
+    MetricsPage,
+    SSOPage,
+    PushMessagesPage,
+    TrustCheckPage,
     DocumentationPage
   ],
   providers: [
