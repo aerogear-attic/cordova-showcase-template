@@ -14,6 +14,7 @@ export class DeviceTrustPage {
   trustScore: number;
   totalTests: number;
   totalDetections: number;
+  totalPassed: number;
   icon: string;
   color: string;
   securityService: SecurityService;
@@ -44,8 +45,10 @@ export class DeviceTrustPage {
       this.totalDetections++;
     }
 
+    if (isSecure) this.totalPassed++;
+
     this.detections.push({ label: label, detected: isSecure });
-    this.trustScore = (100 - (((this.totalDetections / this.totalTests) * 100)));
+    this.trustScore = Number((100 - (((this.totalDetections / this.totalTests) * 100))).toFixed());
   }
 
   // tag::detectEmulator[]
@@ -105,9 +108,9 @@ export class DeviceTrustPage {
   }
 
   checkDialog(trustScore: number): void {
-    if (trustScore < 100) {
+    if (trustScore < 70) {
       this.dialogs.confirm(
-        `Your device is not secure (under threshold of ${trustScore}% trust), do you want to continue or exit the app?`,
+        `Your current trust score ${trustScore}% is below the specified target of 70%, do you want to continue or exit the app?`,
         'Warning',
         ["Exit", "Continue"])
         .then((result) => {
@@ -123,6 +126,7 @@ export class DeviceTrustPage {
     this.trustScore = 0;
     this.totalTests = 0;
     this.totalDetections = 0;
+    this.totalPassed= 0;
     this.performChecks().then(() => { this.checkDialog(this.trustScore) });
     this.performChecksAndPublishMetrics();
   }

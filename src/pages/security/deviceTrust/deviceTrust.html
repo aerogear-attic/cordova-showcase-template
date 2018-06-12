@@ -18,24 +18,24 @@
       <div align="center" color=light>Device Trust Score</div>
     </ion-row>
     <ion-row justify-content-center align-items-center style="padding-top: 1em">
-      <div align="center" color=light>({{totalTests}} Checks)</div>
+      <div align="center" color=light>({{totalPassed}} out of {{totalTests}} checks passing)</div>
     </ion-row>
   </ion-grid>
 
-  <ion-card>
-    <ion-list>
-      <ion-item *ngFor="let detection of detections">
-        <p *ngIf="detection.detected" style="color: green">
-          <ion-icon *ngIf="detection.detected" md-name="verified_user" color="green"></ion-icon>
-          {{detection.label}}
-        </p>
-        <p *ngIf="!detection.detected" style="color: red">
-          <ion-icon *ngIf="!detection.detected" md-name="warning" color="red"></ion-icon>
-          {{detection.label}}
-        </p>
-      </ion-item>
-    </ion-list>
-  </ion-card>
+
+  <ion-list>
+    <ion-item *ngFor="let detection of detections">
+      <div *ngIf="detection.detected" style="color: green">
+        <ion-icon *ngIf="detection.detected" md-name="verified_user" color="green" class="trust-icon"></ion-icon>
+        {{detection.label}}
+      </div>
+      <div *ngIf="!detection.detected" style="color: red">
+        <ion-icon *ngIf="!detection.detected" md-name="warning" color="red" class="trust-icon"></ion-icon>
+        {{detection.label}}
+      </div>
+    </ion-item>
+  </ion-list>
+
 
   <ion-fab right bottom>
     <button ion-fab color="orange" (click)="refreshChecks()">
