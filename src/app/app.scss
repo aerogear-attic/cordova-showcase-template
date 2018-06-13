@@ -15,8 +15,13 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+:root {
+  --main-color: #3d7185;
+}
+
 .aerogear-background {
   background-image: url('../assets/imgs/background-1.png') !important;
+  background-size:cover;
 }
 
 .toast-error {
@@ -51,7 +56,7 @@
 }
 
 .authenticate-button {
-  background-color: #3d7185 !important;
+  background-color: var(--main-color) !important;
   position: relative;
   width: 90vw;
   margin: auto;

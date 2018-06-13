@@ -47,9 +47,6 @@
     "cordova-plugin-dialogs": "^2.0.1",
     "cordova-plugin-inappbrowser": "^3.0.0",
     "cordova-plugin-ionic-webview": "^1.2.1",
-    "cordova-plugin-iroot": "^0.7.0",
-    "cordova-plugin-is-debug": "^1.0.0",
-    "cordova-plugin-pincheck": "0.0.5",
     "cordova-plugin-secure-key-store": "^1.5.5",
     "cordova-plugin-secure-storage": "^2.6.8",
     "cordova-plugin-splashscreen": "^5.0.2",
@@ -84,7 +81,9 @@
       "@aerogear/cordova-plugin-aerogear-security": {},
       "@aerogear/cordova-plugin-aerogear-push": {},
       "cordova-plugin-aerogear-push": {},
-      "cordova-plugin-dialogs": {}
+      "cordova-plugin-dialogs": {},
+      "cordova-plugin-aerogear-metrics": {},
+      "cordova-plugin-aerogear-security": {}
     },
     "platforms": [
       "android",
