@@ -24,6 +24,17 @@
   background-size:cover;
 }
 
+.device-trust-background {
+  background-image: -webkit-linear-gradient(top, #2e6980 0%, #4296b4 100%);
+  background-image: -o-linear-gradient(top, #2e6980 0%, #4296b4 100%);
+  background-image: linear-gradient(to bottom, #2e6980 0%, #4296b4 100%);	
+  background-repeat: repeat-x;	 
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff2e6980', endColorstr='#ff4296b4', GradientType=0);	
+  border-bottom: 1px solid #2e6980;
+  color: #fff;	
+  position: relative;
+}
+
 .toast-error {
   > div{
     background-color: red !important;
