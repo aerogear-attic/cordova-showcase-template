@@ -24,7 +24,7 @@
   background-size:cover;
 }
 
-.device-trust-background {
+.aerogear-background-two {
   background-image: -webkit-linear-gradient(top, #2e6980 0%, #4296b4 100%);
   background-image: -o-linear-gradient(top, #2e6980 0%, #4296b4 100%);
   background-image: linear-gradient(to bottom, #2e6980 0%, #4296b4 100%);	
@@ -45,7 +45,7 @@
 
 .toast-success {
   > div{
-    background-color: blue !important;
+    background-color: #2e6980 !important;
     color: white !important;
     font-weight: bold;
   }
@@ -77,4 +77,13 @@
 .openid {
   position: relative;
   margin-top: 25vh;
+}
+
+.identity-header {
+  font-size: 10pt;
+  color: #2e6980;
+}
+
+.identity-text {
+  font-size: 12pt
 }
