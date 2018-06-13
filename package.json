@@ -81,7 +81,9 @@
       "@aerogear/cordova-plugin-aerogear-security": {},
       "@aerogear/cordova-plugin-aerogear-push": {},
       "cordova-plugin-aerogear-push": {},
-      "cordova-plugin-dialogs": {}
+      "cordova-plugin-dialogs": {},
+      "cordova-plugin-aerogear-metrics": {},
+      "cordova-plugin-aerogear-security": {}
     },
     "platforms": [
       "android",
