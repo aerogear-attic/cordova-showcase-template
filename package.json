@@ -10,8 +10,8 @@
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve",
-    "ionic:android": "ionic cordova run android --emulator --no-fetch",
-    "ionic:ios": "ionic cordova run ios --emulator --no-fetch",
+    "ionic:android": "ionic cordova run android",
+    "ionic:ios": "ionic cordova run ios",
     "linkDev": "npm link @aerogear/app @aerogear/auth @aerogear/security @aerogear/core @aerogear/push"
   },
   "dependencies": {
