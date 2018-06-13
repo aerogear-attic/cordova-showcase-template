@@ -55,7 +55,6 @@
     "ionic-angular": "3.9.2",
     "ionic2-material-icons": "^1.0.3",
     "ionicons": "3.0.0",
-    "phonegap-plugin-multidex": "^1.0.0",
     "rxjs": "5.5.8",
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.26"
@@ -79,10 +78,6 @@
       "@aerogear/cordova-plugin-aerogear-security": {},
       "@aerogear/cordova-plugin-aerogear-push": {},
       "cordova-plugin-dialogs": {}
-      "cordova-plugin-aerogear-push": {},
-      "cordova-plugin-dialogs": {},
-      "cordova-plugin-aerogear-metrics": {},
-      "cordova-plugin-aerogear-security": {}
     },
     "platforms": [
       "android",
