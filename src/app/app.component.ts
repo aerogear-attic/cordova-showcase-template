@@ -5,15 +5,18 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { AuthPage } from '../pages/auth/auth';
-import { DeviceTrustPage } from '../pages/security/deviceTrust/deviceTrust';
-import { NetworkPage } from '../pages/security/network/network';
-import { StoragePage } from '../pages/security/storage/storage';
-
-// Side Menu Component
-import { SideMenuSettings } from './../shared/side-menu-content/models/side-menu-settings';
-import { SideMenuOption } from './../shared/side-menu-content/models/side-menu-option';
-import { SideMenuContentComponent } from './../shared/side-menu-content/side-menu-content.component';
+import { DeviceTrustPage } from '../pages/deviceTrust/deviceTrust';
+import { StoragePage } from '../pages/storage/storage';
 import { PushPage } from "../pages/push/push";
+import { AuthDetailsPage } from '../pages/authDetails/authDetails';
+import { CertPinningPage } from '../pages/certPinning/certPinning';
+import { DeviceProfilePage } from '../pages/deviceProfile/deviceProfile';
+import { DeviceRegistrationPage } from '../pages/deviceRegistration/deviceRegistration';
+import { MetricsPage } from '../pages/metrics/metrics';
+import { SSOPage } from '../pages/sso/sso';
+import { PushMessagesPage } from '../pages/pushMessages/pushMessages';
+import { TrustCheckPage } from '../pages/trustCheck/trustCheck';
+import { DocumentationPage } from '../pages/documentation/documentation';
 
 @Component({
   templateUrl: 'app.html'
@@ -21,45 +24,46 @@ import { PushPage } from "../pages/push/push";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  @ViewChild(SideMenuContentComponent) sideMenu: SideMenuContentComponent;
-
-  // Pages to show in the SideMenuContentComponent
-  public pages: Array<SideMenuOption>;
-
-  // Settings for the SideMenuContentComponent
-  public sideMenuSettings: SideMenuSettings = {
-    accordionMode: true,
-    showSelectedOption: true,
-    selectedOptionClass: 'active-side-menu-option'
-  };
+  public pages: Array<{ title: string, component: any, icon: string }>;
 
   rootPage: any = HomePage;
 
-  constructor(public platform: Platform, 
-              public statusBar: StatusBar, 
-              public splashScreen: SplashScreen, 
+  constructor(public platform: Platform,
+              public statusBar: StatusBar,
+              public splashScreen: SplashScreen,
               private menuCtrl: MenuController) {
     this.initializeApp();
 
   }
 
   initializeOptions(): void {
-    this.pages = new Array<SideMenuOption>();
+    this.pages = []; 
     // used for an example of ngFor and navigation
     this.pages.push(
-      { displayText: 'Home', component: HomePage, iconName: 'home' },
-      { displayText: 'Authentication', component: AuthPage, iconName: 'lock' },
-      { displayText: 'Push',  component: PushPage, iconName: 'radio' }
-    );
+      { title: 'Home', component: HomePage, icon: 'home' },
+      
+      { title: 'Identity Management', component: AuthDetailsPage, icon: 'account_circle' },
+      { title: 'Documentation', component: DocumentationPage, icon: '' },
+      { title: 'Authentication', component: AuthPage, icon: '' },
+      { title: 'SSO', component: SSOPage, icon: '' },
+      
+      { title: 'Device Security', component: DeviceTrustPage, icon: 'security' },
+      { title: 'Documentation', component: DocumentationPage, icon: '' },
+      { title: 'Device Trust', component: DeviceTrustPage, icon: '' },
+      { title: 'Secure Storage', component: StoragePage, icon: '' },
+      { title: 'Cert Pinning', component: CertPinningPage, icon: '' },
+      
+      { title: 'Push Notifications', component: PushPage, icon: 'notifications_active' },
+      { title: 'Documentation', component: DocumentationPage, icon: '' },
+      { title: 'Device Registration', component: DeviceRegistrationPage, icon: '' },
+      { title: 'Push Messages', component: PushMessagesPage, icon: '' },
 
-    this.pages.push({
-      displayText: 'Security',
-      suboptions: [
-        { displayText: 'Device Trust', component: DeviceTrustPage, iconName: 'phone-portrait' },
-        { displayText: 'Network', component: NetworkPage, iconName: 'wifi' },
-        { displayText: 'Storage', component: StoragePage, iconName: 'folder' }
-      ]
-    });
+      { title: 'Metrics', component: MetricsPage, icon: 'insert_chart' },
+      { title: 'Documentation', component: DocumentationPage, icon: '' },
+      { title: 'Device Profile Info', component: DeviceProfilePage, icon: '' },
+      { title: 'Trust Check Info', component: TrustCheckPage, icon: '' }
+      
+    );
   }
 
   initializeApp() {

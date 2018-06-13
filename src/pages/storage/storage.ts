@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, ToastController } from 'ionic-angular';
-import { StorageService } from '../../../services/storage.service';
+import { StorageService } from '../../services/storage.service';
 import { AlertController } from 'ionic-angular';
 import { SecurityService, SecurityCheckType, SecurityCheckResult } from '@aerogear/security';
 
