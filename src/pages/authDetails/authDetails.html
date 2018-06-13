@@ -7,7 +7,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content class="aerogear-background">
+<ion-content class="aerogear-background-two">
   <ion-grid style="height: 100%">
     <ion-row justify-content-center align-items-center>
       <ion-card>
@@ -15,17 +15,17 @@
           <ion-avatar item-start>
             <ion-icon md-name="person" style="zoom:2.0;" color="danger"></ion-icon>
           </ion-avatar>
-          <p>Full Name:</p>
-          <h3>{{profile.firstName}} {{profile.lastName}}</h3>
+          <div class="identity-header">Full Name:</div>
+          <div class="identity-text">{{profile.firstName}} {{profile.lastName}}</div>
         </ion-item>
         <ion-item>
-          <p> Email: </p>
-          <h3> {{profile.email}} </h3>
+          <div class="identity-header"> Email: </div>
+          <div class="identity-text"> {{profile.email}} </div>
         </ion-item>
         <ion-item>
 
-          <p> Username: </p>
-          <h3> {{profile.username}} </h3>
+          <div class="identity-header"> Username: </div>
+          <div class="identity-text"> {{profile.username}} </div>
         </ion-item>
         <ion-item>
           <ion-label> OTP 2FA Enabled</ion-label>
