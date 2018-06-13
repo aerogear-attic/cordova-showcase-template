@@ -16,7 +16,7 @@
 // automatically applied to the <body> element in the app.
 
 .aerogear-background {
-  background: url(../assets/imgs/background-1.png) no-repeat center center fixed;
+  background-image: url('../assets/imgs/background-1.png') !important;
 }
 
 .toast-error {
