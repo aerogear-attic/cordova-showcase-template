@@ -7,17 +7,14 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content class="aerogear-background">
-
-    <ion-grid style="height: 100%">
-        <ion-row justify-content-center align-items-center style="height: 100%">
+<ion-content>
+<ion-grid class="aerogear-background" style="height: 100%">
+    <ion-row justify-content-center align-items-center class="openid">
             <img src="./assets/imgs/oidc.png" class="logo" width="50%">
         </ion-row>
     </ion-grid>
 </ion-content>
 
-<ion-footer>
-    <ion-toolbar color=danger (click)="login()">
-        <ion-title style="text-align: center">Authenticate</ion-title>
-    </ion-toolbar>
-</ion-footer>
+<ion-content>
+<button class="authenticate-button" block ion-button (click)="login()">Authenticate</button>
+</ion-content>

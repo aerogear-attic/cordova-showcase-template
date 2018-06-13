@@ -15,15 +15,13 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+:root {
+  --main-color: #3d7185;
+}
+
 .aerogear-background {
-  background-image: -webkit-linear-gradient(top, #2e6980 0%, #4296b4 100%);
-    background-image: -o-linear-gradient(top, #2e6980 0%, #4296b4 100%);
-    background-image: linear-gradient(to bottom, #2e6980 0%, #4296b4 100%);
-    background-repeat: repeat-x;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff2e6980', endColorstr='#ff4296b4', GradientType=0);
-    border-bottom: 1px solid #2e6980;
-    color: #fff;
-    position: relative;
+  background-image: url('../assets/imgs/background-1.png') !important;
+  background-size:cover;
 }
 
 .toast-error {
@@ -55,4 +53,17 @@
 .banner {
   background-color: #3d7185;
   color: #fff !important
+}
+
+.authenticate-button {
+  background-color: var(--main-color) !important;
+  position: relative;
+  width: 90vw;
+  margin: auto;
+  margin-top: 65vh;
+}
+
+.openid {
+  position: relative;
+  margin-top: 25vh;
 }
