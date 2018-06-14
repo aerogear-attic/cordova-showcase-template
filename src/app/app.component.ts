@@ -8,7 +8,7 @@ import { AuthPage } from '../pages/auth/auth';
 import { DeviceTrustPage } from '../pages/deviceTrust/deviceTrust';
 import { StoragePage } from '../pages/storage/storage';
 import { PushPage } from "../pages/push/push";
-import { AuthDetailsPage } from '../pages/authDetails/authDetails';
+import { IdentityManagementPage } from '../pages/identityManagement/identityManagement';
 import { CertPinningPage } from '../pages/certPinning/certPinning';
 import { DeviceProfilePage } from '../pages/deviceProfile/deviceProfile';
 import { DeviceRegistrationPage } from '../pages/deviceRegistration/deviceRegistration';
@@ -17,6 +17,7 @@ import { SSOPage } from '../pages/sso/sso';
 import { PushMessagesPage } from '../pages/pushMessages/pushMessages';
 import { TrustCheckPage } from '../pages/trustCheck/trustCheck';
 import { DocumentationPage } from '../pages/documentation/documentation';
+import { DeviceSecurityPage } from '../pages/deviceSecurity/deviceSecurity';
 
 @Component({
   templateUrl: 'app.html'
@@ -42,18 +43,18 @@ export class MyApp {
     this.pages.push(
       { title: 'Home', component: HomePage, icon: 'home', param: '' },
       
-      { title: 'Identity Management', component: AuthDetailsPage, icon: 'account_circle', param: '' },
+      { title: 'Identity Management', component: IdentityManagementPage, icon: 'account_circle', param: '' },
       { title: 'Documentation', component: DocumentationPage, icon: '', param: 'identity-management' },
       { title: 'Authentication', component: AuthPage, icon: '', param: '' },
       { title: 'SSO', component: SSOPage, icon: '', param: '' },
       
-      { title: 'Device Security', component: DeviceTrustPage, icon: 'security', param: '' },
+      { title: 'Device Security', component: DeviceSecurityPage, icon: 'security', param: '' },
       { title: 'Documentation', component: DocumentationPage, icon: '', param: 'device-security' },
       { title: 'Device Trust', component: DeviceTrustPage, icon: '', param: '' },
       { title: 'Secure Storage', component: StoragePage, icon: '', param: '' },
       { title: 'Cert Pinning', component: CertPinningPage, icon: '', param: '' },
       
-      { title: 'Push Notifications', component: PushPage, icon: 'notifications_active', param: '' },
+      { title: 'Push Notifications', component: PushPage, icon  : 'notifications_active', param: '' },
       { title: 'Documentation', component: DocumentationPage, icon: '', param: 'push' },
       { title: 'Device Registration', component: DeviceRegistrationPage, icon: '', param: '' },
       { title: 'Push Messages', component: PushMessagesPage, icon: '', param: '' },
