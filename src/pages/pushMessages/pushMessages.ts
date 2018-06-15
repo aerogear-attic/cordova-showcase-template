@@ -1,17 +1,29 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-import { ToastController } from 'ionic-angular';
-
+import { PushMessage } from "./message";
+import { PushService } from "../../services/push.service";
+import { Refresher } from "ionic-angular";
 
 @Component({
-    selector: 'page-pushMessages',
-    templateUrl: 'pushMessages.html'
+  selector: 'page-pushMessages',
+  templateUrl: 'pushMessages.html'
 })
 export class PushMessagesPage {
+  public messages: PushMessage[] = null;
 
-    constructor(public toastCtrl: ToastController, public navCtrl: NavController, public navParams: NavParams) {
-        this.navCtrl = navCtrl;
-    }
+  constructor(private push: PushService) {
+    this.messages = push.messages;
+  }
 
-    ionViewDidEnter(): void {}
+  disablePush() {
+    this.push.unregister();
+  }
+
+  doRefresh(refresher: Refresher) {
+    this.messages = this.push.messages;
+    refresher.complete();
+  }
+
+  buttonVisible() {
+    return PushService.registered;
+  }
 }
