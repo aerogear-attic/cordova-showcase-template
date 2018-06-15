@@ -20,7 +20,7 @@
 }
 
 a{
-  color: #3d7185;
+  color: var(--main-color);
   
 }
 
@@ -89,13 +89,13 @@ p{
 
 .identity-header {
   font-size: 10pt;
-  color: #2e6980;
+  color: var(--main-color);
 }
 
 .identity-text {
-  font-size: 12pt
+  font-size: 12pt;
 }
 
 .push-info{
-  color: #2e6980
+  color: var(--main-color);
 }
