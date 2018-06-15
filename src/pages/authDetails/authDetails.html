@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar color=danger>
+  <ion-navbar color=primary>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -13,7 +13,7 @@
       <ion-card>
         <ion-item>
           <ion-avatar item-start>
-            <ion-icon md-name="person" style="zoom:2.0;" color="danger"></ion-icon>
+            <ion-icon md-name="person" style="zoom:2.0;" color="primary"></ion-icon>
           </ion-avatar>
           <div class="identity-header">Full Name:</div>
           <div class="identity-text">{{profile.firstName}} {{profile.lastName}}</div>
@@ -57,7 +57,7 @@
 </ion-content>
 
 <ion-footer>
-  <ion-toolbar color=danger (click)="logout()">
+  <ion-toolbar color=primary (click)="logout()">
     <ion-title style="text-align: center">Logout</ion-title>
   </ion-toolbar>
 </ion-footer>
