@@ -2,7 +2,7 @@ import {Push, PushObject} from "@ionic-native/push";
 import {Injectable} from "@angular/core";
 import {SimpleToastService} from "./toast.service";
 import { PushRegistration } from "@aerogear/push";
-import {PushNotification} from "../pages/push/notification";
+import {PushMessage} from "../pages/pushMessages/message";
 
 const PUSH_ALIAS = "cordova";
 
@@ -16,9 +16,9 @@ export class PushService {
 
   // We want one single instance & callback app wide
   static pushObject: PushObject = null;
-  static callback: (notification: PushNotification) => void;
+  static callback: (notification: PushMessage) => void;
 
-  public messages: PushNotification[] = [];
+  public messages: PushMessage[] = [];
 
   constructor(private toast: SimpleToastService) {
   }
@@ -34,14 +34,14 @@ export class PushService {
     });
   }
 
-  private emit(notification: PushNotification) {
+  private emit(notification: PushMessage) {
     if (PushService.callback) {
       PushService.callback(notification);
     }
   }
 
   // The callback will be triggered when a push notificatoin is received
-  public setCallback(cb: (notification: PushNotification) => void) {
+  public setCallback(cb: (notification: PushMessage) => void) {
     PushService.callback = cb;
   }
 
