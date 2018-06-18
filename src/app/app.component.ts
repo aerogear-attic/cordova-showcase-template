@@ -24,7 +24,7 @@ import { DocumentationPage } from '../pages/documentation/documentation';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  public pages: Array<{ title: string, component: any, icon: string }>;
+  public pages: Array<{ title: string, component: any, icon: string , param: string}>;
 
   rootPage: any = HomePage;
 
@@ -40,28 +40,28 @@ export class MyApp {
     this.pages = []; 
     // used for an example of ngFor and navigation
     this.pages.push(
-      { title: 'Home', component: HomePage, icon: 'home' },
+      { title: 'Home', component: HomePage, icon: 'home', param: '' },
       
-      { title: 'Identity Management', component: AuthDetailsPage, icon: 'account_circle' },
-      { title: 'Documentation', component: DocumentationPage, icon: '' },
-      { title: 'Authentication', component: AuthPage, icon: '' },
-      { title: 'SSO', component: SSOPage, icon: '' },
+      { title: 'Identity Management', component: AuthDetailsPage, icon: 'account_circle', param: '' },
+      { title: 'Documentation', component: DocumentationPage, icon: '', param: 'identity-management' },
+      { title: 'Authentication', component: AuthPage, icon: '', param: '' },
+      { title: 'SSO', component: SSOPage, icon: '', param: '' },
       
-      { title: 'Device Security', component: DeviceTrustPage, icon: 'security' },
-      { title: 'Documentation', component: DocumentationPage, icon: '' },
-      { title: 'Device Trust', component: DeviceTrustPage, icon: '' },
-      { title: 'Secure Storage', component: StoragePage, icon: '' },
-      { title: 'Cert Pinning', component: CertPinningPage, icon: '' },
+      { title: 'Device Security', component: DeviceTrustPage, icon: 'security', param: '' },
+      { title: 'Documentation', component: DocumentationPage, icon: '', param: 'device-security' },
+      { title: 'Device Trust', component: DeviceTrustPage, icon: '', param: '' },
+      { title: 'Secure Storage', component: StoragePage, icon: '', param: '' },
+      { title: 'Cert Pinning', component: CertPinningPage, icon: '', param: '' },
       
-      { title: 'Push Notifications', component: PushPage, icon: 'notifications_active' },
-      { title: 'Documentation', component: DocumentationPage, icon: '' },
-      { title: 'Device Registration', component: DeviceRegistrationPage, icon: '' },
-      { title: 'Push Messages', component: PushMessagesPage, icon: '' },
+      { title: 'Push Notifications', component: PushPage, icon: 'notifications_active', param: '' },
+      { title: 'Documentation', component: DocumentationPage, icon: '', param: 'push' },
+      { title: 'Device Registration', component: DeviceRegistrationPage, icon: '', param: '' },
+      { title: 'Push Messages', component: PushMessagesPage, icon: '', param: '' },
 
-      { title: 'Metrics', component: MetricsPage, icon: 'insert_chart' },
-      { title: 'Documentation', component: DocumentationPage, icon: '' },
-      { title: 'Device Profile Info', component: DeviceProfilePage, icon: '' },
-      { title: 'Trust Check Info', component: TrustCheckPage, icon: '' }
+      { title: 'Metrics', component: MetricsPage, icon: 'insert_chart', param: '' },
+      { title: 'Documentation', component: DocumentationPage, icon: '', param: 'metrics' },
+      { title: 'Device Profile Info', component: DeviceProfilePage, icon: '', param: '' },
+      { title: 'Trust Check Info', component: TrustCheckPage, icon: '', param: '' }
       
     );
   }
@@ -81,6 +81,7 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.menuCtrl.close().then(() => {
+      this.nav.push(page.component, { 'linkParam' : page.param })
       this.nav.setRoot(page.component);
     })
   }

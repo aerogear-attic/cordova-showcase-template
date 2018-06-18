@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NavController} from 'ionic-angular';
+import {NavController, NavParams} from 'ionic-angular';
 import { HomePage } from '../home/home';
 
 
@@ -8,12 +8,15 @@ import { HomePage } from '../home/home';
   templateUrl: 'documentation.html'
 })
 export class DocumentationPage {
-  constructor(public navCtrl: NavController) {
+  linkParam: string;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.navCtrl = navCtrl;
+    this.linkParam = navParams.get('linkParam')
   }
 
-  ionViewDidEnter(): void { 
-    window.open("https://aerogear.org", '_system')
+  ionViewWillEnter(): void { 
+    window.open(`https://docs.aerogear.org/aerogear/latest/showcase/${this.linkParam}.html`, '_system')
     this.navCtrl.setRoot(HomePage);
   }
 }
