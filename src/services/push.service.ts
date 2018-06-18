@@ -78,4 +78,8 @@ export class PushService {
       this.emit(newNotification);
     });
   }
+
+  public isRegistered() {
+    return PushService.registered;
+  }
 }
