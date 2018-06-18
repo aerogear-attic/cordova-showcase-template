@@ -19,5 +19,5 @@
 </ion-content>
 
 <ion-content>
-    <button class="authenticate-button" block ion-button (click)="login()">Authenticate</button>
-</ion-content>
+    <button *ngIf="configValid" class="authenticate-button" block ion-button (click)="login()">Authenticate</button>
+</ion-content>git 

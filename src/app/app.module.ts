@@ -24,6 +24,7 @@ import { DocumentationPage } from '../pages/documentation/documentation';
 import { authProvider } from '../services/auth.service';
 import { SecureStorage } from '@ionic-native/secure-storage';
 
+import { AlertService } from '../services/alert.service';
 import {PushPage} from "../pages/push/push";
 import {PushService} from "../services/push.service";
 import {SimpleToastService} from "../services/toast.service";
@@ -74,6 +75,7 @@ import { Dialogs } from '@ionic-native/dialogs';
     DocumentationPage
   ],
   providers: [
+    AlertService,
     StatusBar,
     SplashScreen,
     authProvider,
