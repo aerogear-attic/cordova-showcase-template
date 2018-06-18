@@ -29,7 +29,7 @@ p{
 }
 .aerogear-background {
   background-image: url('../assets/imgs/background-1.png') !important;
-  background-size:cover;
+  background-size: cover;
 }
 
 .aerogear-background-two {
@@ -85,6 +85,14 @@ p{
 .openid {
   position: relative;
   margin-top: 25vh;
+}
+
+.openid-logo {
+  height: 130px;
+  width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .identity-header {

@@ -9,12 +9,15 @@
 
 <ion-content>
 <ion-grid class="aerogear-background" style="height: 100%">
-    <ion-row justify-content-center align-items-center class="openid">
-            <img src="./assets/imgs/oidc.png" class="logo" width="50%">
-        </ion-row>
+    <ion-row justify-content-center align-items-flex-start class="openid">
+        <ion-col>
+                <img src="./assets/imgs/oidc.png" class="openid-logo"/>
+        </ion-col>
+            
+    </ion-row>
     </ion-grid>
 </ion-content>
 
 <ion-content>
-<button class="authenticate-button" block ion-button (click)="login()">Authenticate</button>
+    <button class="authenticate-button" block ion-button (click)="login()">Authenticate</button>
 </ion-content>
