@@ -32,5 +32,18 @@ npm run ionic:android // to run in an android emulator
 npm run ionic:ios // to run in an ios emulator
 ```
 
+Note: If after running the application for iOS you get the following error: 
+```
+ld: library not found for -lGoogleToolboxForMac
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+```
+
+run the following command from the root of the directory:
+```
+cd platforms/ios && pod install
+```
+
+and then re build the application.
+
 ==== Development and Contributing
 Looking to use the showcase for development purposes with the SDK please take some time to read the link:./CONTRIBUTING.md[General Contributing Guide]
