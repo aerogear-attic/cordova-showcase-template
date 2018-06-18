@@ -16,7 +16,7 @@
 // automatically applied to the <body> element in the app.
 
 :root {
-  --main-color: #3d7185;
+  --main-color: #2e6980;
 }
 
 a{
@@ -53,7 +53,7 @@ p{
 
 .toast-success {
   > div{
-    background-color: #2e6980 !important;
+    background-color: var(--main-color) !important;
     color: white !important;
     font-weight: bold;
   }
@@ -70,7 +70,7 @@ p{
 }
 
 .banner {
-  background-color: #3d7185;
+  background-color: var(--main-color);
   color: #fff !important
 }
 

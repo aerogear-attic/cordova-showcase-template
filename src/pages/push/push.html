@@ -1,28 +1,30 @@
 <ion-header>
-  <ion-navbar color=danger>
-      <button ion-button menuToggle>
-          <ion-icon name="menu"></ion-icon>
-      </button>
-  <ion-title>Push Notifications</ion-title>
+  <ion-navbar color=primary>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Push Notifications</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
-<ion-grid style="height: 100%">
-  <ion-row justify-content-center align-items-center style="height: 55%">
-    <img src="./assets/imgs/aerogear_logo_600px.svg" class="logo" height="100px" width="220px">
-  </ion-row>
-  <ion-row justify-content-center align-items-center style="height: 1%">
-    <ion-label color=stable text-wrap>
-      <div text-center><h3>Under Construction</h3>
-      </div>
-      <div text-center><p>This feature is currently under construction for this platform.</p> 
-        <p>If you would like to get involved in this work, please check out our community contribution page.</p>
-        <p><a href="#" onclick="window.open('https://aerogear.org/community/#guides', '_system');">aerogear.org/community/#guides</a></p>
-      </div>
-    </ion-label>
-  </ion-row>
-</ion-grid>
-
+  <ion-grid fixed style="height: 100%">
+    <ion-row justify-content-center align-items-center style="padding-top: 25%">
+      <ion-col>
+        <img src="./assets/imgs/aerogear_logo_600px.svg" class="logo" height="100px" width="220px" style="display: block; left: 0;
+            right: 0;
+            margin:0 auto;">
+        <ion-label color=stable text-wrap>
+          <div text-center>
+            <h3>Under Construction</h3>
+            <p>This feature is currently under construction for this platform.</p>
+            <p>If you would like to get involved in this work, please check out our community contribution page.</p>
+            <p>
+              <a href="#" onclick="window.open('https://aerogear.org/community/#guides', '_system');">aerogear.org/community/#guides</a>
+            </p>
+          </div>
+        </ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
