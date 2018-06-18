@@ -7,11 +7,8 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content pullingText="Swipe down to refresh"></ion-refresher-content>
-  </ion-refresher>
-  <ion-grid class="aerogear-background-two" style="height: 100%">
+<ion-content class="aerogear-background-two">
+  <ion-grid>
     <ion-row *ngFor="let item of messages">
       <ion-card>
         <ion-card-content>

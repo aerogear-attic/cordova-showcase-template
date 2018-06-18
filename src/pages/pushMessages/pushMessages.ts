@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { PushMessage } from "./message";
 import { PushService } from "../../services/push.service";
-import { Refresher } from "ionic-angular";
 import { constants } from '../../constants/constants';
 import { AlertService } from '../../services/alert.service';
 
@@ -18,11 +17,6 @@ export class PushMessagesPage {
 
   disablePush() {
     this.push.unregister();
-  }
-
-  doRefresh(refresher: Refresher) {
-    this.messages = this.push.messages;
-    refresher.complete();
   }
 
   buttonVisible() {

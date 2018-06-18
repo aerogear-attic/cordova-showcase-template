@@ -23,11 +23,8 @@ export class HomePage {
 
   addNotification(notification: PushMessage) {
     console.debug(`Received push notification: ${notification.message}`);
-    const currentPage = this.navCtrl.getActive(true).name;
-
-    // Navigate to push page only if we aren't already there
-    if (PushMessagesPage.name !== currentPage) {
-      this.navCtrl.push(PushMessagesPage);
-    }
+    // Navigate to push page
+    this.navCtrl.push(PushMessagesPage);
+    
   }
 }
