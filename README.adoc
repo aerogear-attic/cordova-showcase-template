@@ -15,6 +15,14 @@ As this application showcases features from link:https://github.com/aerogear/aer
 === Running the App
 This application can be run as a showcase using a published version of the AeroGear Js SDK, or as a development aid to working on the SDK.
 
+==== Prerequisites
+
+Ensure you have the following installed in your machine:
+
+- link:https://nodejs.org/en/[Node] - version 8.9.4
+- link:https://ionicframework.com/[Ionic] - version 3.20.0
+- link:https://cordova.apache.org/[Cordova] - version 8.0.0
+
 ==== Run Showcase
 The `master` branch will always track to the latest release of the SDK.
 
