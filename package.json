@@ -5,9 +5,10 @@
   "homepage": "http://aerogear.org/",
   "private": true,
   "scripts": {
-    "clean": "ionic-app-scripts clean",
+    "clean": "rm -rf platforms && rm -rf plugins && rm -rf node_modules && rm -rf www",
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
+    "ionic:clean": "ionic-app-scripts clean",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve",
     "ionic:android": "ionic cordova run android",
