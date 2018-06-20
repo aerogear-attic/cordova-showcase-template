@@ -119,7 +119,9 @@ export class DeviceTrustPage {
     this.totalTests = 0;
     this.totalDetections = 0;
     this.totalPassed= 0;
-    this.performChecks().then(() => { this.checkDialog(this.trustScore) });
+    this.performChecks().then(() => { 
+      this.checkDialog(this.trustScore);
+    });
     this.performChecksAndPublishMetrics();
   }
 
