@@ -5,20 +5,25 @@
   "homepage": "http://aerogear.org/",
   "private": true,
   "scripts": {
-    "clean": "ionic-app-scripts clean",
+    "clean": "rm -rf platforms && rm -rf plugins && rm -rf node_modules && rm -rf www",
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
+    "ionic:clean": "ionic-app-scripts clean",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve",
     "ionic:android": "ionic cordova run android",
-    "ionic:ios": "ionic cordova run ios",
+    "ionic:ios": "ionic cordova platform add ios && cd platforms/ios && pod install && cd ../.. && ionic cordova run ios",
     "linkDev": "npm link @aerogear/app @aerogear/auth @aerogear/security @aerogear/core @aerogear/push"
+  },
+  "engines": {
+    "node": ">=8.0.0",
+    "npm": ">=5.0.0"
   },
   "dependencies": {
     "@aerogear/app": "^1.0.0-alpha",
     "@aerogear/auth": "^1.0.0-alpha",
     "@aerogear/cordova-plugin-aerogear-metrics": "^1.0.0-alpha",
-    "@aerogear/cordova-plugin-aerogear-push": "^1.0.0-alpha",
+    "@aerogear/cordova-plugin-aerogear-push": "^1.0.0-dev-3",
     "@aerogear/cordova-plugin-aerogear-security": "^1.0.0-alpha",
     "@aerogear/core": "^1.0.0-alpha",
     "@aerogear/push": "^1.0.0-alpha",
@@ -61,6 +66,8 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.1.8",
+    "cordova": "^8.0.0",
+    "ionic": "^3.20.0",
     "typescript": "~2.6.2"
   },
   "description": "An Ionic project",

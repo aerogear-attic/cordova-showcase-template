@@ -23,16 +23,21 @@ To build the showcase app, run:
 npm install
 npm run ionic:build
 ```
-You can choose to run the application in either an emulator or a browser.
+You can choose to run the application on android or ios.
 ```
-npm run ionic:serve // to run a browser
+npm run ionic:android // to run in an android
 
-npm run ionic:android // to run in an android emulator
-
-npm run ionic:ios // to run in an ios emulator
+npm run ionic:ios // to run in an ios
 ```
 
-Note: If after running the application for iOS you get the following error: 
+==== Troubleshooting
+When running the application on both android or ios you will need to clean the projects root directory to remove conflicting files specific to each platform
+This can be done by running the following:
+```
+npm run clean
+```
+
+If after running the application for iOS you get the following error: 
 ```
 ld: library not found for -lGoogleToolboxForMac
 clang: error: linker command failed with exit code 1 (use -v to see invocation)
@@ -47,3 +52,6 @@ and then re build the application.
 
 ==== Development and Contributing
 Looking to use the showcase for development purposes with the SDK please take some time to read the link:./CONTRIBUTING.md[General Contributing Guide]
+
+
+
