@@ -31,6 +31,8 @@ import {SimpleToastService} from "../services/toast.service";
 
 import { MaterialIconsModule } from 'ionic2-material-icons';
 import { Dialogs } from '@ionic-native/dialogs';
+import { IdentityManagementPage } from '../pages/identityManagement/identityManagement';
+import { DeviceSecurityPage } from '../pages/deviceSecurity/deviceSecurity';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,8 @@ import { Dialogs } from '@ionic-native/dialogs';
     SSOPage,
     PushMessagesPage,
     TrustCheckPage,
+    IdentityManagementPage,
+    DeviceSecurityPage,
     DocumentationPage
   ],
   imports: [
@@ -72,6 +76,8 @@ import { Dialogs } from '@ionic-native/dialogs';
     SSOPage,
     PushMessagesPage,
     TrustCheckPage,
+    IdentityManagementPage,
+    DeviceSecurityPage,
     DocumentationPage
   ],
   providers: [
