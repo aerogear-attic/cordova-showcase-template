@@ -5,7 +5,7 @@ import { ToastController } from 'ionic-angular';
 
 @Component({
     selector: 'page-sso',
-    templateUrl: '../underConstruction/construction.html'
+    templateUrl: 'sso.html'
 })
 export class SSOPage {
     pageTitle: string;
