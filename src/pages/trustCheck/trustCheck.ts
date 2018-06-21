@@ -7,11 +7,14 @@ import { ToastController } from 'ionic-angular';
     selector: 'page-trustCheck',
     templateUrl: 'trustCheck.html'
 })
+
 export class TrustCheckPage {
+    pageTitle: string;
 
     constructor(public toastCtrl: ToastController, public navCtrl: NavController, public navParams: NavParams) {
         this.navCtrl = navCtrl;
+        this.pageTitle = navParams.get('linkParam');
     }
-
+    
     ionViewDidEnter(): void {}
 }

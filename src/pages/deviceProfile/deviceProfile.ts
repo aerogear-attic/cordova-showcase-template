@@ -8,9 +8,11 @@ import { ToastController } from 'ionic-angular';
     templateUrl: 'deviceProfile.html'
 })
 export class DeviceProfilePage {
+    pageTitle: string;
 
     constructor(public toastCtrl: ToastController, public navCtrl: NavController, public navParams: NavParams) {
         this.navCtrl = navCtrl;
+        this.pageTitle = navParams.get('linkParam');
     }
 
     ionViewDidEnter(): void {}

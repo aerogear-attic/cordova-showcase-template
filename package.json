@@ -80,7 +80,6 @@
       "cordova-plugin-inappbrowser": {},
       "cordova-plugin-statusbar": {},
       "cordova-plugin-sslcertificatechecker": {},
-      "cordova-plugin-secure-storage": {},
       "@aerogear/cordova-plugin-aerogear-metrics": {},
       "@aerogear/cordova-plugin-aerogear-security": {},
       "@aerogear/cordova-plugin-aerogear-push": {},

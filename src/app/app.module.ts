@@ -33,6 +33,7 @@ import { MaterialIconsModule } from 'ionic2-material-icons';
 import { Dialogs } from '@ionic-native/dialogs';
 import { IdentityManagementPage } from '../pages/identityManagement/identityManagement';
 import { DeviceSecurityPage } from '../pages/deviceSecurity/deviceSecurity';
+import { ConstructionPage } from '../pages/underConstruction/construction';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { DeviceSecurityPage } from '../pages/deviceSecurity/deviceSecurity';
     TrustCheckPage,
     IdentityManagementPage,
     DeviceSecurityPage,
-    DocumentationPage
+    DocumentationPage,
+    ConstructionPage
   ],
   imports: [
     HttpModule,
@@ -78,7 +80,8 @@ import { DeviceSecurityPage } from '../pages/deviceSecurity/deviceSecurity';
     TrustCheckPage,
     IdentityManagementPage,
     DeviceSecurityPage,
-    DocumentationPage
+    DocumentationPage,
+    ConstructionPage
   ],
   providers: [
     AlertService,
