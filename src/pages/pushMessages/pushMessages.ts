@@ -19,15 +19,10 @@ export class PushMessagesPage {
     this.push.unregister();
   }
 
-  buttonVisible() {
-    return PushService.registered;
-  }
-
   ionViewDidEnter(): void {
-    if (!this.buttonVisible()) {
+    if (!this.push.isRegistered()) {
           this.alert.showAlert(constants.pushAlertMessage, constants.featureNotConfigured, 
             constants.alertButtons, constants.showDocs, constants.pushDocsUrl);
-
     }
   }
 }

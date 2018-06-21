@@ -25,6 +25,5 @@ export class HomePage {
     console.debug(`Received push notification: ${notification.message}`);
     // Navigate to push page
     this.navCtrl.push(PushMessagesPage);
-    
   }
 }
