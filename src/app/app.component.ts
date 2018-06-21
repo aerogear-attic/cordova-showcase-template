@@ -88,25 +88,21 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.menuCtrl.close().then(() => {
-      let changePageAllowed: boolean = true;
-      if(page.component === PushMessagesPage) {
-        if(!PushService.registered) {
-          changePageAllowed = false;
-          this.alert.showAlert(constants.pushAlertMessage, constants.featureNotConfigured, 
-            constants.alertButtons, constants.showDocs, constants.pushDocsUrl);
-        } 
+      if(page.component === PushMessagesPage && !PushService.registered) {
+        this.alert.showAlert(constants.pushAlertMessage, constants.featureNotConfigured, 
+          constants.alertButtons, constants.showDocs, constants.pushDocsUrl);
+          return;
       } else if (page.component === AuthPage) {
-        const configKeys: string[] = Object.keys(this.auth.getConfig()).toString().split(',');
-            console.log(configKeys.length);
-            if (configKeys.length <= 1 || configKeys.indexOf('url') === -1) {
-              changePageAllowed = false;
-              this.alert.showAlert(constants.idmMessage, constants.featureNotConfigured, 
-                constants.alertButtons, constants.showDocs, constants.idmUrl);
-            }
+        const configKeys: string[] = Object.keys(this.auth.getConfig());
+        // the following check is used to determine whether the Keycloak configuration
+        // and 'url' value in this configuration are present
+        if (configKeys.length <= 1 || configKeys.indexOf('url') === -1) {
+          this.alert.showAlert(constants.idmMessage, constants.featureNotConfigured, 
+            constants.alertButtons, constants.showDocs, constants.idmUrl);
+            return;
+        }
       }
-      if(changePageAllowed) {
-        this.nav.setRoot(page.component, { 'linkParam' : page.param });
-      }
+      this.nav.setRoot(page.component, { 'linkParam' : page.param });
     })
   }
 }

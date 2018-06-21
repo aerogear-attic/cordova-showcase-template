@@ -16,8 +16,4 @@ export class PushMessagesPage {
   disablePush() {
     this.push.unregister();
   }
-
-  buttonVisible() {
-    return PushService.registered;
-  }
 }
