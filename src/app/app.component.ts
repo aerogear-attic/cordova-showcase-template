@@ -29,7 +29,7 @@ import { constants } from '../constants/constants';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  public pages: Array<{ title: string, component: any, icon: string , param: string}>;
+  public pages: Array<{ title: string, component: any, icon: string, param: string }>;
 
   rootPage: any = HomePage;
 
@@ -44,32 +44,32 @@ export class MyApp {
   }
 
   initializeOptions(): void {
-    this.pages = []; 
+    this.pages = [];
     // used for an example of ngFor and navigation
     this.pages.push(
-      { title: 'Home', component: HomePage, icon: 'home', param: '' },
-      
-      { title: 'Identity Management', component: IdentityManagementPage, icon: 'account_circle', param: '' },
-      { title: 'Documentation', component: DocumentationPage, icon: '', param: 'identity-management' },
-      { title: 'Authentication', component: AuthPage, icon: '', param: '' },
-      { title: 'SSO', component: SSOPage, icon: '', param: '' },
-      
-      { title: 'Device Security', component: DeviceSecurityPage, icon: 'security', param: '' },
-      { title: 'Documentation', component: DocumentationPage, icon: '', param: 'device-security' },
-      { title: 'Device Trust', component: DeviceTrustPage, icon: '', param: '' },
-      { title: 'Secure Storage', component: StoragePage, icon: '', param: '' },
-      { title: 'Cert Pinning', component: CertPinningPage, icon: '', param: '' },
-      
-      { title: 'Push Notifications', component: PushPage, icon  : 'notifications_active', param: '' },
-      { title: 'Documentation', component: DocumentationPage, icon: '', param: 'push' },
-      { title: 'Device Registration', component: DeviceRegistrationPage, icon: '', param: '' },
-      { title: 'Push Messages', component: PushMessagesPage, icon: '', param: '' },
+      { title: 'Home', component: HomePage, icon: 'home', param: 'Home' },
 
-      { title: 'Metrics', component: MetricsPage, icon: 'insert_chart', param: '' },
+      { title: 'Identity Management', component: IdentityManagementPage, icon: 'account_circle', param: 'Identity Management' },
+      { title: 'Documentation', component: DocumentationPage, icon: '', param: 'identity-management' },
+      { title: 'Authentication', component: AuthPage, icon: '', param: 'Authentication' },
+      { title: 'SSO', component: SSOPage, icon: '', param: 'SSO' },
+
+      { title: 'Device Security', component: DeviceSecurityPage, icon: 'security', param: 'Device Security' },
+      { title: 'Documentation', component: DocumentationPage, icon: '', param: 'device-security' },
+      { title: 'Device Trust', component: DeviceTrustPage, icon: '', param: 'Device Trust' },
+      { title: 'Secure Storage', component: StoragePage, icon: '', param: 'Secure Storage' },
+      { title: 'Cert Pinning', component: CertPinningPage, icon: '', param: 'Cert Pinning' },
+
+      { title: 'Push Notifications', component: PushPage, icon: 'notifications_active', param: 'Push Notifications' },
+      { title: 'Documentation', component: DocumentationPage, icon: '', param: 'push' },
+      { title: 'Device Registration', component: DeviceRegistrationPage, icon: '', param: 'Device Registration' },
+      { title: 'Push Messages', component: PushMessagesPage, icon: '', param: 'Push Messages' },
+
+      { title: 'Metrics', component: MetricsPage, icon: 'insert_chart', param: 'Metrics' },
       { title: 'Documentation', component: DocumentationPage, icon: '', param: 'metrics' },
-      { title: 'Device Profile Info', component: DeviceProfilePage, icon: '', param: '' },
-      { title: 'Trust Check Info', component: TrustCheckPage, icon: '', param: '' }
-      
+      { title: 'Device Profile Info', component: DeviceProfilePage, icon: '', param: 'Device Profile Info' },
+      { title: 'Trust Check Info', component: TrustCheckPage, icon: '', param: 'Trust Check Info' }
+
     );
   }
 

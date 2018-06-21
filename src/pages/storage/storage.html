@@ -3,23 +3,10 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Secure Storage</ion-title>
+    <ion-title>{{this.pageTitle}}</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-
-  <ion-list>
-    <ion-item *ngFor="let note of notes" (click)="readNote(note)" detail-push>
-      <h3>{{ note.title }}</h3>
-      <p>{{ note.content }}</p>
-    </ion-item>
-  </ion-list>
-
+<ion-content padding>
+  <page-construction></page-construction>
 </ion-content>
-
-<ion-footer>
-  <ion-toolbar color=primary (click)="deviceLockCheck()">
-    <ion-title style="text-align: center">Create</ion-title>
-  </ion-toolbar>
-</ion-footer>
