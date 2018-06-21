@@ -5,8 +5,9 @@ import { ToastController } from 'ionic-angular';
 
 @Component({
     selector: 'page-trustCheck',
-    templateUrl: '../underConstruction/construction.html'
+    templateUrl: 'trustCheck.html'
 })
+
 export class TrustCheckPage {
     pageTitle: string;
 

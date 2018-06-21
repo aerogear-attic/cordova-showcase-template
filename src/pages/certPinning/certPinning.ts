@@ -5,7 +5,7 @@ import { ToastController } from 'ionic-angular';
 
 @Component({
     selector: 'page-certPinning',
-    templateUrl: '../underConstruction/construction.html'
+    templateUrl: 'certPinning.html'
 })
 export class CertPinningPage {
     pageTitle: string;

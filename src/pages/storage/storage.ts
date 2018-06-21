@@ -5,7 +5,7 @@ import { ToastController } from 'ionic-angular';
 
 @Component({
     selector: 'page-storage',
-    templateUrl: '../underConstruction/construction.html'
+    templateUrl: 'storage.html'
 })
 export class StoragePage {
     pageTitle: string;

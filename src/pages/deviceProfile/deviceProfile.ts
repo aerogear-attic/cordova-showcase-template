@@ -5,7 +5,7 @@ import { ToastController } from 'ionic-angular';
 
 @Component({
     selector: 'page-deviceProfile',
-    templateUrl: '../underConstruction/construction.html'
+    templateUrl: 'deviceProfile.html'
 })
 export class DeviceProfilePage {
     pageTitle: string;
