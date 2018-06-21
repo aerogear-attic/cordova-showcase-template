@@ -5,12 +5,14 @@ import { ToastController } from 'ionic-angular';
 
 @Component({
     selector: 'page-storage',
-    templateUrl: 'storage.html'
+    templateUrl: '../underConstruction/construction.html'
 })
 export class StoragePage {
+    pageTitle: string;
 
     constructor(public toastCtrl: ToastController, public navCtrl: NavController, public navParams: NavParams) {
         this.navCtrl = navCtrl;
+        this.pageTitle = navParams.get('linkParam');
     }
 
     ionViewDidEnter(): void {}
