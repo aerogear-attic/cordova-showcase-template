@@ -82,7 +82,7 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.menuCtrl.close().then(() => {  
-      this.nav.push(page.component, { 'linkParam' : page.param })
+      this.nav.setRoot(page.component, { 'linkParam' : page.param });
     })
   }
 }
