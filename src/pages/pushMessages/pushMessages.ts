@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { PushMessage } from "./message";
 import { PushService } from "../../services/push.service";
-import { constants } from '../../constants/constants';
-import { AlertService } from '../../services/alert.service';
 
 @Component({
   selector: 'page-pushMessages',
@@ -11,7 +9,7 @@ import { AlertService } from '../../services/alert.service';
 export class PushMessagesPage {
   public messages: PushMessage[] = null;
 
-  constructor(private push: PushService, private alert: AlertService) {
+  constructor(private push: PushService) {
     this.messages = push.messages;
   }
 
@@ -21,13 +19,5 @@ export class PushMessagesPage {
 
   buttonVisible() {
     return PushService.registered;
-  }
-
-  ionViewDidEnter(): void {
-    if (!this.buttonVisible()) {
-          this.alert.showAlert(constants.pushAlertMessage, constants.featureNotConfigured, 
-            constants.alertButtons, constants.showDocs, constants.pushDocsUrl);
-
-    }
   }
 }
