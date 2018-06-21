@@ -1,6 +1,5 @@
 import {Push, PushObject} from "@ionic-native/push";
 import {Injectable} from "@angular/core";
-import {SimpleToastService} from "./toast.service";
 import { PushRegistration } from "@aerogear/push";
 import {PushMessage} from "../pages/pushMessages/message";
 
@@ -20,7 +19,7 @@ export class PushService {
 
   public messages: PushMessage[] = [];
 
-  constructor(private toast: SimpleToastService) {
+  constructor() {
   }
 
   public initPush() {
@@ -49,10 +48,9 @@ export class PushService {
   public unregister() {
     PushService.pushObject.unregister().then(() => {
       PushService.registered = false;
-
-      this.toast.showSuccess("Successfully unregistered");
+      console.log("Successfully unregistered");
     }).catch(() => {
-      this.toast.showError("Error unregistering");
+      console.log("Error unregistering");
     });
   }
 
@@ -65,9 +63,9 @@ export class PushService {
     PushService.pushObject.on('registration').subscribe(data => {
       new PushRegistration().register(data.registrationId, PUSH_ALIAS).then(() => {
         PushService.registered = true;
-        this.toast.showSuccess("Push registration successful", "bottom");
+        console.log("Push registration successful");
       }).catch(err => {
-        this.toast.showError(err.message, "bottom");
+        console.log(err.message);
       });
     });
 
@@ -76,9 +74,12 @@ export class PushService {
         message: notification.message,
         received: new Date().toDateString()
       };
-
       this.messages.push(newNotification);
       this.emit(newNotification);
     });
+  }
+
+  public isRegistered() {
+    return PushService.registered;
   }
 }
