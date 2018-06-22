@@ -63,7 +63,6 @@ export class MyApp {
 
       { title: 'Push Notifications', component: PushPage, icon: 'notifications_active', param: 'Push Notifications' },
       { title: 'Documentation', component: DocumentationPage, icon: '', param: 'push' },
-      { title: 'Device Registration', component: DeviceRegistrationPage, icon: '', param: 'Device Registration' },
       { title: 'Push Messages', component: PushMessagesPage, icon: '', param: 'Push Messages' },
 
       { title: 'Metrics', component: MetricsPage, icon: 'insert_chart', param: 'Metrics' },
