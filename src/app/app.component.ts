@@ -1,5 +1,4 @@
 import { AlertService } from './../services/alert.service';
-import { PushService } from './../services/push.service';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -22,6 +21,7 @@ import { DocumentationPage } from '../pages/documentation/documentation';
 import { DeviceSecurityPage } from '../pages/deviceSecurity/deviceSecurity';
 import { Auth } from '@aerogear/auth';
 import { constants } from '../constants/constants';
+import { PushRegistration } from '@aerogear/push';
 
 @Component({
   templateUrl: 'app.html'
@@ -37,8 +37,9 @@ export class MyApp {
               public statusBar: StatusBar,
               public splashScreen: SplashScreen,
               private menuCtrl: MenuController,
-              private auth:Auth,
-              private alert: AlertService) {
+              private auth: Auth,
+              private alert: AlertService,
+              private push: PushRegistration) {
     this.initializeApp();
 
   }
@@ -88,19 +89,14 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.menuCtrl.close().then(() => {
-      if(page.component === PushMessagesPage && !PushService.registered) {
+      if (page.component === PushMessagesPage && Object.keys(this.push.pushConfig).length === 0) {
         this.alert.showAlert(constants.pushAlertMessage, constants.featureNotConfigured, 
           constants.alertButtons, constants.showDocs, constants.pushDocsUrl);
           return;
-      } else if (page.component === AuthPage) {
-        const configKeys: string[] = Object.keys(this.auth.getConfig());
-        // the following check is used to determine whether the Keycloak configuration
-        // and 'url' value in this configuration are present
-        if (configKeys.length <= 1 || configKeys.indexOf('url') === -1) {
-          this.alert.showAlert(constants.idmMessage, constants.featureNotConfigured, 
-            constants.alertButtons, constants.showDocs, constants.idmUrl);
-            return;
-        }
+      } else if (page.component === AuthPage && Object.keys(this.auth.getConfig().length === 0)) {
+        this.alert.showAlert(constants.idmMessage, constants.featureNotConfigured, 
+          constants.alertButtons, constants.showDocs, constants.idmUrl);
+          return;
       }
       this.nav.setRoot(page.component, { 'linkParam' : page.param });
     })

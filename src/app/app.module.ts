@@ -1,3 +1,4 @@
+import { PushRegistration } from '@aerogear/push';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { ErrorHandler, NgModule, Injector } from '@angular/core';
@@ -92,6 +93,7 @@ import { ConstructionPage } from '../pages/underConstruction/construction';
     PushService,
     SecureStorage,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    PushRegistration,
     Dialogs
   ]
 })
