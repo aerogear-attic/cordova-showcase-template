@@ -1,3 +1,4 @@
+import { AlertService } from './../services/alert.service';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -18,6 +19,9 @@ import { PushMessagesPage } from '../pages/pushMessages/pushMessages';
 import { TrustCheckPage } from '../pages/trustCheck/trustCheck';
 import { DocumentationPage } from '../pages/documentation/documentation';
 import { DeviceSecurityPage } from '../pages/deviceSecurity/deviceSecurity';
+import { Auth } from '@aerogear/auth';
+import { constants } from '../constants/constants';
+import { PushRegistration } from '@aerogear/push';
 
 @Component({
   templateUrl: 'app.html'
@@ -30,9 +34,12 @@ export class MyApp {
   rootPage: any = HomePage;
 
   constructor(public platform: Platform,
-    public statusBar: StatusBar,
-    public splashScreen: SplashScreen,
-    private menuCtrl: MenuController) {
+              public statusBar: StatusBar,
+              public splashScreen: SplashScreen,
+              private menuCtrl: MenuController,
+              private auth: Auth,
+              private alert: AlertService,
+              private push: PushRegistration) {
     this.initializeApp();
 
   }
@@ -82,7 +89,16 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.menuCtrl.close().then(() => {
-      this.nav.setRoot(page.component, { 'linkParam': page.param });
+      if (page.component === PushMessagesPage && Object.keys(this.push.pushConfig).length === 0) {
+        this.alert.showAlert(constants.pushAlertMessage, constants.featureNotConfigured, 
+          constants.alertButtons, constants.showDocs, constants.pushDocsUrl);
+          return;
+      } else if (page.component === AuthPage && Object.keys(this.auth.getConfig().length === 0)) {
+        this.alert.showAlert(constants.idmMessage, constants.featureNotConfigured, 
+          constants.alertButtons, constants.showDocs, constants.idmUrl);
+          return;
+      }
+      this.nav.setRoot(page.component, { 'linkParam' : page.param });
     })
   }
 }
