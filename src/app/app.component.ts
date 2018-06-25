@@ -12,7 +12,6 @@ import { PushPage } from "../pages/push/push";
 import { IdentityManagementPage } from '../pages/identityManagement/identityManagement';
 import { CertPinningPage } from '../pages/certPinning/certPinning';
 import { DeviceProfilePage } from '../pages/deviceProfile/deviceProfile';
-import { DeviceRegistrationPage } from '../pages/deviceRegistration/deviceRegistration';
 import { MetricsPage } from '../pages/metrics/metrics';
 import { SSOPage } from '../pages/sso/sso';
 import { PushMessagesPage } from '../pages/pushMessages/pushMessages';
@@ -34,14 +33,13 @@ export class MyApp {
   rootPage: any = HomePage;
 
   constructor(public platform: Platform,
-              public statusBar: StatusBar,
-              public splashScreen: SplashScreen,
-              private menuCtrl: MenuController,
-              private auth: Auth,
-              private alert: AlertService,
-              private push: PushRegistration) {
+    public statusBar: StatusBar,
+    public splashScreen: SplashScreen,
+    private menuCtrl: MenuController,
+    private auth: Auth,
+    private alert: AlertService,
+    private push: PushRegistration) {
     this.initializeApp();
-
   }
 
   initializeOptions(): void {
@@ -88,16 +86,18 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.menuCtrl.close().then(() => {
-      if (page.component === PushMessagesPage && Object.keys(this.push.pushConfig).length === 0) {
-        this.alert.showAlert(constants.pushAlertMessage, constants.featureNotConfigured, 
+      if (page.component === PushMessagesPage && !this.push.hasConfig()) {
+        this.alert.showAlert(constants.pushAlertMessage, constants.featureNotConfigured,
           constants.alertButtons, constants.showDocs, constants.pushDocsUrl);
-          return;
-      } else if (page.component === AuthPage && Object.keys(this.auth.getConfig().length === 0)) {
-        this.alert.showAlert(constants.idmMessage, constants.featureNotConfigured, 
-          constants.alertButtons, constants.showDocs, constants.idmUrl);
+        return;
+      }
+
+      if (page.component === AuthPage && !this.auth.hasConfig()) {
+          this.alert.showAlert(constants.idmMessage, constants.featureNotConfigured,
+            constants.alertButtons, constants.showDocs, constants.idmUrl);
           return;
       }
-      this.nav.setRoot(page.component, { 'linkParam' : page.param });
+      this.nav.setRoot(page.component, { 'linkParam': page.param });
     })
   }
 }
