@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { HomePage } from '../home/home';
 
 
 @Component({
@@ -14,9 +13,4 @@ export class SSOPage {
         this.navCtrl = navCtrl;
         this.pageTitle = navParams.get('linkParam');
     }
-
-    ionViewWillEnter(): void { 
-        window.open('https://docs.aerogear.org/aerogear/latest/keycloak/index.html?sso=1', '_system')
-        this.navCtrl.setRoot(HomePage);
-      }
 }
