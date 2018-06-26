@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import {NavController, NavParams} from 'ionic-angular';
-import { HomePage } from '../home/home';
-
 
 @Component({
   selector: 'page-documentation',
@@ -9,14 +8,15 @@ import { HomePage } from '../home/home';
 })
 export class DocumentationPage {
   linkParam: string;
+  url: SafeUrl;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private sanitizer: DomSanitizer) {
     this.navCtrl = navCtrl;
-    this.linkParam = navParams.get('linkParam')
+    this.linkParam = navParams.get('linkParam');
+    this.url = this.cleanURL(`https://docs.aerogear.org/aerogear/latest/showcase/${this.linkParam}.html`);
   }
 
-  ionViewWillEnter(): void { 
-    window.open(`https://docs.aerogear.org/aerogear/latest/showcase/${this.linkParam}.html`, '_system')
-    this.navCtrl.setRoot(HomePage);
+  cleanURL(url: string): SafeUrl {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 }
