@@ -96,7 +96,7 @@ export class DeviceTrustPage {
   detectDeviceLock(): Promise<any> {
     return this.securityService.check(SecurityCheckType.hasDeviceLock)
       .then((deviceLockEnabled: SecurityCheckResult) => {
-        const deviceLockMsg = deviceLockEnabled.passed ? "Device Lock Detected" : "Device Lock Not Detected";
+        const deviceLockMsg = deviceLockEnabled.passed ? "Device Lock Enabled " : "No Device Lock Enabled";
         this.addDetection(deviceLockMsg, deviceLockEnabled.passed);
       });
   }
