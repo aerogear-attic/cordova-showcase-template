@@ -23,7 +23,6 @@ export class HomePage {
   }
 
   openLink(){
-    console.log("woop")
     this.navCtrl.setRoot(DocumentationPage, { 'linkParam': "https://www.aerogear.org/" });
   }
 
