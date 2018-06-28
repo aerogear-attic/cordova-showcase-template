@@ -1,35 +1,27 @@
 <ion-menu [content]="content">
-    <ion-header>
-        <ion-toolbar color=primary>
-            <ion-title>Menu</ion-title>
-        </ion-toolbar>
-    </ion-header>
 
     <ion-content>
-
-            <ion-item no-lines class="banner">
-                <ion-avatar item-start>
-                    <img src="./assets/imgs/ag-logo.png">
-                </ion-avatar>
-                <p class="banner">AeroGear</p>
-                <p class="banner">aerogear.org</p>
-            </ion-item>
+        <ion-item no-lines class="banner">
+            <ion-avatar item-start>
+                <img src="./assets/imgs/ag-logo.png">
+            </ion-avatar>
+            <p class="banner">AeroGear</p>
+            <p class="banner">aerogear.org</p>
+        </ion-item>
 
 
         <!--&lt;!&ndash; side menu content &ndash;&gt;-->
         <!--<side-menu-content [settings]="sideMenuSettings" [options]="pages" (change)="openPage($event)"></side-menu-content>-->
 
-      <ion-list>
-        <button menuClose ion-item detail-none *ngFor="let p of pages" (click)="openPage(p)">
-            <ion-icon item-start>
-                <i class="material-icons">{{p.icon}}</i>
-            </ion-icon>
-        <span>{{p.title}}</span>
-        </button>
-      </ion-list>
-
+        <ion-list no-lines>
+            <button menuClose ion-item detail-none *ngFor="let p of pages" (click)="openPage(p)" [ngClass]="{ 'navmenu-item': p.icon != null, 'navmenu-sub-item': p.icon === null, 'navmenu-active': isCurrentPage(p) }">
+                <ion-icon item-start>
+                    <i class="material-icons">{{p.icon}}</i>
+                </ion-icon>
+                <span>{{p.title}}</span>
+            </button>
+        </ion-list>
     </ion-content>
-
 </ion-menu>
 
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
