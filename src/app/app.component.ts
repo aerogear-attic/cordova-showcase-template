@@ -97,11 +97,11 @@ export class MyApp {
           return;
         }
         // checking if push has registered
-        if (!this.pushService.isRegistered()){
+        if (this.pushService.getError()){
+          console.log("isRegistered");
           this.alert.showAlert(`The push service failed to register. \n\n Details: ${this.pushService.getError().message}`, "Push Not Registered", ["Close"], "")
           return;
         }
-        return;
       }
       // check for auth page config
       if (page.component === AuthPage && !this.auth.hasConfig()) {
@@ -113,4 +113,3 @@ export class MyApp {
     })
   }
 }
-

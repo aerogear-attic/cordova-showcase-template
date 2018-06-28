@@ -57,7 +57,8 @@ export class PushService {
 
   public register() {
     PushService.pushObject.on('error').subscribe(err => {
-      console.error(`Error configuring push notifications: ${err.message}`);
+      console.error(`Error configuring push notifications ${err.message}`);
+      this.pushError = err;
     });
 
     // Invokes the UPS registration endpoint
@@ -67,7 +68,7 @@ export class PushService {
         console.log("Push registration successful");
       }).catch(err => {
         this.pushError = err;
-        console.log("Push registration unsuccessful : ", this.pushError);
+        console.log("Push registration unsuccessful ", this.pushError);
       });
     });
 
