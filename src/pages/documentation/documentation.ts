@@ -13,7 +13,7 @@ export class DocumentationPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private sanitizer: DomSanitizer) {
     this.navCtrl = navCtrl;
     this.linkParam = navParams.get('linkParam');
-    this.url = this.cleanURL(`https://docs.aerogear.org/aerogear/latest/showcase/${this.linkParam}.html`);
+    this.url = this.cleanURL(this.linkParam);
   }
 
   cleanURL(url: string): SafeUrl {

@@ -51,6 +51,7 @@ export class MyApp {
     this.pages.push(
       { id: 'home', title: 'Home', component: HomePage, icon: 'home', param: 'Home' },
 
+<<<<<<< HEAD
       { id: 'idm', title: 'Identity Management', component: IdentityManagementPage, icon: 'account_circle', param: 'Identity Management' },
       { id: 'idm-docs', title: 'Documentation', component: DocumentationPage, icon: null, param: 'identity-management' },
       { id: 'idm-auth', title: 'Authentication', component: AuthPage, icon: null, param: 'Authentication' },
@@ -70,6 +71,27 @@ export class MyApp {
       { id: 'metrics-docs', title: 'Documentation', component: DocumentationPage, icon: null, param: 'metrics' },
       { id: 'metrics-profile', title: 'Device Profile Info', component: DeviceProfilePage, icon: null, param: 'Device Profile Info' },
       { id: 'metrics-trust', title: 'Trust Check Info', component: TrustCheckPage, icon: null, param: 'Trust Check Info' }
+=======
+      { title: 'Identity Management', component: IdentityManagementPage, icon: 'account_circle', param: 'Identity Management' },
+      { title: 'Documentation', component: DocumentationPage, icon: '', param: 'https://docs.aerogear.org/aerogear/latest/showcase/idm.html' },
+      { title: 'Authentication', component: AuthPage, icon: '', param: 'Authentication' },
+      { title: 'SSO', component: SSOPage, icon: '', param: 'SSO' },
+
+      { title: 'Device Security', component: DeviceSecurityPage, icon: 'security', param: 'Device Security' },
+      { title: 'Documentation', component: DocumentationPage, icon: '', param: 'https://docs.aerogear.org/aerogear/latest/showcase/device-security.html' },
+      { title: 'Device Trust', component: DeviceTrustPage, icon: '', param: 'Device Trust' },
+      { title: 'Secure Storage', component: StoragePage, icon: '', param: 'Secure Storage' },
+      { title: 'Cert Pinning', component: CertPinningPage, icon: '', param: 'Cert Pinning' },
+
+      { title: 'Push Notifications', component: PushPage, icon: 'notifications_active', param: 'Push Notifications' },
+      { title: 'Documentation', component: DocumentationPage, icon: '', param: 'https://docs.aerogear.org/aerogear/latest/showcase/push.html' },
+      { title: 'Push Messages', component: PushMessagesPage, icon: '', param: 'Push Messages' },
+
+      { title: 'Metrics', component: MetricsPage, icon: 'insert_chart', param: 'Metrics' },
+      { title: 'Documentation', component: DocumentationPage, icon: '', param: 'https://docs.aerogear.org/aerogear/latest/showcase/metrics.html' },
+      { title: 'Device Profile Info', component: DeviceProfilePage, icon: '', param: 'Device Profile Info' },
+      { title: 'Trust Check Info', component: TrustCheckPage, icon: '', param: 'Trust Check Info' }
+>>>>>>> in app webviews added
 
     );
     this.currentPage = this.pages[0];

@@ -5,6 +5,7 @@ import {PushService} from "../../services/push.service";
 import {PushMessagesPage} from "../pushMessages/pushMessages";
 import { Auth } from '@aerogear/auth';
 import { PushMessage } from '../pushMessages/message';
+import { DocumentationPage } from '../documentation/documentation';
 
 @Component({
   selector: 'page-home',
@@ -19,6 +20,11 @@ export class HomePage {
       push.setCallback((n) => this.addNotification(n));
       push.register();
     });
+  }
+
+  openLink(){
+    console.log("woop")
+    this.navCtrl.setRoot(DocumentationPage, { 'linkParam': "https://www.aerogear.org/" });
   }
 
   addNotification(notification: PushMessage) {

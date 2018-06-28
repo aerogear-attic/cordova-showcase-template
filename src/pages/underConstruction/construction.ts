@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
+import { DocumentationPage } from '../documentation/documentation';
+
 
 
 @Component({
@@ -15,6 +17,11 @@ export class ConstructionPage {
         this.navCtrl = navCtrl;
         this.pageTitle = navParams.get('linkParam');
     }
+
+    openLink(){
+        this.navCtrl.setRoot(DocumentationPage, { 'linkParam': "https://aerogear.org/community/#guides" });
+      }
+    
     
     ionViewDidEnter(): void {}
 }
