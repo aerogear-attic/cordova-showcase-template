@@ -18,6 +18,7 @@ export class PushService {
   static callback: (notification: PushMessage) => void;
 
   public messages: PushMessage[] = [];
+  private errorMessage: string;
 
   constructor() {
   }
@@ -65,7 +66,8 @@ export class PushService {
         PushService.registered = true;
         console.log("Push registration successful");
       }).catch(err => {
-        console.log(err.message);
+        this.errorMessage = err.message;
+        console.log(this.errorMessage);
       });
     });
 
@@ -77,6 +79,10 @@ export class PushService {
       this.messages.push(newNotification);
       this.emit(newNotification);
     });
+  }
+
+  public getError() {
+    return this.errorMessage;
   }
 
   public isRegistered() {
