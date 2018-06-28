@@ -98,7 +98,7 @@ export class MyApp {
         }
         // checking if push has registered
         if (!this.pushService.isRegistered()){
-          this.alert.showAlert(`The push service failed to register. \n\n Details: ${this.pushService.getError()}`, "Push Not Registered", ["Close"], "")
+          this.alert.showAlert(`The push service failed to register. \n\n Details: ${this.pushService.getError().message}`, "Push Not Registered", ["Close"], "")
           return;
         }
         return;
