@@ -114,3 +114,13 @@ p{
 .push-message {
   color: #000000
 }
+
+.navmenu-sub-item {
+  font-size: 10pt;
+  padding-left: 26px;
+}
+
+.navmenu-active {
+  background-color: color($colors, lightgray, base);
+  color: color($colors, orange, base);
+}

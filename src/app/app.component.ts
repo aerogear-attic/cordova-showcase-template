@@ -28,9 +28,10 @@ import { PushRegistration } from '@aerogear/push';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  public pages: Array<{ title: string, component: any, icon: string, param: string }>;
+  public pages: Array<{ id: string, title: string, component: any, icon: string, param: string }>;
 
   rootPage: any = HomePage;
+  currentPage: any;
 
   constructor(public platform: Platform,
     public statusBar: StatusBar,
@@ -46,29 +47,30 @@ export class MyApp {
     this.pages = [];
     // used for an example of ngFor and navigation
     this.pages.push(
-      { title: 'Home', component: HomePage, icon: 'home', param: 'Home' },
+      { id: 'home', title: 'Home', component: HomePage, icon: 'home', param: 'Home' },
 
-      { title: 'Identity Management', component: IdentityManagementPage, icon: 'account_circle', param: 'Identity Management' },
-      { title: 'Documentation', component: DocumentationPage, icon: '', param: 'identity-management' },
-      { title: 'Authentication', component: AuthPage, icon: '', param: 'Authentication' },
-      { title: 'SSO', component: SSOPage, icon: '', param: 'SSO' },
+      { id: 'idm', title: 'Identity Management', component: IdentityManagementPage, icon: 'account_circle', param: 'Identity Management' },
+      { id: 'idm-docs', title: 'Documentation', component: DocumentationPage, icon: null, param: 'identity-management' },
+      { id: 'idm-auth', title: 'Authentication', component: AuthPage, icon: null, param: 'Authentication' },
+      { id: 'idm-sso', title: 'SSO', component: SSOPage, icon: null, param: 'SSO' },
 
-      { title: 'Device Security', component: DeviceSecurityPage, icon: 'security', param: 'Device Security' },
-      { title: 'Documentation', component: DocumentationPage, icon: '', param: 'device-security' },
-      { title: 'Device Trust', component: DeviceTrustPage, icon: '', param: 'Device Trust' },
-      { title: 'Secure Storage', component: StoragePage, icon: '', param: 'Secure Storage' },
-      { title: 'Cert Pinning', component: CertPinningPage, icon: '', param: 'Cert Pinning' },
+      { id: 'security', title: 'Device Security', component: DeviceSecurityPage, icon: 'security', param: 'Device Security' },
+      { id: 'security-docs', title: 'Documentation', component: DocumentationPage, icon: null, param: 'device-security' },
+      { id: 'security-trust', title: 'Device Trust', component: DeviceTrustPage, icon: null, param: 'Device Trust' },
+      { id: 'security-storage', title: 'Secure Storage', component: StoragePage, icon: null, param: 'Secure Storage' },
+      { id: 'security-pinning', title: 'Cert Pinning', component: CertPinningPage, icon: null, param: 'Cert Pinning' },
 
-      { title: 'Push Notifications', component: PushPage, icon: 'notifications_active', param: 'Push Notifications' },
-      { title: 'Documentation', component: DocumentationPage, icon: '', param: 'push' },
-      { title: 'Push Messages', component: PushMessagesPage, icon: '', param: 'Push Messages' },
+      { id: 'push', title: 'Push Notifications', component: PushPage, icon: 'notifications_active', param: 'Push Notifications' },
+      { id: 'push-docs', title: 'Documentation', component: DocumentationPage, icon: null, param: 'push' },
+      { id: 'push-messages', title: 'Push Messages', component: PushMessagesPage, icon: null, param: 'Push Messages' },
 
-      { title: 'Metrics', component: MetricsPage, icon: 'insert_chart', param: 'Metrics' },
-      { title: 'Documentation', component: DocumentationPage, icon: '', param: 'metrics' },
-      { title: 'Device Profile Info', component: DeviceProfilePage, icon: '', param: 'Device Profile Info' },
-      { title: 'Trust Check Info', component: TrustCheckPage, icon: '', param: 'Trust Check Info' }
+      { id: 'metrics', title: 'Metrics', component: MetricsPage, icon: 'insert_chart', param: 'Metrics' },
+      { id: 'metrics-docs', title: 'Documentation', component: DocumentationPage, icon: null, param: 'metrics' },
+      { id: 'metrics-profile', title: 'Device Profile Info', component: DeviceProfilePage, icon: null, param: 'Device Profile Info' },
+      { id: 'metrics-trust', title: 'Trust Check Info', component: TrustCheckPage, icon: null, param: 'Trust Check Info' }
 
     );
+    this.currentPage = this.pages[0];
   }
 
   initializeApp() {
@@ -82,6 +84,10 @@ export class MyApp {
     });
   }
 
+  isCurrentPage(page) {
+    return page.id === this.currentPage.id;
+  }
+
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
@@ -93,11 +99,12 @@ export class MyApp {
       }
 
       if (page.component === AuthPage && !this.auth.hasConfig()) {
-          this.alert.showAlert(constants.idmMessage, constants.featureNotConfigured,
-            constants.alertButtons, constants.showDocs, constants.idmUrl);
-          return;
+        this.alert.showAlert(constants.idmMessage, constants.featureNotConfigured,
+          constants.alertButtons, constants.showDocs, constants.idmUrl);
+        return;
       }
       this.nav.setRoot(page.component, { 'linkParam': page.param });
+      this.currentPage = page;
     })
   }
 }
