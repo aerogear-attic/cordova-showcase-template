@@ -5,6 +5,8 @@ import { ErrorHandler, NgModule, Injector } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { MaterialIconsModule } from 'ionic2-material-icons';
+import { Dialogs } from '@ionic-native/dialogs';
 
 import { MyApp } from './app.component';
 
@@ -21,20 +23,20 @@ import { SSOPage } from '../pages/sso/sso';
 import { PushMessagesPage } from '../pages/pushMessages/pushMessages';
 import { TrustCheckPage } from '../pages/trustCheck/trustCheck';
 import { DocumentationPage } from '../pages/documentation/documentation';
-
-import { authProvider } from '../services/auth.service';
-import { SecureStorage } from '@ionic-native/secure-storage';
-
-import { AlertService } from '../services/alert.service';
-import {PushPage} from "../pages/push/push";
-import {PushService} from "../services/push.service";
-import {SimpleToastService} from "../services/toast.service";
-
-import { MaterialIconsModule } from 'ionic2-material-icons';
-import { Dialogs } from '@ionic-native/dialogs';
+import { PushPage } from "../pages/push/push";
 import { IdentityManagementPage } from '../pages/identityManagement/identityManagement';
 import { DeviceSecurityPage } from '../pages/deviceSecurity/deviceSecurity';
 import { ConstructionPage } from '../pages/underConstruction/construction';
+
+import { authProvider } from '../services/auth.service';
+import { SecureStorage } from '@ionic-native/secure-storage';
+import { DocumentationService } from '../services/documentation.service';
+import { PushService } from "../services/push.service";
+import { SimpleToastService } from "../services/toast.service";
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -85,7 +87,6 @@ import { ConstructionPage } from '../pages/underConstruction/construction';
     ConstructionPage
   ],
   providers: [
-    AlertService,
     StatusBar,
     SplashScreen,
     authProvider,
@@ -94,7 +95,8 @@ import { ConstructionPage } from '../pages/underConstruction/construction';
     SecureStorage,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     PushRegistration,
-    Dialogs
+    Dialogs,
+    DocumentationService
   ]
 })
 export class AppModule {

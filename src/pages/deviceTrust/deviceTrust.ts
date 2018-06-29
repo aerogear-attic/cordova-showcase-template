@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { SecurityService, SecurityCheckType, SecurityCheckResult } from '@aerogear/security';
-import { AlertService } from '../../services/alert.service';
-import { constants } from '../../constants/constants';
+import { Dialogs } from '@ionic-native/dialogs';
 
+declare var navigator: any;
 @Component({
   selector: 'page-deviceTrust',
   templateUrl: 'deviceTrust.html'
@@ -18,7 +18,7 @@ export class DeviceTrustPage {
   color: string;
   securityService: SecurityService;
 
-  constructor(public navCtrl: NavController, private alert: AlertService) {
+  constructor(public navCtrl: NavController, private dialog: Dialogs) {
     this.securityService = new SecurityService();
   }
 
@@ -108,8 +108,15 @@ export class DeviceTrustPage {
 
   checkDialog(trustScore: number): void {
     if (trustScore < 70) {
-      this.alert.showAlert(`Your current trust score ${trustScore}% is below the specified target of 70%, do you want to continue or exit the app?`,
-      'Warning', ["Exit", "Continue"], constants.exitApp);
+      this.dialog.confirm(
+        `Your current trust score ${trustScore}% is below the specified target of 70%, do you want to continue or exit the app?`,
+        "Warning",
+        ["Exit", "Continue"]
+      ).then((result) => {
+        if (result === 1) {
+          navigator.app.exitApp();
+        }
+      });
     }
   }
 
@@ -118,8 +125,8 @@ export class DeviceTrustPage {
     this.trustScore = 0;
     this.totalTests = 0;
     this.totalDetections = 0;
-    this.totalPassed= 0;
-    this.performChecks().then(() => { 
+    this.totalPassed = 0;
+    this.performChecks().then(() => {
       this.checkDialog(this.trustScore);
     });
     this.performChecksAndPublishMetrics();
