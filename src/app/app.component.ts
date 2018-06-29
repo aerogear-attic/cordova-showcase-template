@@ -21,6 +21,7 @@ import { DeviceSecurityPage } from '../pages/deviceSecurity/deviceSecurity';
 import { Auth } from '@aerogear/auth';
 import { constants } from '../constants/constants';
 import { PushRegistration } from '@aerogear/push';
+import { PushService } from './../services/push.service';
 
 @Component({
   templateUrl: 'app.html'
@@ -39,7 +40,8 @@ export class MyApp {
     private menuCtrl: MenuController,
     private auth: Auth,
     private alert: AlertService,
-    private push: PushRegistration) {
+    private push: PushRegistration,
+    private pushService: PushService) {
     this.initializeApp();
   }
 
@@ -92,12 +94,21 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.menuCtrl.close().then(() => {
-      if (page.component === PushMessagesPage && !this.push.hasConfig()) {
-        this.alert.showAlert(constants.pushAlertMessage, constants.featureNotConfigured,
-          constants.alertButtons, constants.showDocs, constants.pushDocsUrl);
-        return;
+      
+      if (page.component === PushMessagesPage){
+        // checking for push config
+        if (!this.push.hasConfig()){
+          this.alert.showAlert(constants.pushAlertMessage, constants.featureNotConfigured,
+            constants.alertButtons, constants.showDocs, constants.pushDocsUrl);
+          return;
+        }
+        // checking if push has registered
+        if (this.pushService.getError()){
+          this.alert.showAlert(`The push service failed to register. \n\n Details: ${this.pushService.getError().message}`, "Push Not Registered", ["Close"], "")
+          return;
+        }
       }
-
+      // check for auth page config
       if (page.component === AuthPage && !this.auth.hasConfig()) {
         this.alert.showAlert(constants.idmMessage, constants.featureNotConfigured,
           constants.alertButtons, constants.showDocs, constants.idmUrl);
@@ -108,4 +119,3 @@ export class MyApp {
     })
   }
 }
-

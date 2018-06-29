@@ -18,6 +18,7 @@ export class PushService {
   static callback: (notification: PushMessage) => void;
 
   public messages: PushMessage[] = [];
+  private pushError: Error;
 
   constructor() {
   }
@@ -56,7 +57,8 @@ export class PushService {
 
   public register() {
     PushService.pushObject.on('error').subscribe(err => {
-      console.error(`Error configuring push notifications: ${err.message}`);
+      this.pushError = err;
+      console.error(`Error configuring push notifications ${err.message}`);
     });
 
     // Invokes the UPS registration endpoint
@@ -65,7 +67,8 @@ export class PushService {
         PushService.registered = true;
         console.log("Push registration successful");
       }).catch(err => {
-        console.log(err.message);
+        this.pushError = err;
+        console.error("Push registration unsuccessful ", this.pushError);
       });
     });
 
@@ -77,6 +80,10 @@ export class PushService {
       this.messages.push(newNotification);
       this.emit(newNotification);
     });
+  }
+
+  public getError() {
+    return this.pushError;
   }
 
   public isRegistered() {
