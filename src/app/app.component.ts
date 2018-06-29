@@ -121,7 +121,8 @@ export class MyApp {
         // checking for push config
         if (!this.push.hasConfig()) {
           this.dialogs.confirm(
-            "The service push does not have a configuration in mobile-services.json. Refer to the documentation for instructions on how to configure this service. ",
+            "The service push does not have a configuration in mobile-services.json. " +
+            "Refer to the documentation for instructions on how to configure this service. ",
             "Feature Not Configured",
             ["Show Documentation", "Close"],
           ).then((result) => {
