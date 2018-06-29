@@ -54,22 +54,22 @@ export class MyApp {
       { id: 'home', title: 'Home', component: HomePage, icon: 'home', param: 'Home' },
 
       { id: 'idm', title: 'Identity Management', component: IdentityManagementPage, icon: 'account_circle', param: 'Identity Management' },
-      { id: 'idm-docs', title: 'Documentation', component: DocumentationPage, icon: null, param: 'identity-management' },
+      { id: 'idm-docs', title: 'Documentation', component: DocumentationPage, icon: null, param: DocumentationService.URL_IDM },
       { id: 'idm-auth', title: 'Authentication', component: AuthPage, icon: null, param: 'Authentication' },
       { id: 'idm-sso', title: 'SSO', component: SSOPage, icon: null, param: 'SSO' },
 
       { id: 'security', title: 'Device Security', component: DeviceSecurityPage, icon: 'security', param: 'Device Security' },
-      { id: 'security-docs', title: 'Documentation', component: DocumentationPage, icon: null, param: 'device-security' },
+      { id: 'security-docs', title: 'Documentation', component: DocumentationPage, icon: null, param: DocumentationService.URL_DEVICE_SECURITY },
       { id: 'security-trust', title: 'Device Trust', component: DeviceTrustPage, icon: null, param: 'Device Trust' },
       { id: 'security-storage', title: 'Secure Storage', component: StoragePage, icon: null, param: 'Secure Storage' },
       { id: 'security-pinning', title: 'Cert Pinning', component: CertPinningPage, icon: null, param: 'Cert Pinning' },
 
       { id: 'push', title: 'Push Notifications', component: PushPage, icon: 'notifications_active', param: 'Push Notifications' },
-      { id: 'push-docs', title: 'Documentation', component: DocumentationPage, icon: null, param: 'push' },
+      { id: 'push-docs', title: 'Documentation', component: DocumentationPage, icon: null, param: DocumentationService.URL_PUSH },
       { id: 'push-messages', title: 'Push Messages', component: PushMessagesPage, icon: null, param: 'Push Messages' },
 
       { id: 'metrics', title: 'Metrics', component: MetricsPage, icon: 'insert_chart', param: 'Metrics' },
-      { id: 'metrics-docs', title: 'Documentation', component: DocumentationPage, icon: null, param: 'metrics' },
+      { id: 'metrics-docs', title: 'Documentation', component: DocumentationPage, icon: null, param: DocumentationService.URL_METRICS },
       { id: 'metrics-profile', title: 'Device Profile Info', component: DeviceProfilePage, icon: null, param: 'Device Profile Info' },
       { id: 'metrics-trust', title: 'Trust Check Info', component: TrustCheckPage, icon: null, param: 'Trust Check Info' }
 
