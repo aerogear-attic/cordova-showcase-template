@@ -32,7 +32,7 @@
       "id": "push",
       "name": "push",
       "type": "push",
-      "url": "https://ups-dm-myproject-1.193b.starter-ca-centraltapps.com/",
+      "url": "https://ups-dm-myproject-1.193b.starter-ca-central-1.openshiftapps.com/",
       "config": {
         "ios": {
           "variantId": "70d8f761-cf64-485e-9606-b5bb88b4980d",
