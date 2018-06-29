@@ -5,7 +5,8 @@ import {PushService} from "../../services/push.service";
 import {PushMessagesPage} from "../pushMessages/pushMessages";
 import { Auth } from '@aerogear/auth';
 import { PushMessage } from '../pushMessages/message';
-import { DocumentationPage } from '../documentation/documentation';
+import { DocumentationService } from '../../services/documentation.service';
+
 
 @Component({
   selector: 'page-home',
@@ -13,7 +14,7 @@ import { DocumentationPage } from '../documentation/documentation';
   providers: [authProvider]
 })
 export class HomePage {
-  constructor(private navCtrl: NavController, push: PushService, plt: Platform, public auth: Auth) {
+  constructor(private navCtrl: NavController, push: PushService, plt: Platform, public auth: Auth, public docService: DocumentationService) {
     // We need to wait for the platform to initialize the plugins
     plt.ready().then(() => {
       push.initPush();
@@ -23,7 +24,7 @@ export class HomePage {
   }
 
   openLink(){
-    this.navCtrl.setRoot(DocumentationPage, { 'linkParam': "https://www.aerogear.org/" });
+    this.docService.open(DocumentationService.URL_HOMEPAGE);
   }
 
   addNotification(notification: PushMessage) {
