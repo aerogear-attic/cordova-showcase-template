@@ -1,11 +1,11 @@
 import { Auth } from "@aerogear/auth";
 import { Component } from "@angular/core";
-import {NavController, Platform} from "ionic-angular";
+import { NavController, Platform } from "ionic-angular";
 import { authProvider } from "../../services/auth.service";
 import { DocumentationService } from "../../services/documentation.service";
-import {PushService} from "../../services/push.service";
+import { PushService } from "../../services/push.service";
 import { PushMessage } from "../pushMessages/message";
-import {PushMessagesPage} from "../pushMessages/pushMessages";
+import { PushMessagesPage } from "../pushMessages/pushMessages";
 
 @Component({
   selector: "page-home",

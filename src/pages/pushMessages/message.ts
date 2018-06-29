@@ -1,4 +1,4 @@
 export interface PushMessage {
-    message: string;
-    received: string;
+  message: string;
+  received: string;
 }

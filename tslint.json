@@ -8,7 +8,8 @@
     "indent": [true, "spaces", 2],
     "object-literal-sort-keys": false,
     "no-console": [true, "log"],
-    "interface-name": [true, "never-prefix"]
+    "interface-name": [true, "never-prefix"],
+    "align": [true, "statements"]
   },
   "rulesDirectory": [
     "node_modules/tslint-eslint-rules/dist/rules"

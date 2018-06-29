@@ -89,7 +89,7 @@ import { SimpleToastService } from "../services/toast.service";
     SimpleToastService,
     PushService,
     SecureStorage,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     PushRegistration,
     Dialogs,
     DocumentationService,
@@ -102,4 +102,5 @@ export class AppModule {
 
   constructor(injector: Injector) {
     AppModule.injector = injector;
-  }}
+  }
+}

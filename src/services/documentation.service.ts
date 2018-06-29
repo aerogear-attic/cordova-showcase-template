@@ -1,4 +1,4 @@
-import {Injectable} from "@angular/core";
+import { Injectable } from "@angular/core";
 import { App } from "ionic-angular";
 import { DocumentationPage } from "../pages/documentation/documentation";
 

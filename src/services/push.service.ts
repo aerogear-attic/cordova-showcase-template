@@ -1,7 +1,7 @@
 import { PushRegistration } from "@aerogear/push";
-import {Injectable} from "@angular/core";
-import {Push, PushObject} from "@ionic-native/push";
-import {PushMessage} from "../pages/pushMessages/message";
+import { Injectable } from "@angular/core";
+import { Push, PushObject } from "@ionic-native/push";
+import { PushMessage } from "../pages/pushMessages/message";
 
 const PUSH_ALIAS = "cordova";
 
@@ -22,12 +22,12 @@ export class PushService {
 
   public initPush() {
     PushService.pushObject = new Push().init({
-        android: {},
-        ios: {
-          alert: true,
-          badge: true,
-          sound: true,
-        },
+      android: {},
+      ios: {
+        alert: true,
+        badge: true,
+        sound: true,
+      },
     });
   }
 
