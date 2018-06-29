@@ -1,6 +1,6 @@
-import {Push, PushObject} from "@ionic-native/push";
-import {Injectable} from "@angular/core";
 import { PushRegistration } from "@aerogear/push";
+import {Injectable} from "@angular/core";
+import {Push, PushObject} from "@ionic-native/push";
 import {PushMessage} from "../pages/pushMessages/message";
 
 const PUSH_ALIAS = "cordova";
@@ -14,14 +14,11 @@ export class PushService {
   public static registered: boolean = false;
 
   // We want one single instance & callback app wide
-  static pushObject: PushObject = null;
-  static callback: (notification: PushMessage) => void;
+  public static pushObject: PushObject = null;
+  public static callback: (notification: PushMessage) => void;
 
   public messages: PushMessage[] = [];
   private pushError: Error;
-
-  constructor() {
-  }
 
   public initPush() {
     PushService.pushObject = new Push().init({
@@ -29,12 +26,12 @@ export class PushService {
         ios: {
           alert: true,
           badge: true,
-          sound: true
-        }
+          sound: true,
+        },
     });
   }
 
-  private emit(notification: PushMessage) {
+  public emit(notification: PushMessage) {
     if (PushService.callback) {
       PushService.callback(notification);
     }
@@ -49,33 +46,33 @@ export class PushService {
   public unregister() {
     PushService.pushObject.unregister().then(() => {
       PushService.registered = false;
-      console.log("Successfully unregistered");
+      console.info("Successfully unregistered");
     }).catch(() => {
-      console.log("Error unregistering");
+      console.error("Error unregistering");
     });
   }
 
   public register() {
-    PushService.pushObject.on('error').subscribe(err => {
+    PushService.pushObject.on("error").subscribe((err) => {
       this.pushError = err;
       console.error(`Error configuring push notifications ${err.message}`);
     });
 
     // Invokes the UPS registration endpoint
-    PushService.pushObject.on('registration').subscribe(data => {
+    PushService.pushObject.on("registration").subscribe((data) => {
       new PushRegistration().register(data.registrationId, PUSH_ALIAS).then(() => {
         PushService.registered = true;
-        console.log("Push registration successful");
-      }).catch(err => {
+        console.info("Push registration successful");
+      }).catch((err) => {
         this.pushError = err;
         console.error("Push registration unsuccessful ", this.pushError);
       });
     });
 
-    PushService.pushObject.on('notification').subscribe(notification => {
+    PushService.pushObject.on("notification").subscribe((notification) => {
       const newNotification = {
         message: notification.message,
-        received: new Date().toDateString()
+        received: new Date().toDateString(),
       };
       this.messages.push(newNotification);
       this.emit(newNotification);
