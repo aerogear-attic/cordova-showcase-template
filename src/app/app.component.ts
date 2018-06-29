@@ -21,11 +21,7 @@ import { DeviceSecurityPage } from '../pages/deviceSecurity/deviceSecurity';
 import { Auth } from '@aerogear/auth';
 import { PushRegistration } from '@aerogear/push';
 import { PushService } from './../services/push.service';
-
 import { DocumentationService } from '../services/documentation.service';
-
-
-
 
 @Component({
   templateUrl: 'app.html'
@@ -43,16 +39,11 @@ export class MyApp {
     public splashScreen: SplashScreen,
     private menuCtrl: MenuController,
     private auth: Auth,
-<<<<<<< HEAD
-    private alert: AlertService,
-    private push: PushRegistration,
-    private pushService: PushService) {
-=======
     private push: PushRegistration,
     private dialogs: Dialogs,
-    private docService: DocumentationService  
+    private docService: DocumentationService,
+    private pushService: PushService  
   ) {
->>>>>>> refactor alerts, created docs service
     this.initializeApp();
   }
 
@@ -110,19 +101,33 @@ export class MyApp {
   openPage(page) {
 
     this.menuCtrl.close().then(() => {
-      if (page.component === PushMessagesPage && !this.push.hasConfig()) {
-        this.dialogs.confirm(
-          'The service push does not have a configuration in mobile-services.json. ' + 
-          'Refer to the documentation for instructions on how to configure this service. ',
-          'Feature Not Configured',
-          ['Show Documentation', 'Close']  
-        ).then((result) => {
-          if (result === 1) {
-            this.docService.open(DocumentationService.URL_PUSH);
-          }
-        })
-        return;
+      if (page.component === PushMessagesPage){
+        // checking for push config
+        if (!this.push.hasConfig()){
+          this.dialogs.confirm(
+            'The service push does not have a configuration in mobile-services.json. ' + 
+            'Refer to the documentation for instructions on how to configure this service. ',
+            'Feature Not Configured',
+            ['Show Documentation', 'Close']  
+          ).then((result) => {
+            if (result === 1) {
+              this.docService.open(DocumentationService.URL_PUSH);
+            }
+          });
+          return;
+        }
+        // checking if push is registered
+        if (this.pushService.getError()) {
+          this.dialogs.confirm(
+            `The push service failed to register. \n\n ` + 
+            `Details: ${ this.pushService.getError().message }`,
+            'Push Not Registered',
+            ['Close']  
+          );
+          return;
+        }
       }
+     
       // check for auth page config
       if (page.component === AuthPage && !this.auth.hasConfig()) {
         this.dialogs.confirm(
@@ -132,9 +137,9 @@ export class MyApp {
           ['Show Documentation', 'Close']
         ).then((result) => {
           if (result === 1) {
-            this.docService.open(DocumentationService.URL_IDM)
+            this.docService.open(DocumentationService.URL_IDM);
           }
-        })
+        });
         return;
       }
 
