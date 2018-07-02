@@ -1,117 +1,102 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { SecurityService, SecurityCheckType, SecurityCheckResult } from '@aerogear/security';
-import { Dialogs } from '@ionic-native/dialogs';
+import { SecurityCheckResult, SecurityCheckType, SecurityService } from "@aerogear/security";
+import { Component } from "@angular/core";
+import { Dialogs } from "@ionic-native/dialogs";
+import { NavController } from "ionic-angular";
 
 declare var navigator: any;
 @Component({
-  selector: 'page-deviceTrust',
-  templateUrl: 'deviceTrust.html'
+  selector: "page-deviceTrust",
+  templateUrl: "deviceTrust.html",
 })
 export class DeviceTrustPage {
-  detections: Array<{ label: string, detected: boolean }>;
-  trustScore: number;
-  totalTests: number;
-  totalDetections: number;
-  totalPassed: number;
-  icon: string;
-  color: string;
-  securityService: SecurityService;
+  public detections: Array<{ label: string, detected: boolean }>;
+  public trustScore: number;
+  public totalTests: number;
+  public totalDetections: number;
+  public totalPassed: number;
+  public icon: string;
+  public color: string;
+  public securityService: SecurityService;
 
   constructor(public navCtrl: NavController, private dialog: Dialogs) {
     this.securityService = new SecurityService();
   }
 
-  performChecks(): Promise<any> {
+  public performChecks(): Promise<any> {
     return Promise.all([
       this.detectDeviceLock(),
       this.detectRoot(),
       this.detectEmulator(),
-      this.detectDebug()])
+      this.detectDebug()]);
   }
 
-  performChecksAndPublishMetrics(): Promise<SecurityCheckResult[]> {
+  public performChecksAndPublishMetrics(): Promise<SecurityCheckResult[]> {
     return this.securityService.checkManyAndPublishMetric(SecurityCheckType.notDebugMode,
       SecurityCheckType.notRooted,
       SecurityCheckType.notEmulated,
       SecurityCheckType.hasDeviceLock);
   }
 
-  addDetection(label: string, isSecure: boolean) {
+  public addDetection(label: string, isSecure: boolean) {
     this.totalTests++;
 
     if (!isSecure) {
       this.totalDetections++;
     }
 
-    if (isSecure) this.totalPassed++;
+    if (isSecure) { this.totalPassed++; }
 
-    this.detections.push({ label: label, detected: isSecure });
+    this.detections.push({ label, detected: isSecure });
     this.trustScore = Number((100 - (((this.totalDetections / this.totalTests) * 100))).toFixed());
   }
 
-  // tag::detectEmulator[]
-  /**
-  * Detect if the device is running on an emulator.
-  */
-  detectEmulator(): Promise<any> {
+  // Detect if the device is running on an emulator.
+  public detectEmulator(): Promise<any> {
     return this.securityService.check(SecurityCheckType.notEmulated)
       .then((isEmulated: SecurityCheckResult) => {
         const emulatedMsg = isEmulated.passed ? "No Emulator Access Detected" : "Emulator Access Detected";
-        this.addDetection(emulatedMsg, isEmulated.passed)
-      }).catch((err: Error) => console.log(err));
+        this.addDetection(emulatedMsg, isEmulated.passed);
+      }).catch((err: Error) => console.error(err));
   }
-  // end::detectEmulator[]
 
-  // tag::detectRoot[]
-  /**
-  * Detect if the device is running Root.
-  */
-  detectRoot(): Promise<any> {
+  // Detect if the device is running Root.
+  public detectRoot(): Promise<any> {
     return this.securityService.check(SecurityCheckType.notRooted)
       .then((isRooted: SecurityCheckResult) => {
         const rootedMsg = isRooted.passed ? "No Root Access Detected" : "Root Access Detected";
         this.addDetection(rootedMsg, isRooted.passed);
-      }).catch((err: Error) => console.log(err));
+      }).catch((err: Error) => console.error(err));
   }
-  // end::detectRoot[]
 
-  // tag::detectDebug[]
-  /**
-  * Detect if the app is running in debug mode.
-  */
-  detectDebug(): Promise<any> {
+  // Detect if the app is running in debug mode.
+  public detectDebug(): Promise<any> {
     return this.securityService.check(SecurityCheckType.notDebugMode)
       .then((isDebugger: SecurityCheckResult) => {
         const debuggerMsg = isDebugger.passed ? "No Debugger Detected" : "Debugger Detected";
         this.addDetection(debuggerMsg, isDebugger.passed);
-      }).catch((err: Error) => console.log(err));
+      }).catch((err: Error) => console.error(err));
   }
-  // end::detectDebug[]
 
-  // tag::detectDeviceLock[]
-  /**
-  * Detect if a system device lock is set.
-  */
-  detectDeviceLock(): Promise<any> {
+  // Detect if a system device lock is set.
+  public detectDeviceLock(): Promise<any> {
     return this.securityService.check(SecurityCheckType.hasDeviceLock)
       .then((deviceLockEnabled: SecurityCheckResult) => {
         const deviceLockMsg = deviceLockEnabled.passed ? "Device Lock Enabled " : "No Device Lock Enabled";
         this.addDetection(deviceLockMsg, deviceLockEnabled.passed);
       });
   }
-  // end::detectDeviceLock[]
 
-  refreshChecks(): void {
+  public refreshChecks(): void {
     this.ionViewWillEnter();
   }
 
-  checkDialog(trustScore: number): void {
+  public checkDialog(trustScore: number): void {
     if (trustScore < 70) {
       this.dialog.confirm(
-        `Your current trust score ${trustScore}% is below the specified target of 70%, do you want to continue or exit the app?`,
+        `Your current trust score ${trustScore}% is below the specified target of 70%,` +
+        ` do you want to continue or exit the app?`,
         "Warning",
-        ["Exit", "Continue"]
+        ["Exit", "Continue"],
       ).then((result) => {
         if (result === 1) {
           navigator.app.exitApp();
@@ -120,7 +105,7 @@ export class DeviceTrustPage {
     }
   }
 
-  ionViewWillEnter(): void {
+  public ionViewWillEnter(): void {
     this.detections = [];
     this.trustScore = 0;
     this.totalTests = 0;

@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
-import { PushMessage } from "./message";
+import { Component } from "@angular/core";
 import { PushService } from "../../services/push.service";
+import { PushMessage } from "./message";
 
 @Component({
-  selector: 'page-pushMessages',
-  templateUrl: 'pushMessages.html'
+  selector: "page-pushMessages",
+  templateUrl: "pushMessages.html",
 })
 export class PushMessagesPage {
   public messages: PushMessage[] = null;
@@ -13,7 +13,7 @@ export class PushMessagesPage {
     this.messages = push.messages;
   }
 
-  disablePush() {
+  public disablePush() {
     this.push.unregister();
   }
 }

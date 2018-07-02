@@ -1,9 +1,15 @@
 {
+  "extends": "tslint:recommended",
   "rules": {
     "no-duplicate-variable": true,
     "no-unused-variable": [
       true
-    ]
+    ],
+    "indent": [true, "spaces", 2],
+    "object-literal-sort-keys": false,
+    "no-console": [true, "log"],
+    "interface-name": [true, "never-prefix"],
+    "align": [true, "statements"]
   },
   "rulesDirectory": [
     "node_modules/tslint-eslint-rules/dist/rules"

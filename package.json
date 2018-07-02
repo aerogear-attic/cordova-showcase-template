@@ -7,7 +7,8 @@
   "scripts": {
     "clean": "rm -rf platforms && rm -rf plugins && rm -rf node_modules && rm -rf www",
     "build": "ionic-app-scripts build",
-    "lint": "ionic-app-scripts lint",
+    "lint": "tslint \"src/**/*.ts\" && tsfmt --verify",
+    "lint:fix": "tslint --fix \"src/**/*.ts\" && tsfmt -r",
     "ionic:clean": "ionic-app-scripts clean",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve",
@@ -68,7 +69,9 @@
     "@ionic/app-scripts": "3.1.8",
     "cordova": "^8.0.0",
     "ionic": "^3.20.0",
-    "typescript": "~2.6.2"
+    "tslint": "^5.10.0",
+    "typescript": "~2.6.2",
+    "typescript-formatter": "^7.2.2"
   },
   "description": "An Ionic project",
   "cordova": {
