@@ -6,10 +6,10 @@ import { DocumentationPage } from "../pages/documentation/documentation";
 export class DocumentationService {
   public static readonly URL_GUIDES: string = "https://aerogear.org/community/#guides";
   public static readonly URL_HOMEPAGE: string = "https://aerogear.org/";
-  public static readonly URL_IDM: string = "https://docs.aerogear.org/aerogear/latest/showcase/idm.html";
-  public static readonly URL_METRICS: string = "https://docs.aerogear.org/aerogear/latest/showcase/metrics.html";
-  public static readonly URL_PUSH: string = "https://docs.aerogear.org/aerogear/latest/showcase/push.html";
-  public static readonly URL_DEVICE_SECURITY: string = "https://docs.aerogear.org/aerogear/latest/security/index.html";
+  public static readonly URL_IDM: string = "https://docs.aerogear.org/aerogear/latest/showcase/idm.html#nochrome";
+  public static readonly URL_METRICS: string = "https://docs.aerogear.org/aerogear/latest/showcase/metrics.html#nochrome";
+  public static readonly URL_PUSH: string = "https://docs.aerogear.org/aerogear/latest/showcase/push.html#nochrome";
+  public static readonly URL_DEVICE_SECURITY: string = "https://docs.aerogear.org/aerogear/latest/security/index.html#nochrome";
 
   constructor(private app: App) {
   }
