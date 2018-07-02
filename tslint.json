@@ -9,7 +9,8 @@
     "object-literal-sort-keys": false,
     "no-console": [true, "log"],
     "interface-name": [true, "never-prefix"],
-    "align": [true, "statements"]
+    "align": [true, "statements"],
+    "max-line-length": [true, 140]
   },
   "rulesDirectory": [
     "node_modules/tslint-eslint-rules/dist/rules"
