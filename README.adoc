@@ -7,9 +7,21 @@ image:https://img.shields.io/badge/Angular%20Version-4-green.svg[]
 image:https://badges.frapsoft.com/typescript/code/typescript.svg?v=101[]
 image:https://circleci.com/gh/aerogear/cordova-showcase-template.svg?&style=shield[link=https://circleci.com/gh/aerogear/cordova-showcase-template]
 
+[width="85%"]
+|===========================================================================================================
+|                 | *Project Info*                                                                            
+| License:        | Apache License, Version 2.0                                                             
+| Build:          | NPM                                                                                     
+| End User Documentation:  | link:https://docs.aerogear.org[]                                                 
+| Community Documentation: | link:https://aerogear.org[]                                                      
+| Issue tracker:  | link:https://issues.jboss.org/browse/AEROGEAR[] 
+| Mailing lists:  | link:https://groups.google.com/forum/#!forum/aerogear[aerogear-dev] 
+|===========================================================================================================
+
 A template application to showcase features from link:https://github.com/aerogear/aerogear-js-sdk[Aerogear Js SDK].
 
 As this application showcases features from link:https://github.com/aerogear/aerogear-js-sdk[Aerogear Js SDK] ensure you checkout the desired git tag for whatever SDK version you intend to run. Check link:https://www.npmjs.com/org/aerogear[NPM] for associated versions and releases.
+
 == Build Instructions
 
 === Running the App
@@ -31,12 +43,15 @@ npm run ionic:ios // to run in an ios
 ```
 
 ==== Troubleshooting
+
+===== Working with iOS and Android together
 When running the application on both android or ios you will need to clean the projects root directory to remove conflicting files specific to each platform
 This can be done by running the following:
 ```
 npm run clean
 ```
 
+===== iOS Pod linking Issue
 If after running the application for iOS you get the following error: 
 ```
 ld: library not found for -lGoogleToolboxForMac
@@ -50,8 +65,39 @@ cd platforms/ios && pod install
 
 and then re build the application.
 
-==== Development and Contributing
-Looking to use the showcase for development purposes with the SDK please take some time to read the link:./CONTRIBUTING.md[General Contributing Guide]
+===== Work with Self-signed Certificate
 
+By default, the app will not work with self-signed certificate due to security reasons. However, to help with local development, you may need to support it.  Here are the steps you can follow:
 
+1. Get the CA certificate of the server. You can use this command:
++
+[source, bash]
+----
+openssl s_client -showcerts -connect host:port
+---- 
++
+It will print out the full certificate chain of the server and you should save the content of the root certificate into a file.
+
+2. Drag and drop the .crt file onto the emulator/simulator you are using.
+
+3. On Android, double click on the .crt file and follow the instructions to install.
+
+4. On iOS, follow the on screen prompts to install the cert. Then navigate to Settings > General > About > Certificate Trust Settings and enable full trust for the cert.
+
+==== Contributing
+
+* link:./CONTRIBUTING.md[General Contributing Guide]
+* link:./docs/contrib/contributing-guide.adoc[Service Contributor Guide]
+
+==== License
+
+See link:https://github.com/aerogear/cordova-showcase-template/blob/master/LICENSE[LICENSE file]
+
+==== Questions?
+
+Join our link:https://groups.google.com/forum/#!forum/aerogear[user mailing list] for any questions or help! We really hope you enjoy app development with AeroGear!
+
+==== Found a bug?
+
+If you found a bug please create a ticket for us on link:https://issues.jboss.org/browse/AEROGEAR[Jira] with some steps to reproduce it.
 
