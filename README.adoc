@@ -13,7 +13,7 @@ image:https://circleci.com/gh/aerogear/cordova-showcase-template.svg?&style=shie
 | License:        | Apache License, Version 2.0                                                             
 | Build:          | NPM                                                                                     
 | End User Documentation:  | link:https://docs.aerogear.org[]                                                 
-| Community Documentation: | link:https://aerogear.org[]                                                      
+| Community Documentation: | link:https://www.aerogear.org[]                                                      
 | Issue tracker:  | link:https://issues.jboss.org/browse/AEROGEAR[] 
 | Mailing lists:  | link:https://groups.google.com/forum/#!forum/aerogear[aerogear-dev] 
 |===========================================================================================================
@@ -86,8 +86,7 @@ It will print out the full certificate chain of the server and you should save t
 
 ==== Contributing
 
-* link:./CONTRIBUTING.md[General Contributing Guide]
-* link:./docs/contrib/contributing-guide.adoc[Service Contributor Guide]
+* link:https://github.com/aerogear/cordova-showcase-template/blob/master/CONTRIBUTING.md[General Contributing Guide]
 
 ==== License
 
