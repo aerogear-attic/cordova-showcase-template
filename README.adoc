@@ -29,9 +29,12 @@ As this application showcases features from link:https://github.com/aerogear/aer
 * link:https://docs.aerogear.org/aerogear/latest/push-notifications.html[Push Notifications]
 
 == Pre-requisites
-To run this application, the following is required:
+To run this application, the following is required (depending on which platform you wish to run the application on):
 
 * link:https://nodejs.org/en/[Node] - version 8.9.4
+* link:https://developer.apple.com/xcode/[Xcode]
+* link:https://developer.android.com/studio/install[Android Studio]
+* link:https://developer.android.com/studio/releases/sdk-tools[Android SDK Tools]
 
 == Build Instructions
 
