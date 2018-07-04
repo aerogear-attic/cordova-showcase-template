@@ -89,6 +89,18 @@ and then re build the application.
 
 To use self-signed certificates, see the guide here: link:https://docs.aerogear.org/aerogear/latest/getting-started.html#using-self-signed-certificates-in-mobile-apps[]
 
+Note, if using Android API Level 24 or newer, you must tell the application to trust user certificates by using a file 
+such as link:https://github.com/aerogear/cordova-showcase-template/blob/master/network_security_config.xml[this one] and including it in the android platform like this in the config.xml:
+
+```
+<resource-file src="network_security_config.xml" target="app/src/main/res/xml/network_security_config.xml" />
+<edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+    <application android:networkSecurityConfig="@xml/network_security_config" />
+</edit-config>
+```
+
+For more information, see: link:https://developer.android.com/training/articles/security-config[]
+
 ==== Contributing
 
 * link:https://github.com/aerogear/cordova-showcase-template/blob/master/CONTRIBUTING.md[General Contributing Guide]
