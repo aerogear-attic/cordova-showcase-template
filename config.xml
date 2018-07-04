@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="org.aerogear.js.showcase" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="org.aerogear.js.showcase" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
     <name>AeroGear Cordova Showcase</name>
     <description>Showcase of the AeroGear services.</description>
     <author email="aerogear@googlegroups.com" href="https://aerogear.org/">AeroGear</author>
@@ -41,6 +41,10 @@
         <splash density="port-xxhdpi" src="resources/android/splash/drawable-port-xxhdpi-screen.png" />
         <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
         <resource-file src="google-services.json" target="app/google-services.json" />
+        <resource-file src="network_security_config.xml" target="app/src/main/res/xml/network_security_config.xml" />
+        <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+            <application android:networkSecurityConfig="@xml/network_security_config" />
+        </edit-config>
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
@@ -72,17 +76,20 @@
         <splash src="resources/ios/splash/Default@2x~ipad~anyany.png" />
         <splash src="resources/ios/splash/Default@2x~ipad~comany.png" />
     </platform>
-    <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
+    <engine name="ios" spec="4.5.4" />
     <plugin name="cordova-plugin-ionic-webview" spec="^1.2.1" />
-    <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
-    <plugin name="cordova-plugin-sslcertificatechecker" spec="^5.1.0" />
-    <plugin name="@aerogear/cordova-plugin-aerogear-metrics" />
-    <plugin name="@aerogear/cordova-plugin-aerogear-security" />
-    <plugin name="@aerogear/cordova-plugin-aerogear-push" />
+    <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
     <plugin name="cordova-plugin-secure-key-store" spec="^1.5.5" />
+    <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
     <plugin name="cordova-plugin-statusbar" spec="^2.4.2" />
+    <plugin name="cordova-plugin-sslcertificatechecker" spec="^5.1.0" />
+    <plugin name="@aerogear/cordova-plugin-aerogear-metrics" spec="^1.0.0-alpha.1" />
+    <plugin name="@aerogear/cordova-plugin-aerogear-security" spec="^1.0.0-alpha.1" />
+    <plugin name="@aerogear/cordova-plugin-aerogear-push" spec="^1.0.0-alpha.1" />
     <plugin name="cordova-plugin-dialogs" spec="^2.0.1" />
-    <engine name="android" spec="7.1.0" />
-    <engine name="ios" spec="4.5.4" />
+    <plugin name="cordova-plugin-aerogear-metrics" />
+    <plugin name="cordova-plugin-aerogear-security" />
+    <plugin name="cordova-plugin-aerogear-push" />
+    <engine name="android" spec="~7.0.0" />
 </widget>
