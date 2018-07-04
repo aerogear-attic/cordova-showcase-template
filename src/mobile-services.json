@@ -4,47 +4,6 @@
   "namespace": "myproject",
   "clientId": "example_client_id",
   "services": [
-    {
-      "id": "keycloak",
-      "name": "keycloak",
-      "type": "keycloak",
-      "url": "https://keycloak.security.feedhenry.org/auth/",
-      "config": {
-        "realm": "secure-app",
-        "url": "https://keycloak.security.feedhenry.org/auth/",
-        "ssl-required": "external",
-        "resource": "client-app",
-        "public-client": true,
-        "use-resource-role-mappings": true,
-        "pinningFingerprint": "44 C8 9A 60 4E 29 82 85 8E 4F 75 1F 78 46 CD B3 0A 08 66 3F",
-        "apiServerUrl": "https://api.security.feedhenry.org",
-        "apiEndpoint": "/"
-      }
-    },
-    {
-      "id": "metrics",
-      "name": "metrics",
-      "type": "metrics",
-      "url": "https://www.mocky.io/v2/5aa696133100001335e716e0",
-      "config": {}
-    },
-    {
-      "id": "push",
-      "name": "push",
-      "type": "push",
-      "url": "https://ups-dm-myproject-1.193b.starter-ca-central-1.openshiftapps.com/",
-      "config": {
-        "ios": {
-          "variantId": "70d8f761-cf64-485e-9606-b5bb88b4980d",
-          "variantSecret": "199c14c5-ed6a-4a92-92ae-423d8c7e1f43"
-        },
-        "android": {
-          "variantId": "6fa16a51-aac1-40fc-a8d9-adcd7c0c27c2",
-          "variantSecret": "e7f1e444-3dc3-4e27-b1dd-d74f51b8b0e1",
-          "senderId": "754329551899"
-        }
-      }
-    }
   ]
 }
 
