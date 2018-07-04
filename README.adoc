@@ -99,6 +99,8 @@ such as link:https://github.com/aerogear/cordova-showcase-template/blob/master/n
 </edit-config>
 ```
 
+For more information, see: link:https://developer.android.com/training/articles/security-config[]
+
 ==== Contributing
 
 * link:https://github.com/aerogear/cordova-showcase-template/blob/master/CONTRIBUTING.md[General Contributing Guide]
