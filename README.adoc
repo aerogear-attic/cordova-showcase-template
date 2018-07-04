@@ -7,10 +7,42 @@ image:https://img.shields.io/badge/Angular%20Version-4-green.svg[]
 image:https://badges.frapsoft.com/typescript/code/typescript.svg?v=101[]
 image:https://circleci.com/gh/aerogear/cordova-showcase-template.svg?&style=shield[link=https://circleci.com/gh/aerogear/cordova-showcase-template]
 
+[width="85%"]
+|===========================================================================================================
+|                 | *Project Info*                                                                            
+| License:        | Apache License, Version 2.0                                                             
+| Build:          | NPM                                                                                     
+| End User Documentation:  | link:https://docs.aerogear.org[]                                                 
+| Community Documentation: | link:https://www.aerogear.org[]                                                      
+| Issue tracker:  | link:https://issues.jboss.org/browse/AEROGEAR[] 
+| Mailing lists:  | link:https://groups.google.com/forum/#!forum/aerogear[aerogear-dev] 
+|===========================================================================================================
+
 A template application to showcase features from link:https://github.com/aerogear/aerogear-js-sdk[Aerogear Js SDK].
 
 As this application showcases features from link:https://github.com/aerogear/aerogear-js-sdk[Aerogear Js SDK] ensure you checkout the desired git tag for whatever SDK version you intend to run. Check link:https://www.npmjs.com/org/aerogear[NPM] for associated versions and releases.
+
+== Features
+* link:https://docs.aerogear.org/aerogear/latest/identity-management.html[AeroGear Identity Management Service]
+* link:https://docs.aerogear.org/aerogear/latest/device-security.html[Device Security Checks]
+* link:https://docs.aerogear.org/aerogear/latest/mobile-metrics.html[Mobile Metrics]
+* link:https://docs.aerogear.org/aerogear/latest/push-notifications.html[Push Notifications]
+
+== Pre-requisites
+To run this application, the following is required (depending on which platform you wish to run the application on):
+
+* link:https://nodejs.org/en/[Node] - version 8.9.4
+* link:https://developer.apple.com/xcode/[Xcode]
+* link:https://developer.android.com/studio/install[Android Studio]
+* link:https://developer.android.com/studio/releases/sdk-tools[Android SDK Tools]
+
 == Build Instructions
+
+=== Cloning the application
+
+```
+git clone git@github.com:aerogear/cordova-showcase-template.git && cd cordova-showcase-template
+```
 
 === Running the App
 This application can be run as a showcase using a published version of the AeroGear Js SDK, or as a development aid to working on the SDK.
@@ -31,12 +63,15 @@ npm run ionic:ios // to run in an ios
 ```
 
 ==== Troubleshooting
+
+===== Working with iOS and Android together
 When running the application on both android or ios you will need to clean the projects root directory to remove conflicting files specific to each platform
 This can be done by running the following:
 ```
 npm run clean
 ```
 
+===== iOS Pod linking Issue
 If after running the application for iOS you get the following error: 
 ```
 ld: library not found for -lGoogleToolboxForMac
@@ -50,8 +85,23 @@ cd platforms/ios && pod install
 
 and then re build the application.
 
-==== Development and Contributing
-Looking to use the showcase for development purposes with the SDK please take some time to read the link:./CONTRIBUTING.md[General Contributing Guide]
+===== Work with Self-signed Certificate
 
+To use self-signed certificates, see the guide here: link:https://docs.aerogear.org/aerogear/latest/getting-started.html#using-self-signed-certificates-in-mobile-apps[]
 
+==== Contributing
+
+* link:https://github.com/aerogear/cordova-showcase-template/blob/master/CONTRIBUTING.md[General Contributing Guide]
+
+==== License
+
+See link:https://github.com/aerogear/cordova-showcase-template/blob/master/LICENSE[LICENSE file]
+
+==== Questions?
+
+Join our link:https://groups.google.com/forum/#!forum/aerogear[user mailing list] for any questions or help! We really hope you enjoy app development with AeroGear!
+
+==== Found a bug?
+
+If you found a bug please create a ticket for us on link:https://issues.jboss.org/browse/AEROGEAR[Jira] with some steps to reproduce it.
 
