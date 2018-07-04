@@ -22,7 +22,24 @@ A template application to showcase features from link:https://github.com/aerogea
 
 As this application showcases features from link:https://github.com/aerogear/aerogear-js-sdk[Aerogear Js SDK] ensure you checkout the desired git tag for whatever SDK version you intend to run. Check link:https://www.npmjs.com/org/aerogear[NPM] for associated versions and releases.
 
+== Features
+* link:https://docs.aerogear.org/aerogear/latest/identity-management.html[AeroGear Identity Management Service]
+* link:https://docs.aerogear.org/aerogear/latest/device-security.html[Device Security Checks]
+* link:https://docs.aerogear.org/aerogear/latest/mobile-metrics.html[Mobile Metrics]
+* link:https://docs.aerogear.org/aerogear/latest/push-notifications.html[Push Notifications]
+
+== Pre-requisites
+To run this application, the following is required:
+
+* link:https://nodejs.org/en/[Node] - version 8.9.4
+
 == Build Instructions
+
+=== Cloning the application
+
+```
+git clone git@github.com:aerogear/cordova-showcase-template.git && cd cordova-showcase-template
+```
 
 === Running the App
 This application can be run as a showcase using a published version of the AeroGear Js SDK, or as a development aid to working on the SDK.
@@ -67,22 +84,7 @@ and then re build the application.
 
 ===== Work with Self-signed Certificate
 
-By default, the app will not work with self-signed certificate due to security reasons. However, to help with local development, you may need to support it.  Here are the steps you can follow:
-
-1. Get the CA certificate of the server. You can use this command:
-+
-[source, bash]
-----
-openssl s_client -showcerts -connect host:port
----- 
-+
-It will print out the full certificate chain of the server and you should save the content of the root certificate into a file.
-
-2. Drag and drop the .crt file onto the emulator/simulator you are using.
-
-3. On Android, double click on the .crt file and follow the instructions to install.
-
-4. On iOS, follow the on screen prompts to install the cert. Then navigate to Settings > General > About > Certificate Trust Settings and enable full trust for the cert.
+To use self-signed certificates, see the guide here: link:https://docs.aerogear.org/aerogear/latest/getting-started.html#using-self-signed-certificates-in-mobile-apps[]
 
 ==== Contributing
 
