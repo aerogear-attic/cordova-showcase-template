@@ -3,6 +3,7 @@ import { ErrorHandler, Injector, NgModule } from "@angular/core";
 import { HttpModule } from "@angular/http";
 import { BrowserModule } from "@angular/platform-browser";
 import { Dialogs } from "@ionic-native/dialogs";
+import { HTTP } from "@ionic-native/http";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { StatusBar } from "@ionic-native/status-bar";
 import { IonicApp, IonicErrorHandler, IonicModule } from "ionic-angular";
@@ -84,6 +85,7 @@ import { SimpleToastService } from "../services/toast.service";
   ],
   providers: [
     StatusBar,
+    HTTP,
     SplashScreen,
     authProvider,
     SimpleToastService,
