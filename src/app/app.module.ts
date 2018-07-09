@@ -32,6 +32,7 @@ import { ConstructionPage } from "../pages/underConstruction/construction";
 import { SecureStorage } from "@ionic-native/secure-storage";
 import { authProvider } from "../services/auth.service";
 import { DocumentationService } from "../services/documentation.service";
+import { HTTPCheckService } from "../services/http-check.service";
 import { PushService } from "../services/push.service";
 import { SimpleToastService } from "../services/toast.service";
 
@@ -95,6 +96,7 @@ import { SimpleToastService } from "../services/toast.service";
     PushRegistration,
     Dialogs,
     DocumentationService,
+    HTTPCheckService,
   ],
 })
 export class AppModule {
