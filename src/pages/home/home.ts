@@ -13,6 +13,7 @@ import { PushMessagesPage } from "../pushMessages/pushMessages";
   providers: [authProvider],
 })
 export class HomePage {
+
   constructor(
     private navCtrl: NavController,
     push: PushService,
