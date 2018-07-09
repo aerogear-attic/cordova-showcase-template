@@ -3,7 +3,6 @@ import { Component } from "@angular/core";
 import { NavController, Platform } from "ionic-angular";
 import { authProvider } from "../../services/auth.service";
 import { DocumentationService } from "../../services/documentation.service";
-import { HTTPCheckService } from "../../services/http-check.service";
 import { PushService } from "../../services/push.service";
 import { PushMessage } from "../pushMessages/message";
 import { PushMessagesPage } from "../pushMessages/pushMessages";
@@ -20,15 +19,13 @@ export class HomePage {
     push: PushService,
     plt: Platform,
     public auth: Auth,
-    public docService: DocumentationService,
-    public httpCheck: HTTPCheckService) {
+    public docService: DocumentationService) {
     // We need to wait for the platform to initialize the plugins
     plt.ready().then(() => {
       push.initPush();
       push.setCallback((n) => this.addNotification(n));
       push.register();
     });
-    httpCheck.checkSSL();
   }
 
   public openLink() {

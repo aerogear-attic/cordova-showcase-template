@@ -21,6 +21,7 @@ import { SSOPage } from "../pages/sso/sso";
 import { StoragePage } from "../pages/storage/storage";
 import { TrustCheckPage } from "../pages/trustCheck/trustCheck";
 import { DocumentationService } from "../services/documentation.service";
+import { HTTPCheckService } from "../services/http-check.service";
 import { PushService } from "./../services/push.service";
 
 @Component({
@@ -43,6 +44,7 @@ export class MyApp {
     private dialogs: Dialogs,
     private docService: DocumentationService,
     private pushService: PushService,
+    public httpCheck: HTTPCheckService,
   ) {
     this.initializeApp();
   }
@@ -122,6 +124,8 @@ export class MyApp {
       },
 
     );
+    // check http connection on init
+    this.httpCheck.checkSSL();
     this.currentPage = this.pages[0];
   }
 
@@ -131,7 +135,6 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-
       this.initializeOptions();
     });
   }
